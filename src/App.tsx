@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Zap } from 'lucide-react';
 import './App.css';
 
@@ -7,18 +8,23 @@ import CategoryNav from './components/CategoryNav';
 import ToolGrid from './components/ToolGrid';
 import AdBanner from './components/AdBanner';
 import AdSidebar from './components/AdSidebar';
+import BlogList from './components/BlogList';
+import BlogArticle from './components/BlogArticle';
 
 import { useLocale } from './i18n/LocaleContext';
 import { useToolFilter } from './hooks/useToolFilter';
 import { AD_SLOTS } from './data/ads';
 import { CATEGORIES } from './data/categories';
+import { BLOG_POSTS, type BlogPost } from './data/blog-posts';
 
 /**
  * AI 导航主应用
- * 提供搜索、分类筛选、工具展示和广告位功能，支持中英双语
+ * 提供搜索、分类筛选、工具展示、博客文章和广告位功能，支持中英双语
  */
 function App() {
   const { locale, t } = useLocale();
+  /** 当前选中的博客文章（null 表示不在文章详情页） */
+  const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
 
   const {
     searchQuery,
@@ -42,6 +48,27 @@ function App() {
   const inlineAd = AD_SLOTS.find((ad) => ad.position === 'inline');
   /** 是否处于搜索或筛选模式 */
   const isFiltering = searchQuery.trim() !== '' || activeCategory !== 'all';
+
+  /** 进入文章详情时滚动到顶部 */
+  const handleSelectPost = (post: BlogPost) => {
+    setSelectedPost(post);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleBackToList = () => {
+    setSelectedPost(null);
+  };
+
+  // 文章详情页独立渲染
+  if (selectedPost) {
+    return (
+      <div className="app">
+        <Header totalCount={totalCount} />
+        <BlogArticle post={selectedPost} onBack={handleBackToList} />
+        <Footer />
+      </div>
+    );
+  }
 
   return (
     <div className="app">
@@ -126,6 +153,11 @@ function App() {
                   : t('grid.all.subtitle')
               }
             />
+
+            {/* 博客文章列表 — 放在工具列表下方 */}
+            {!isFiltering && (
+              <BlogList posts={BLOG_POSTS} onSelectPost={handleSelectPost} />
+            )}
           </div>
 
           <AdSidebar ads={AD_SLOTS} />

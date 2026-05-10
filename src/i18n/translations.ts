@@ -50,6 +50,14 @@ const zh: TranslationDict = {
   'ad.sidebarLabel': '推广',
   'ad.sidebarCta': '了解详情',
 
+  // Blog
+  'blog.title': '📝 AI 深度文章',
+  'blog.subtitle': '关于 AI 工具的深度分析与使用指南',
+  'blog.readMore': '阅读全文',
+  'blog.backToList': '返回文章列表',
+  'blog.minRead': '分钟阅读',
+  'blog.nav': '文章',
+
   // Footer
   'footer.copyright': 'AI 导航 © 2026',
   'footer.slogan': '收录优质 AI 工具，助你高效工作',
@@ -96,6 +104,14 @@ const en: TranslationDict = {
   'ad.label': 'Ad',
   'ad.sidebarLabel': 'Sponsored',
   'ad.sidebarCta': 'Learn More',
+
+  // Blog
+  'blog.title': '📝 AI Deep Dives',
+  'blog.subtitle': 'In-depth analysis and guides for AI tools',
+  'blog.readMore': 'Read More',
+  'blog.backToList': 'Back to Articles',
+  'blog.minRead': 'min read',
+  'blog.nav': 'Blog',
 
   // Footer
   'footer.copyright': 'AI Nav © 2026',
