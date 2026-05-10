@@ -1,0 +1,65 @@
+.category-nav {
+  width: 100%;
+  overflow: hidden;
+}
+
+.category-nav__list {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 4px 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.category-nav__list::-webkit-scrollbar {
+  display: none;
+}
+
+.category-nav__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+}
+
+.category-nav__item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: var(--color-text);
+  transform: translateY(-1px);
+}
+
+.category-nav__item--active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+  font-weight: 500;
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.35);
+}
+
+.category-nav__item--active:hover {
+  background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+  color: #fff;
+}
+
+/* ─── 移动端适配 ─── */
+@media (max-width: 768px) {
+  .category-nav__item {
+    padding: 8px 14px;
+    font-size: 13px;
+    gap: 6px;
+    border-radius: 10px;
+  }
+}

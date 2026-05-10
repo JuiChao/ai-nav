@@ -1,0 +1,109 @@
+.ad-banner {
+  display: block;
+  position: relative;
+  padding: 28px 32px;
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.12) 0%,
+    rgba(139, 92, 246, 0.08) 50%,
+    rgba(236, 72, 153, 0.08) 100%
+  );
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+/* 背景装饰光效 */
+.ad-banner::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.ad-banner:hover {
+  border-color: rgba(99, 102, 241, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.15);
+}
+
+.ad-banner__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.ad-banner__text {
+  flex: 1;
+}
+
+.ad-banner__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 8px;
+}
+
+.ad-banner__description {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.ad-banner__cta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  background: var(--color-accent);
+  border-radius: 10px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.ad-banner:hover .ad-banner__cta {
+  background: var(--color-accent-hover);
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
+}
+
+.ad-banner__sponsor {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-size: 11px;
+  color: var(--color-text-muted);
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 640px) {
+  .ad-banner {
+    padding: 20px;
+  }
+
+  .ad-banner__content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ad-banner__cta {
+    width: 100%;
+    justify-content: center;
+  }
+}
