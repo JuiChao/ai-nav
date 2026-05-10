@@ -55,6 +55,24 @@
   gap: 10px;
 }
 
+/* 导航文字链接 */
+.header__nav-link {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.header__nav-link:hover {
+  color: #a78bfa;
+  background: rgba(139, 92, 246, 0.1);
+}
+
 /* 语言切换按钮 */
 .header__lang-btn {
   display: flex;

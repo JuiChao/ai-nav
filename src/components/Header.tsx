@@ -24,6 +24,15 @@ function Header({ totalCount }: { totalCount: number }) {
 
         <nav className="header__nav">
           <button
+            className="header__nav-link"
+            onClick={() => {
+              const el = document.getElementById('blog-list');
+              el?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
+            {t('blog.nav')}
+          </button>
+          <button
             className="header__lang-btn"
             onClick={toggleLocale}
             aria-label="Switch language"

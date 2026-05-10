@@ -128,6 +128,13 @@ function App() {
           </div>
         )}
 
+        {/* 博客文章列表 — 位于广告横幅之后、工具列表之前的显眼位置 */}
+        {!isFiltering && (
+          <div className="main__blog-section">
+            <BlogList posts={BLOG_POSTS} onSelectPost={handleSelectPost} />
+          </div>
+        )}
+
         <div className="main__content">
           <div className="main__tools">
             {!isFiltering && featuredTools.length > 0 && (
@@ -154,10 +161,6 @@ function App() {
               }
             />
 
-            {/* 博客文章列表 — 放在工具列表下方 */}
-            {!isFiltering && (
-              <BlogList posts={BLOG_POSTS} onSelectPost={handleSelectPost} />
-            )}
           </div>
 
           <AdSidebar ads={AD_SLOTS} />
