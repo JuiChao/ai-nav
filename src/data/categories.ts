@@ -1,4 +1,4 @@
-import type { Category } from '../types';
+import type { Category } from '@/types';
 
 /**
  * AI 工具分类列表

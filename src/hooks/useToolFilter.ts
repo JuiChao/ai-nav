@@ -1,6 +1,8 @@
+'use client';
+
 import { useState, useMemo, useCallback } from 'react';
-import type { AiTool, CategoryId } from '../types';
-import { AI_TOOLS } from '../data/tools';
+import type { AiTool, CategoryId } from '@/types';
+import { AI_TOOLS } from '@/data/tools';
 
 /**
  * 管理工具列表的搜索与筛选逻辑

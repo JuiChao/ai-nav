@@ -1,18 +1,20 @@
+'use client';
+
+import Link from 'next/link';
 import { ArrowLeft, Clock, Calendar, Tag } from 'lucide-react';
-import { useLocale } from '../i18n/LocaleContext';
-import type { BlogPost } from '../data/blog-posts';
+import { useLocale } from '@/i18n/LocaleContext';
+import type { BilingualBlogPost } from '@/lib/blog';
 import './BlogArticle.css';
 
 interface BlogArticleProps {
-  post: BlogPost;
-  onBack: () => void;
+  post: BilingualBlogPost;
 }
 
 /**
  * 博客文章详情组件
  * 渲染文章的完整内容，支持简易 Markdown（标题、列表、表格、粗体）
  */
-function BlogArticle({ post, onBack }: BlogArticleProps) {
+function BlogArticle({ post }: BlogArticleProps) {
   const { locale, t } = useLocale();
   const title = locale === 'en' ? post.titleEn : post.title;
   const content = locale === 'en' ? post.contentEn : post.content;
@@ -20,11 +22,11 @@ function BlogArticle({ post, onBack }: BlogArticleProps) {
   const readTime = locale === 'en' ? post.readTimeEn : post.readTime;
 
   return (
-    <article className="blog-article" id={`blog-${post.id}`}>
-      <button className="blog-article__back" onClick={onBack}>
+    <article className="blog-article" id={`blog-${post.slug}`}>
+      <Link href="/" className="blog-article__back">
         <ArrowLeft size={16} />
         {t('blog.backToList')}
-      </button>
+      </Link>
 
       <header className="blog-article__header">
         <div className="blog-article__meta">
@@ -63,7 +65,12 @@ function renderMarkdown(md: string): string {
   let inList = false;
 
   for (let i = 0; i < lines.length; i++) {
-    let line = lines[i];
+    const line = lines[i];
+
+    // 跳过一级标题（页面已有 h1）
+    if (line.startsWith('# ') && !line.startsWith('## ')) {
+      continue;
+    }
 
     // 表格行
     if (line.startsWith('|')) {
@@ -109,6 +116,12 @@ function renderMarkdown(md: string): string {
     }
 
     if (inList) { html += '</ul>'; inList = false; }
+
+    // 水平线
+    if (line.trim() === '---') {
+      html += '<hr />';
+      continue;
+    }
 
     // 空行或段落
     if (line.trim() === '') continue;

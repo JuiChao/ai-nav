@@ -1,5 +1,8 @@
+'use client';
+
+import Link from 'next/link';
 import { Sparkles, Globe, Heart, Languages } from 'lucide-react';
-import { useLocale } from '../i18n/LocaleContext';
+import { useLocale } from '@/i18n/LocaleContext';
 import './Header.css';
 
 /**
@@ -12,7 +15,7 @@ function Header({ totalCount }: { totalCount: number }) {
   return (
     <header className="header" id="header">
       <div className="header__inner">
-        <div className="header__brand">
+        <Link href="/" className="header__brand">
           <Sparkles className="header__logo" size={28} />
           <div>
             <h1 className="header__title">{t('header.title')}</h1>
@@ -20,18 +23,12 @@ function Header({ totalCount }: { totalCount: number }) {
               {t('header.subtitle', { count: totalCount })}
             </p>
           </div>
-        </div>
+        </Link>
 
         <nav className="header__nav">
-          <button
-            className="header__nav-link"
-            onClick={() => {
-              const el = document.getElementById('blog-list');
-              el?.scrollIntoView({ behavior: 'smooth' });
-            }}
-          >
+          <Link href="/#blog-list" className="header__nav-link">
             {t('blog.nav')}
-          </button>
+          </Link>
           <button
             className="header__lang-btn"
             onClick={toggleLocale}

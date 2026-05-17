@@ -1,6 +1,8 @@
+'use client';
+
 import { ExternalLink, Megaphone } from 'lucide-react';
-import type { AdSlot } from '../types';
-import { useLocale } from '../i18n/LocaleContext';
+import type { AdSlot } from '@/types';
+import { useLocale } from '@/i18n/LocaleContext';
 import './AdSidebar.css';
 
 interface AdSidebarProps {

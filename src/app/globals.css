@@ -1,6 +1,3 @@
-/* ─── 引入 Google Fonts ─── */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-
 /* ─── 设计系统变量 ─── */
 :root {
   /* 背景色 */
@@ -34,13 +31,12 @@
 
 html {
   font-size: 16px;
-  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-inter, 'Inter'), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: var(--color-bg);
   color: var(--color-text);
   line-height: 1.6;
@@ -76,7 +72,10 @@ body::after {
   z-index: 0;
 }
 
-#root {
+/* Next.js 的根容器需要在背景装饰之上 */
+#__next,
+main,
+.app {
   position: relative;
   z-index: 1;
 }

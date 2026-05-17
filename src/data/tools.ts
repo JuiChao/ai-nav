@@ -1,4 +1,4 @@
-import type { AiTool } from '../types';
+import type { AiTool } from '@/types';
 
 /**
  * AI 工具列表数据

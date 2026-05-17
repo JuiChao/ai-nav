@@ -1,6 +1,8 @@
+'use client';
+
 import { ExternalLink } from 'lucide-react';
-import type { AiTool } from '../types';
-import { useLocale } from '../i18n/LocaleContext';
+import type { AiTool } from '@/types';
+import { useLocale } from '@/i18n/LocaleContext';
 import './ToolCard.css';
 
 interface ToolCardProps {

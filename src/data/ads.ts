@@ -1,4 +1,4 @@
-import type { AdSlot } from '../types';
+import type { AdSlot } from '@/types';
 
 /**
  * 广告位示例数据

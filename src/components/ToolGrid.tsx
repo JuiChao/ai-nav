@@ -1,5 +1,7 @@
-import type { AiTool } from '../types';
-import { useLocale } from '../i18n/LocaleContext';
+'use client';
+
+import type { AiTool } from '@/types';
+import { useLocale } from '@/i18n/LocaleContext';
 import ToolCard from './ToolCard';
 import './ToolGrid.css';
 

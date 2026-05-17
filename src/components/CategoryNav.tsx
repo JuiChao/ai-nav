@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Grid3X3,
   MessageCircle,
@@ -10,9 +12,9 @@ import {
   Palette,
   BarChart3,
 } from 'lucide-react';
-import type { CategoryId } from '../types';
-import { useLocale } from '../i18n/LocaleContext';
-import { CATEGORIES } from '../data/categories';
+import type { CategoryId } from '@/types';
+import { useLocale } from '@/i18n/LocaleContext';
+import { CATEGORIES } from '@/data/categories';
 import './CategoryNav.css';
 
 interface CategoryNavProps {

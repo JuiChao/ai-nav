@@ -1,5 +1,7 @@
+'use client';
+
 import { Search, X } from 'lucide-react';
-import { useLocale } from '../i18n/LocaleContext';
+import { useLocale } from '@/i18n/LocaleContext';
 import './SearchBar.css';
 
 interface SearchBarProps {

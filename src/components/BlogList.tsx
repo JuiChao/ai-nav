@@ -1,18 +1,20 @@
+'use client';
+
+import Link from 'next/link';
 import { Clock, Calendar, ArrowRight, BookOpen } from 'lucide-react';
-import { useLocale } from '../i18n/LocaleContext';
-import type { BlogPost } from '../data/blog-posts';
+import { useLocale } from '@/i18n/LocaleContext';
+import type { BilingualBlogPost } from '@/lib/blog';
 import './BlogList.css';
 
 interface BlogListProps {
-  posts: BlogPost[];
-  onSelectPost: (post: BlogPost) => void;
+  posts: BilingualBlogPost[];
 }
 
 /**
  * 博客文章列表组件
- * 以卡片形式展示所有博客文章摘要
+ * 以卡片形式展示所有博客文章摘要，使用 Next.js Link 导航到文章详情页
  */
-function BlogList({ posts, onSelectPost }: BlogListProps) {
+function BlogList({ posts }: BlogListProps) {
   const { locale, t } = useLocale();
 
   return (
@@ -32,11 +34,11 @@ function BlogList({ posts, onSelectPost }: BlogListProps) {
           const readTime = locale === 'en' ? post.readTimeEn : post.readTime;
 
           return (
-            <button
-              key={post.id}
+            <Link
+              key={post.slug}
+              href={`/blog/${post.slug}`}
               className="blog-card"
-              onClick={() => onSelectPost(post)}
-              id={`blog-card-${post.id}`}
+              id={`blog-card-${post.slug}`}
             >
               <div className="blog-card__icon">{post.icon}</div>
               <div className="blog-card__body">
@@ -57,7 +59,7 @@ function BlogList({ posts, onSelectPost }: BlogListProps) {
                   {t('blog.readMore')} <ArrowRight size={14} />
                 </span>
               </div>
-            </button>
+            </Link>
           );
         })}
       </div>
