@@ -9,23 +9,17 @@ import CategoryNav from '@/components/CategoryNav';
 import ToolGrid from '@/components/ToolGrid';
 import AdBanner from '@/components/AdBanner';
 import AdSidebar from '@/components/AdSidebar';
-import BlogList from '@/components/BlogList';
 
 import { useLocale } from '@/i18n/LocaleContext';
 import { useToolFilter } from '@/hooks/useToolFilter';
 import { AD_SLOTS } from '@/data/ads';
 import { CATEGORIES } from '@/data/categories';
-import type { BilingualBlogPost } from '@/lib/blog';
-
-interface HomePageProps {
-  blogPosts: BilingualBlogPost[];
-}
 
 /**
  * 首页客户端内容组件
- * 包含搜索、分类筛选、工具展示、博客列表和广告位功能
+ * 包含搜索、分类筛选、工具展示和广告位功能
  */
-function HomePageContent({ blogPosts }: HomePageProps) {
+function HomePageContent() {
   const { locale, t } = useLocale();
 
   const {
@@ -106,13 +100,6 @@ function HomePageContent({ blogPosts }: HomePageProps) {
         {bannerAd && (
           <div className="main__ad-banner">
             <AdBanner ad={bannerAd} />
-          </div>
-        )}
-
-        {/* 博客文章列表 — 位于广告横幅之后、工具列表之前的显眼位置 */}
-        {!isFiltering && (
-          <div className="main__blog-section">
-            <BlogList posts={blogPosts} />
           </div>
         )}
 

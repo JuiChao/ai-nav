@@ -26,9 +26,6 @@ function Header({ totalCount }: { totalCount: number }) {
         </Link>
 
         <nav className="header__nav">
-          <Link href="/#blog-list" className="header__nav-link">
-            {t('blog.nav')}
-          </Link>
           <button
             className="header__lang-btn"
             onClick={toggleLocale}
