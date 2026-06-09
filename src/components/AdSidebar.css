@@ -25,18 +25,20 @@
   flex-direction: column;
   gap: 10px;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
   border-radius: 14px;
   text-decoration: none;
   color: inherit;
   transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .ad-sidebar__card:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.15);
+  background: #ffffff;
+  border-color: rgba(99, 102, 241, 0.2);
   transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.08);
 }
 
 .ad-sidebar__title {
@@ -59,7 +61,7 @@
   align-items: center;
   gap: 4px;
   font-size: 13px;
-  color: var(--color-accent-light);
+  color: var(--color-accent);
   font-weight: 500;
 }
 

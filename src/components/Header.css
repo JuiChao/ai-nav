@@ -2,10 +2,10 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(13, 13, 20, 0.85);
+  background: rgba(255, 255, 255, 0.82);
   backdrop-filter: blur(20px) saturate(1.8);
   -webkit-backdrop-filter: blur(20px) saturate(1.8);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .header__inner {
@@ -29,15 +29,15 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% { filter: drop-shadow(0 0 4px rgba(99, 102, 241, 0.4)); }
-  50% { filter: drop-shadow(0 0 12px rgba(99, 102, 241, 0.7)); }
+  0%, 100% { filter: drop-shadow(0 0 4px rgba(99, 102, 241, 0.3)); }
+  50% { filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.5)); }
 }
 
 .header__title {
   font-size: 22px;
   font-weight: 800;
   margin: 0;
-  background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.7) 100%);
+  background: linear-gradient(135deg, #1e1e2e 0%, var(--color-accent) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -61,8 +61,8 @@
   align-items: center;
   gap: 6px;
   padding: 8px 14px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(99, 102, 241, 0.06);
+  border: 1px solid rgba(99, 102, 241, 0.12);
   border-radius: 10px;
   color: var(--color-text-secondary);
   font-size: 13px;
@@ -74,9 +74,9 @@
 }
 
 .header__lang-btn:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.2);
-  color: var(--color-text);
+  background: rgba(99, 102, 241, 0.1);
+  border-color: rgba(99, 102, 241, 0.25);
+  color: var(--color-accent);
 }
 
 .header__link {
@@ -89,12 +89,12 @@
   color: var(--color-text-secondary);
   text-decoration: none;
   transition: all 0.2s ease;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(99, 102, 241, 0.04);
 }
 
 .header__link:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--color-text);
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--color-accent);
 }
 
 /* ─── Footer ─── */
@@ -102,8 +102,9 @@
 .footer {
   margin-top: 80px;
   padding: 40px 32px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
   text-align: center;
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .footer__inner {
