@@ -1,12 +1,12 @@
 /* ─── 设计系统变量（明亮清新主题） ─── */
 :root {
-  /* 背景色 */
-  --color-bg: #f8f9fc;
+  /* 背景色 — 偏蓝灰底色，与纯白卡片形成层次 */
+  --color-bg: #e8ecf4;
   --color-bg-secondary: #ffffff;
 
-  /* 卡片与表面 */
-  --color-card: rgba(255, 255, 255, 0.85);
-  --color-border: rgba(0, 0, 0, 0.08);
+  /* 卡片与表面 — 纯白卡片 + 可见边框 */
+  --color-card: #ffffff;
+  --color-border: rgba(0, 0, 0, 0.1);
 
   /* 强调色 — 采用清新蓝紫色系 */
   --color-accent: #6366f1;
@@ -14,10 +14,10 @@
   --color-accent-light: #818cf8;
   --color-accent-secondary: #8b5cf6;
 
-  /* 文本色 */
-  --color-text: #1e1e2e;
-  --color-text-secondary: #64648a;
-  --color-text-muted: #9e9eb8;
+  /* 文本色 — 加深次要和弱化色以提升可读性 */
+  --color-text: #1a1a2e;
+  --color-text-secondary: #4a4a6a;
+  --color-text-muted: #7a7a9a;
 }
 
 /* ─── 全局重置 ─── */
