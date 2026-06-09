@@ -1,21 +1,21 @@
+/* ─── 工具卡片 — 渐变边框光效 + 现代动画 ─── */
 .tool-card {
   display: flex;
   flex-direction: column;
   gap: 12px;
   padding: 24px;
-  background: var(--color-card);
+  background: #ffffff;
   border: 1px solid var(--color-border);
-  border-radius: 16px;
+  border-radius: 18px;
   text-decoration: none;
   color: inherit;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   position: relative;
   overflow: hidden;
-  /* NOTE: 明亮主题下使用阴影增强卡片层次感和立体感 */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
 }
 
-/* 卡片顶部装饰渐变条 */
+/* NOTE: 卡片顶部渐变装饰条 — 默认隐藏，hover 时滑入 */
 .tool-card::before {
   content: '';
   position: absolute;
@@ -23,45 +23,71 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-secondary));
+  background: var(--gradient-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* NOTE: hover 背景光晕效果 */
+.tool-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.04) 0%, transparent 50%);
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
 }
 
 .tool-card:hover {
-  border-color: rgba(99, 102, 241, 0.25);
-  background: #ffffff;
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(99, 102, 241, 0.12), 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-color: rgba(168, 85, 247, 0.2);
+  transform: translateY(-6px);
+  box-shadow:
+    0 20px 40px rgba(168, 85, 247, 0.1),
+    0 8px 16px rgba(168, 85, 247, 0.06),
+    0 0 0 1px rgba(168, 85, 247, 0.05);
 }
 
 .tool-card:hover::before {
+  transform: scaleX(1);
+}
+
+.tool-card:hover::after {
   opacity: 1;
 }
 
-/* 热门工具卡片有渐变边框 */
+/* 热门工具卡片 — 渐变边框 + 微光背景 */
 .tool-card--featured {
-  border-color: rgba(99, 102, 241, 0.2);
-  background: linear-gradient(
-    135deg,
-    rgba(99, 102, 241, 0.04) 0%,
-    rgba(139, 92, 246, 0.03) 100%
-  );
+  border-color: rgba(168, 85, 247, 0.15);
+  background: linear-gradient(135deg, #faf8ff 0%, #f8f7ff 100%);
 }
 
 .tool-card--featured::before {
-  opacity: 0.6;
+  transform: scaleX(1);
+  opacity: 0.7;
 }
 
 .tool-card__header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  position: relative;
+  z-index: 1;
 }
 
 .tool-card__icon {
-  font-size: 36px;
+  font-size: 38px;
   line-height: 1;
+  /* NOTE: 图标浮动动画 */
+  transition: transform 0.4s ease;
+}
+
+.tool-card:hover .tool-card__icon {
+  transform: scale(1.1) rotate(-3deg);
 }
 
 .tool-card__badges {
@@ -69,10 +95,12 @@
   gap: 6px;
   flex-wrap: wrap;
   justify-content: flex-end;
+  position: relative;
+  z-index: 1;
 }
 
 .tool-card__badge {
-  padding: 3px 10px;
+  padding: 4px 12px;
   border-radius: 20px;
   font-size: 11px;
   font-weight: 600;
@@ -81,53 +109,58 @@
 }
 
 .tool-card__badge--free {
-  background: rgba(16, 185, 129, 0.1);
-  color: #059669;
-  border: 1px solid rgba(16, 185, 129, 0.2);
+  background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+  color: #047857;
+  border: 1px solid #a7f3d0;
 }
 
 .tool-card__badge--trial {
-  background: rgba(245, 158, 11, 0.1);
-  color: #d97706;
-  border: 1px solid rgba(245, 158, 11, 0.2);
+  background: linear-gradient(135deg, #fffbeb, #fef3c7);
+  color: #b45309;
+  border: 1px solid #fcd34d;
 }
 
 .tool-card__badge--hot {
-  background: rgba(239, 68, 68, 0.1);
+  background: linear-gradient(135deg, #fef2f2, #fee2e2);
   color: #dc2626;
-  border: 1px solid rgba(239, 68, 68, 0.2);
+  border: 1px solid #fca5a5;
 }
 
 .tool-card__name {
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-text);
   display: flex;
   align-items: center;
   gap: 8px;
   margin: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .tool-card__link-icon {
   color: var(--color-text-muted);
   opacity: 0;
-  transition: opacity 0.2s ease;
+  transform: translateX(-4px);
+  transition: all 0.3s ease;
 }
 
 .tool-card:hover .tool-card__link-icon {
   opacity: 1;
+  transform: translateX(0);
 }
 
 .tool-card__description {
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.7;
   color: var(--color-text-secondary);
   margin: 0;
-  /* 最多显示 3 行 */
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 
 .tool-card__tags {
@@ -135,20 +168,24 @@
   flex-wrap: wrap;
   gap: 6px;
   margin-top: auto;
+  position: relative;
+  z-index: 1;
 }
 
 .tool-card__tag {
-  padding: 4px 10px;
-  background: rgba(99, 102, 241, 0.06);
+  padding: 4px 12px;
+  background: linear-gradient(135deg, #f0edff, #ede9fe);
   border-radius: 8px;
   font-size: 12px;
-  color: var(--color-text-muted);
-  transition: all 0.2s ease;
+  color: #a855f7;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
 .tool-card:hover .tool-card__tag {
-  background: rgba(99, 102, 241, 0.1);
-  color: var(--color-text-secondary);
+  background: linear-gradient(135deg, #ede9fe, #f3e8ff);
+  color: #9333ea;
+  transform: translateY(-1px);
 }
 
 /* ─── 移动端适配 ─── */
@@ -160,7 +197,7 @@
   }
 
   .tool-card__icon {
-    font-size: 30px;
+    font-size: 32px;
   }
 
   .tool-card__name {
@@ -186,6 +223,6 @@
 @media (hover: none) {
   .tool-card:hover {
     transform: none;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   }
 }

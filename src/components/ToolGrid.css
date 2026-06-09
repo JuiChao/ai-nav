@@ -3,12 +3,12 @@
 }
 
 .tool-grid__header {
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 
 .tool-grid__title {
-  font-size: 22px;
-  font-weight: 700;
+  font-size: 24px;
+  font-weight: 800;
   color: var(--color-text);
   margin: 0 0 6px;
 }
@@ -37,6 +37,7 @@
 .tool-grid__empty-icon {
   font-size: 56px;
   margin-bottom: 16px;
+  animation: float 4s ease-in-out infinite;
 }
 
 .tool-grid__empty h3 {

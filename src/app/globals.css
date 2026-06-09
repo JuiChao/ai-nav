@@ -1,23 +1,29 @@
-/* ─── 设计系统变量（明亮清新主题） ─── */
+/* ─── 设计系统变量（现代酷炫主题 — 紫粉暖色调） ─── */
 :root {
-  /* 背景色 — 暖白底色，由 body 渐变营造层次 */
-  --color-bg: #f5f5f7;
-  --color-bg-secondary: #ffffff;
+  /* 背景色 */
+  --color-bg: #fafbff;
+  --color-bg-secondary: #f8f5fc;
 
-  /* 卡片与表面 — 纯白卡片 + 可见边框 */
+  /* 卡片 */
   --color-card: #ffffff;
-  --color-border: rgba(0, 0, 0, 0.1);
+  --color-border: #ebe5f0;
 
-  /* 强调色 — 采用清新蓝紫色系 */
-  --color-accent: #6366f1;
-  --color-accent-hover: #4f46e5;
-  --color-accent-light: #818cf8;
-  --color-accent-secondary: #8b5cf6;
+  /* NOTE: 强调色 — 纯紫色体系，零蓝色 */
+  --color-accent: #a855f7;
+  --color-accent-hover: #9333ea;
+  --color-accent-light: #c084fc;
+  --color-accent-secondary: #d946ef;
 
-  /* 文本色 — 加深次要和弱化色以提升可读性 */
-  --color-text: #1a1a2e;
-  --color-text-secondary: #4a4a6a;
-  --color-text-muted: #7a7a9a;
+  /* 文本色 — 高对比度 */
+  --color-text: #0f172a;
+  --color-text-secondary: #334155;
+  --color-text-muted: #64748b;
+
+  /* 渐变预设 — 紫→品红→玫红，无蓝色 */
+  --gradient-primary: linear-gradient(135deg, #a855f7, #d946ef, #f43f5e);
+  --gradient-hero: linear-gradient(135deg, #f5f0ff 0%, #fce7f3 25%, #fff1f2 50%, #fef9c3 75%, #f0fdf4 100%);
+  --gradient-card-hover: linear-gradient(135deg, rgba(168, 85, 247, 0.08), rgba(217, 70, 239, 0.06));
+  --gradient-text: linear-gradient(135deg, #a855f7 0%, #d946ef 50%, #f43f5e 100%);
 }
 
 /* ─── 全局重置 ─── */
@@ -37,44 +43,16 @@ html {
 
 body {
   font-family: var(--font-inter, 'Inter'), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  /* NOTE: 从顶部淡紫渐变到底部暖白，营造清新通透的视觉层次 */
-  background: linear-gradient(180deg, #eee8f5 0%, #f5f5f7 35%, #f9f8f6 100%);
-  background-attachment: fixed;
+  background: var(--color-bg);
   color: var(--color-text);
   line-height: 1.6;
   min-height: 100vh;
   overflow-x: hidden;
-  /* 防止移动端双击缩放 */
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
 }
 
-/* 页面背景装饰——柔和渐变光斑效果 */
-body::before {
-  content: '';
-  position: fixed;
-  top: -20%;
-  left: -10%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(168, 130, 255, 0.07) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-body::after {
-  content: '';
-  position: fixed;
-  bottom: -20%;
-  right: -10%;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(255, 170, 130, 0.05) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Next.js 的根容器需要在背景装饰之上 */
+/* Next.js 根容器 */
 #__next,
 main,
 .app {
@@ -93,8 +71,8 @@ button {
 
 /* ─── 滚动条美化 ─── */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -102,16 +80,39 @@ button {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.12);
-  border-radius: 4px;
+  background: linear-gradient(180deg, #a855f7, #d946ef);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.2);
+  background: linear-gradient(180deg, #9333ea, #c026d3);
 }
 
 /* ─── 选中文本样式 ─── */
 ::selection {
-  background: rgba(99, 102, 241, 0.15);
-  color: #1e1e2e;
+  background: rgba(168, 85, 247, 0.2);
+  color: #0f172a;
+}
+
+/* ─── 通用动画 ─── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 0.5; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+  100% { transform: scale(0.95); opacity: 0.5; }
 }

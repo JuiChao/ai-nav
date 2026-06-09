@@ -1,37 +1,37 @@
+/* ─── 广告横幅 — 渐变玻璃卡片 ─── */
 .ad-banner {
   display: block;
   position: relative;
   padding: 28px 32px;
-  background: linear-gradient(
-    135deg,
-    rgba(99, 102, 241, 0.06) 0%,
-    rgba(139, 92, 246, 0.04) 50%,
-    rgba(236, 72, 153, 0.04) 100%
-  );
-  border: 1px solid rgba(99, 102, 241, 0.12);
-  border-radius: 16px;
+  /* NOTE: 使用渐变背景替代单色 */
+  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 30%, #f3e8ff 60%, #fce7f3 100%);
+  border: 1px solid rgba(168, 85, 247, 0.15);
+  border-radius: 18px;
   text-decoration: none;
   color: inherit;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   overflow: hidden;
 }
 
-/* 背景装饰光效 */
+/* 背景装饰光球 */
 .ad-banner::before {
   content: '';
   position: absolute;
-  top: -50%;
-  right: -20%;
+  top: -40%;
+  right: -15%;
   width: 300px;
   height: 300px;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.12) 0%, transparent 70%);
   pointer-events: none;
+  animation: float 10s ease-in-out infinite;
 }
 
 .ad-banner:hover {
-  border-color: rgba(99, 102, 241, 0.25);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.1);
+  border-color: rgba(168, 85, 247, 0.3);
+  transform: translateY(-3px);
+  box-shadow:
+    0 12px 32px rgba(168, 85, 247, 0.12),
+    0 4px 12px rgba(168, 85, 247, 0.06);
 }
 
 .ad-banner__content {
@@ -61,24 +61,26 @@
   line-height: 1.6;
 }
 
+/* NOTE: CTA 按钮使用渐变 + 光晕 */
 .ad-banner__cta {
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 10px 20px;
-  background: var(--color-accent);
-  border-radius: 10px;
+  padding: 12px 24px;
+  background: var(--gradient-primary);
+  border-radius: 12px;
   color: #fff;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   white-space: nowrap;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(168, 85, 247, 0.25);
 }
 
 .ad-banner:hover .ad-banner__cta {
-  background: var(--color-accent-hover);
-  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 6px 24px rgba(168, 85, 247, 0.35);
+  transform: translateY(-1px);
 }
 
 .ad-banner__sponsor {
