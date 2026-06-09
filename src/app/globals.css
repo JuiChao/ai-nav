@@ -1,7 +1,7 @@
 /* ─── 设计系统变量（明亮清新主题） ─── */
 :root {
-  /* 背景色 — 偏蓝灰底色，与纯白卡片形成层次 */
-  --color-bg: #e8ecf4;
+  /* 背景色 — 暖白底色，由 body 渐变营造层次 */
+  --color-bg: #f5f5f7;
   --color-bg-secondary: #ffffff;
 
   /* 卡片与表面 — 纯白卡片 + 可见边框 */
@@ -37,7 +37,9 @@ html {
 
 body {
   font-family: var(--font-inter, 'Inter'), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: var(--color-bg);
+  /* NOTE: 从顶部淡紫渐变到底部暖白，营造清新通透的视觉层次 */
+  background: linear-gradient(180deg, #eee8f5 0%, #f5f5f7 35%, #f9f8f6 100%);
+  background-attachment: fixed;
   color: var(--color-text);
   line-height: 1.6;
   min-height: 100vh;
@@ -51,11 +53,11 @@ body {
 body::before {
   content: '';
   position: fixed;
-  top: -30%;
+  top: -20%;
   left: -10%;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(168, 130, 255, 0.07) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -67,7 +69,7 @@ body::after {
   right: -10%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.05) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 170, 130, 0.05) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
