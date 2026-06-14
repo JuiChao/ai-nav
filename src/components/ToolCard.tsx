@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect, useRef } from 'react';
 import { ExternalLink } from 'lucide-react';
 import type { AiTool } from '@/types';
 import { useLocale } from '@/i18n/LocaleContext';
@@ -7,28 +8,88 @@ import './ToolCard.css';
 
 interface ToolCardProps {
   tool: AiTool;
+  index?: number;
 }
 
+const CHAR_DELAY = 90; // 单字打字机延迟（毫秒），原版 130ms，此处调为 90ms 让翻页和浏览更流畅
+
 /**
- * 工具卡片组件
- * 展示单个 AI 工具的信息，根据语言切换描述、标签和徽章文案
+ * 完整复刻 Mimo 风格的工具展示卡片组件
+ * 
+ * 特色动效：
+ * 1. 采用 Mimo 独创的 5 种雅致纸质暖色背景，按 index 循环分配。
+ * 2. 滚动入场打字机效果：当卡片进入视口时，标题字符开始逐个显示，并尾随闪烁光标。
+ * 3. 打字播放完成后，光标转换为 1 秒的无限呼吸闪烁。
  */
-function ToolCard({ tool }: ToolCardProps) {
+function ToolCard({ tool, index }: ToolCardProps) {
   const { locale, t } = useLocale();
+  const [isIntersected, setIsIntersected] = useState(false);
+  const [typedCount, setTypedCount] = useState(0);
+  const nameRef = useRef<HTMLHeadingElement>(null);
+
   const displayName = (locale === 'en' && tool.nameEn) ? tool.nameEn : tool.name;
   const description = locale === 'en' ? tool.descriptionEn : tool.description;
   const tags = locale === 'en' ? tool.tagsEn : tool.tags;
+
+  // 使用 Array.from 完美兼容中英文字符、表情符号等 Unicode 字符的分割
+  const chars = Array.from(displayName);
+
+  // 1. 分配 Mimo 雅致背景色 (1 到 5)
+  const bgIndex = index !== undefined 
+    ? index 
+    : (tool.id.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0) % 5);
+  const bgClass = `tool-card--bg-${(bgIndex % 5) + 1}`;
+
+  // 2. 视口交叉监听
+  useEffect(() => {
+    const el = nameRef.current;
+    if (!el) return;
+
+    // 支持 IntersectionObserver 的浏览器进行按需触发，否则直接显示全部字符
+    if (!('IntersectionObserver' in window)) {
+      setIsIntersected(true);
+      setTypedCount(chars.length);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsIntersected(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [chars.length]);
+
+  // 3. 驱动打字机逻辑
+  useEffect(() => {
+    if (!isIntersected) return;
+    if (typedCount >= chars.length) return;
+
+    const timer = setTimeout(() => {
+      setTypedCount((prev) => prev + 1);
+    }, CHAR_DELAY);
+
+    return () => clearTimeout(timer);
+  }, [isIntersected, typedCount, chars.length]);
+
+  const isDone = typedCount >= chars.length;
 
   return (
     <a
       href={tool.url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`tool-card ${tool.isFeatured ? 'tool-card--featured' : ''}`}
+      className={`tool-card ${bgClass} ${tool.isFeatured ? 'tool-card--featured' : ''}`}
       id={`tool-${tool.id}`}
     >
       <div className="tool-card__header">
-        <span className="tool-card__icon" role="img" aria-label={tool.name}>
+        <span className="tool-card__icon" role="img" aria-label={displayName}>
           {tool.icon}
         </span>
         <div className="tool-card__badges">
@@ -42,8 +103,18 @@ function ToolCard({ tool }: ToolCardProps) {
         </div>
       </div>
 
-      <h3 className="tool-card__name">
-        {displayName}
+      {/* 滚动入场打字机效果标题 */}
+      <h3 className="tool-card__name" ref={nameRef}>
+        <span className="tool-card__chars">
+          {chars.map((char, i) => (
+            <span key={i} className={`char ${i < typedCount ? 'is-typed' : ''}`}>
+              {char}
+            </span>
+          ))}
+        </span>
+        {isIntersected && (
+          <span className={`cursor ${isDone ? 'is-done' : ''}`} aria-hidden="true" />
+        )}
         <ExternalLink size={14} className="tool-card__link-icon" />
       </h3>
 

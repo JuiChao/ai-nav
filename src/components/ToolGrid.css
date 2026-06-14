@@ -1,16 +1,13 @@
-.tool-grid {
-  width: 100%;
-}
+.tool-grid { width: 100%; }
 
-.tool-grid__header {
-  margin-bottom: 28px;
-}
+.tool-grid__header { margin-bottom: 32px; }
 
 .tool-grid__title {
-  font-size: 24px;
-  font-weight: 800;
+  font-size: 26px;
+  font-weight: 700;
   color: var(--color-text);
-  margin: 0 0 6px;
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
 }
 
 .tool-grid__subtitle {
@@ -22,7 +19,7 @@
 .tool-grid__list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+  gap: 16px;
 }
 
 .tool-grid__empty {
@@ -35,13 +32,12 @@
 }
 
 .tool-grid__empty-icon {
-  font-size: 56px;
+  font-size: 48px;
   margin-bottom: 16px;
-  animation: float 4s ease-in-out infinite;
 }
 
 .tool-grid__empty h3 {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   color: var(--color-text);
   margin: 0 0 8px;
@@ -54,7 +50,5 @@
 }
 
 @media (max-width: 768px) {
-  .tool-grid__list {
-    grid-template-columns: 1fr;
-  }
+  .tool-grid__list { grid-template-columns: 1fr; }
 }

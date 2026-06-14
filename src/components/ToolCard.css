@@ -1,93 +1,48 @@
-/* ─── 工具卡片 — 渐变边框光效 + 现代动画 ─── */
+/* ─── 工具卡片 — 完整复刻 Mimo 配色与打字机标题微动效 ─── */
 .tool-card {
   display: flex;
   flex-direction: column;
   gap: 12px;
   padding: 24px;
-  background: #ffffff;
-  border: 1px solid var(--color-border);
-  border-radius: 18px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-lg);
   text-decoration: none;
   color: inherit;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform var(--transition-smooth), background-color var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
 }
 
-/* NOTE: 卡片顶部渐变装饰条 — 默认隐藏，hover 时滑入 */
-.tool-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--gradient-primary);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
+/* 5 种 Mimo 特色柔和暖色卡背景 */
+.tool-card--bg-1 { background-color: #EFEBE3; }
+.tool-card--bg-2 { background-color: #F6F1EA; }
+.tool-card--bg-3 { background-color: #EFE8E3; }
+.tool-card--bg-4 { background-color: #FBF2E9; }
+.tool-card--bg-5 { background-color: #F5EDE7; }
 
-/* NOTE: hover 背景光晕效果 */
-.tool-card::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.04) 0%, transparent 50%);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-}
-
+/* 鼠标悬停：背景反转为纯白 + 浮起 + 雅致投影 */
 .tool-card:hover {
-  border-color: rgba(168, 85, 247, 0.2);
-  transform: translateY(-6px);
-  box-shadow:
-    0 20px 40px rgba(168, 85, 247, 0.1),
-    0 8px 16px rgba(168, 85, 247, 0.06),
-    0 0 0 1px rgba(168, 85, 247, 0.05);
+  background-color: #FFFFFF !important;
+  border-color: var(--color-border);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
 }
 
-.tool-card:hover::before {
-  transform: scaleX(1);
-}
-
-.tool-card:hover::after {
-  opacity: 1;
-}
-
-/* 热门工具卡片 — 渐变边框 + 微光背景 */
+/* 热门卡片：带有柔和边框，默认底色 */
 .tool-card--featured {
-  border-color: rgba(168, 85, 247, 0.15);
-  background: linear-gradient(135deg, #faf8ff 0%, #f8f7ff 100%);
-}
-
-.tool-card--featured::before {
-  transform: scaleX(1);
-  opacity: 0.7;
+  border-color: rgba(38, 37, 30, 0.12);
 }
 
 .tool-card__header {
   display: flex;
+  aria-hidden: true;
   align-items: flex-start;
   justify-content: space-between;
-  position: relative;
-  z-index: 1;
 }
 
 .tool-card__icon {
-  font-size: 38px;
+  font-size: 34px;
   line-height: 1;
-  /* NOTE: 图标浮动动画 */
-  transition: transform 0.4s ease;
-}
-
-.tool-card:hover .tool-card__icon {
-  transform: scale(1.1) rotate(-3deg);
 }
 
 .tool-card__badges {
@@ -95,54 +50,84 @@
   gap: 6px;
   flex-wrap: wrap;
   justify-content: flex-end;
-  position: relative;
-  z-index: 1;
 }
 
+/* 徽章：极简雅致 */
 .tool-card__badge {
-  padding: 4px 12px;
-  border-radius: 20px;
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.02em;
   white-space: nowrap;
 }
 
-.tool-card__badge--free {
-  background: linear-gradient(135deg, #ecfdf5, #d1fae5);
-  color: #047857;
-  border: 1px solid #a7f3d0;
-}
+.tool-card__badge--free { background: rgba(45, 125, 45, 0.08); color: #2D7D2D; border: 1px solid rgba(45, 125, 45, 0.15); }
+.tool-card__badge--trial { background: rgba(184, 115, 10, 0.08); color: #B8730A; border: 1px solid rgba(184, 115, 10, 0.15); }
+.tool-card__badge--hot { background: rgba(198, 40, 40, 0.08); color: #C62828; border: 1px solid rgba(198, 40, 40, 0.15); }
 
-.tool-card__badge--trial {
-  background: linear-gradient(135deg, #fffbeb, #fef3c7);
-  color: #b45309;
-  border: 1px solid #fcd34d;
-}
-
-.tool-card__badge--hot {
-  background: linear-gradient(135deg, #fef2f2, #fee2e2);
-  color: #dc2626;
-  border: 1px solid #fca5a5;
-}
-
+/* 卡片标题及打字机字符特效 */
 .tool-card__name {
-  font-size: 18px;
-  font-weight: 700;
+  font-family: var(--font-mincho);
+  font-size: 19px;
+  font-weight: 600;
   color: var(--color-text);
   display: flex;
   align-items: center;
-  gap: 8px;
+  flex-wrap: wrap;
+  gap: 2px;
   margin: 0;
-  position: relative;
-  z-index: 1;
+  min-height: 28px;
 }
 
+.tool-card__chars {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+/* 打字机单字显示状态 */
+.tool-card__name .char {
+  display: none;
+  white-space: pre;
+}
+
+.tool-card__name .char.is-typed {
+  display: inline-block;
+}
+
+/* 闪烁光标 */
+.tool-card__name .cursor {
+  display: inline-block;
+  width: 2px;
+  height: 16px;
+  background: currentColor;
+  vertical-align: middle;
+  margin-left: 3px;
+  margin-bottom: 2px;
+  opacity: 1;
+}
+
+/* 播放打字时，保持常亮；播放完后触发无限闪烁 */
+.tool-card__name .cursor.is-done {
+  animation: cursor-blink 1s steps(2, end) infinite;
+}
+
+@keyframes cursor-blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+/* 链接外部图标滑出动画 */
 .tool-card__link-icon {
   color: var(--color-text-muted);
   opacity: 0;
-  transform: translateX(-4px);
-  transition: all 0.3s ease;
+  transform: translateX(-6px);
+  transition: transform var(--transition-base), opacity var(--transition-base);
+  margin-left: 6px;
 }
 
 .tool-card:hover .tool-card__link-icon {
@@ -152,15 +137,13 @@
 
 .tool-card__description {
   font-size: 14px;
-  line-height: 1.7;
-  color: var(--color-text-secondary);
+  line-height: 1.6;
+  color: var(--color-ink-soft);
   margin: 0;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  position: relative;
-  z-index: 1;
 }
 
 .tool-card__tags {
@@ -168,61 +151,57 @@
   flex-wrap: wrap;
   gap: 6px;
   margin-top: auto;
-  position: relative;
-  z-index: 1;
 }
 
 .tool-card__tag {
-  padding: 4px 12px;
-  background: linear-gradient(135deg, #f0edff, #ede9fe);
-  border-radius: 8px;
-  font-size: 12px;
-  color: #a855f7;
+  padding: 4px 10px;
+  background: rgba(38, 37, 30, 0.04);
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  color: var(--color-ink-soft);
   font-weight: 500;
-  transition: all 0.3s ease;
+  transition: background-color var(--transition-base), color var(--transition-base);
 }
 
 .tool-card:hover .tool-card__tag {
-  background: linear-gradient(135deg, #ede9fe, #f3e8ff);
-  color: #9333ea;
-  transform: translateY(-1px);
+  background: rgba(38, 37, 30, 0.08);
+  color: var(--color-ink);
 }
 
-/* ─── 移动端适配 ─── */
+/* 移动端适配 */
 @media (max-width: 768px) {
   .tool-card {
     padding: 18px;
     gap: 10px;
-    border-radius: 14px;
   }
-
   .tool-card__icon {
-    font-size: 32px;
+    font-size: 28px;
   }
-
   .tool-card__name {
     font-size: 16px;
+    min-height: 24px;
   }
-
+  .tool-card__name .cursor {
+    height: 14px;
+  }
   .tool-card__description {
     font-size: 13px;
   }
-
   .tool-card__tag {
-    font-size: 11px;
-    padding: 3px 8px;
-  }
-
-  .tool-card__badge {
     font-size: 10px;
-    padding: 2px 8px;
+    padding: 3px 8px;
   }
 }
 
-/* 触屏设备禁用 hover 上浮效果 */
 @media (hover: none) {
   .tool-card:hover {
     transform: none;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    box-shadow: none;
+  }
+  .tool-card__name .char {
+    display: inline-block; /* 触屏无 hover 设备直接展示全部标题 */
+  }
+  .tool-card__name .cursor {
+    display: none;
   }
 }

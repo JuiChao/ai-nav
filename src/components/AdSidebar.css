@@ -25,45 +25,23 @@
   flex-direction: column;
   gap: 10px;
   padding: 20px;
-  background: #ffffff;
+  background: var(--color-bg-card);
   border: 1px solid var(--color-border);
-  border-radius: 16px;
+  border-radius: var(--radius-md);
   text-decoration: none;
   color: inherit;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-  position: relative;
-  overflow: hidden;
-}
-
-/* NOTE: 侧边卡片顶部渐变装饰线 */
-.ad-sidebar__card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--gradient-primary);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: all var(--transition-smooth);
 }
 
 .ad-sidebar__card:hover {
-  border-color: rgba(168, 85, 247, 0.2);
-  transform: translateY(-3px);
-  box-shadow:
-    0 12px 24px rgba(168, 85, 247, 0.08),
-    0 4px 8px rgba(168, 85, 247, 0.04);
-}
-
-.ad-sidebar__card:hover::before {
-  opacity: 1;
+  background: #FFFFFF;
+  border-color: var(--color-border-hover);
+  box-shadow: var(--shadow-md);
 }
 
 .ad-sidebar__title {
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 650;
   color: var(--color-text);
   margin: 0;
   line-height: 1.4;
@@ -82,12 +60,8 @@
   gap: 4px;
   font-size: 13px;
   font-weight: 600;
-  /* NOTE: CTA 文字用渐变色 */
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  transition: all 0.2s ease;
+  color: var(--color-text);
+  transition: all var(--transition-base);
 }
 
 .ad-sidebar__sponsor {
@@ -95,9 +69,6 @@
   color: var(--color-text-muted);
 }
 
-/* 移动端隐藏侧边栏广告 */
 @media (max-width: 1024px) {
-  .ad-sidebar {
-    display: none;
-  }
+  .ad-sidebar { display: none; }
 }

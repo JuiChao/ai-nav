@@ -1,9 +1,9 @@
-/* ─── 搜索栏 — 现代玻璃拟态风格 ─── */
+/* ─── 搜索栏 — 胶囊形暖灰输入框 ─── */
 .search-bar {
   display: flex;
   align-items: center;
   gap: 12px;
-  max-width: 640px;
+  max-width: 560px;
   width: 100%;
 }
 
@@ -12,32 +12,33 @@
   display: flex;
   align-items: center;
   flex: 1;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(12px);
-  border: 2px solid rgba(168, 85, 247, 0.1);
-  border-radius: 16px;
-  padding: 0 18px;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  box-shadow: 0 4px 16px rgba(168, 85, 247, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+  /* NOTE: 暖灰背景 + 大圆角胶囊形 */
+  background: var(--color-bg-secondary);
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-pill);
+  padding: 0 20px;
+  transition: all var(--transition-smooth);
+}
+
+.search-bar__inner:hover {
+  background: #FFFFFF;
+  border-color: var(--color-border);
 }
 
 .search-bar__inner:focus-within {
-  border-color: var(--color-accent);
-  background: #ffffff;
-  box-shadow:
-    0 0 0 4px rgba(168, 85, 247, 0.1),
-    0 8px 24px rgba(168, 85, 247, 0.1);
-  transform: translateY(-1px);
+  border-color: var(--color-text);
+  background: #FFFFFF;
+  box-shadow: var(--shadow-md);
 }
 
 .search-bar__icon {
   color: var(--color-text-muted);
   flex-shrink: 0;
-  transition: color 0.3s ease;
+  transition: color var(--transition-base);
 }
 
 .search-bar__inner:focus-within .search-bar__icon {
-  color: var(--color-accent);
+  color: var(--color-text);
 }
 
 .search-bar__input {
@@ -59,20 +60,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #f0edff, #ede9fe);
+  background: var(--color-hover-bg);
   border: none;
   border-radius: 50%;
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
   cursor: pointer;
-  color: var(--color-accent);
-  transition: all 0.2s ease;
+  color: var(--color-text-muted);
+  transition: all var(--transition-base);
   flex-shrink: 0;
 }
 
 .search-bar__clear:hover {
-  background: linear-gradient(135deg, #f3e8ff, #ddd6fe);
-  transform: rotate(90deg);
+  background: var(--color-border-hover);
+  color: var(--color-text);
 }
 
 .search-bar__count {
@@ -90,8 +91,7 @@
   }
 
   .search-bar__inner {
-    padding: 0 12px;
-    border-radius: 12px;
+    padding: 0 14px;
   }
 
   .search-bar__input {

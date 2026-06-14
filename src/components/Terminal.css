@@ -1,0 +1,150 @@
+/* ─── Terminal — Mimo 风格终端命令行盒子 ─── */
+.terminal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 491px;
+  max-width: 100%;
+  height: 55px;
+  padding: 0 20px;
+  background: var(--color-bg-secondary);
+  border-radius: 10px;
+  font-family: var(--font-display);
+  font-size: 15px;
+  letter-spacing: 0.4px;
+  transition: background-color 280ms ease, box-shadow 280ms ease;
+  box-shadow: 0 2px 4px rgba(38, 37, 30, 0.02);
+}
+
+/* 鼠标悬停在 Hero 区域或终端上时，背景变纯白并浮起 */
+.hero:hover .terminal,
+.terminal:hover {
+  background-color: #FFFFFF;
+  box-shadow: var(--shadow-md);
+}
+
+.terminal__prompt {
+  color: rgba(38, 37, 30, 0.45);
+  margin-right: 8px;
+  font-weight: 600;
+}
+
+.terminal__cmd {
+  color: var(--color-ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  text-align: left;
+}
+
+/* 复制按钮样式 */
+.terminal__copy {
+  position: relative;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--color-ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 180ms ease;
+}
+
+.terminal__copy:hover {
+  opacity: 0.7;
+}
+
+.terminal__copy:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.terminal__copy-icon {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  transition:
+    opacity 200ms ease,
+    transform 200ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.terminal__copy-icon--copy {
+  width: 16px;
+  height: 16px;
+  opacity: 0.7;
+  transform: scale(1);
+}
+
+.terminal__copy-icon--check {
+  width: 18px;
+  height: 18px;
+  color: #16A34A;
+  opacity: 0;
+  transform: scale(0.6);
+}
+
+/* 复制成功时的状态 */
+.terminal__copy.is-copied .terminal__copy-icon--copy {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.terminal__copy.is-copied .terminal__copy-icon--check {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Tooltip 提示气泡 */
+.terminal__copy-tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  padding: 5px 10px;
+  background: var(--color-ink);
+  color: var(--color-bg);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  border-radius: 6px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, 6px);
+  transition:
+    opacity 200ms ease,
+    transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.terminal__copy-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -4px;
+  border: 4px solid transparent;
+  border-top-color: var(--color-ink);
+}
+
+/* 复制时显示 Tooltip */
+.terminal__copy.is-copied .terminal__copy-tooltip,
+.terminal__copy:hover:not(.is-copied) .terminal__copy-tooltip {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* 移动端适配 */
+@media (max-width: 640px) {
+  .terminal {
+    width: 100%;
+    height: 44px;
+    padding: 0 14px;
+    font-size: 13px;
+  }
+}

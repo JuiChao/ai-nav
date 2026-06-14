@@ -37,8 +37,8 @@ function ToolGrid({ tools, title, subtitle }: ToolGridProps) {
         </div>
       )}
       <div className="tool-grid__list">
-        {tools.map((tool) => (
-          <ToolCard key={tool.id} tool={tool} />
+        {tools.map((tool, index) => (
+          <ToolCard key={tool.id} tool={tool} index={index} />
         ))}
       </div>
     </section>

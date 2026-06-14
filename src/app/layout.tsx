@@ -1,17 +1,24 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Noto_Sans_SC } from 'next/font/google';
 import { LocaleProvider } from '@/i18n/LocaleContext';
 import './globals.css';
 
 /**
- * 使用 next/font 加载 Inter 字体
- * NOTE: 替代原 CSS @import 方式，避免 FOUT（无样式文本闪烁）
+ * 使用 next/font 加载 Inter 和 Noto Sans SC 字体
+ * NOTE: 双字体方案确保中英文都有最佳呈现
  */
 const inter = Inter({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700', '800'],
   display: 'swap',
   variable: '--font-inter',
+});
+
+const notoSansSC = Noto_Sans_SC({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-noto',
 });
 
 /** 全站默认 SEO 元数据 */
@@ -43,7 +50,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="zh-CN" className={inter.variable} data-scroll-behavior="smooth">
+    <html lang="zh-CN" className={`${inter.variable} ${notoSansSC.variable}`} data-scroll-behavior="smooth">
       <body>
         <LocaleProvider>{children}</LocaleProvider>
       </body>

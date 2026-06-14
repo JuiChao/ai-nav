@@ -4,107 +4,166 @@
   flex-direction: column;
 }
 
-/* ─── 主英雄区域 — 多彩渐变背景 + 浮动光球 ─── */
+/* ─── Hero 区域 — 完美复刻 Mimo 布局与高宽适配 ─── */
 .hero {
-  text-align: center;
-  padding: 72px 32px 48px;
   position: relative;
+  height: 480px;
   overflow: hidden;
-  /* NOTE: 使用多彩渐变背景，营造现代感 */
-  background: var(--gradient-hero);
-  background-size: 200% 200%;
-  animation: gradient-shift 12s ease infinite;
+  isolation: isolate;
+  background: var(--color-bg);
 }
 
-/* 装饰性浮动光球 */
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -80px;
-  left: 10%;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.2) 0%, transparent 70%);
-  border-radius: 50%;
-  animation: float 8s ease-in-out infinite;
-  pointer-events: none;
-}
-
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: -60px;
-  right: 15%;
-  width: 250px;
-  height: 250px;
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, transparent 70%);
-  border-radius: 50%;
-  animation: float 6s ease-in-out infinite reverse;
-  pointer-events: none;
-}
-
-.hero__badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 20px;
-  /* NOTE: 渐变边框效果用 background-clip 实现 */
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(168, 85, 247, 0.2);
-  border-radius: 100px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--color-accent);
-  margin-bottom: 28px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 12px rgba(168, 85, 247, 0.08);
+.hero__content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  max-width: 809px;
+  margin: 0 auto;
+  padding-top: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  text-align: center;
+}
+
+.hero__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+  width: 100%;
 }
 
 .hero__title {
-  font-size: clamp(36px, 5vw, 56px);
-  font-weight: 800;
-  line-height: 1.12;
-  margin-bottom: 20px;
-  /* NOTE: 多彩渐变文字，视觉冲击力强 */
-  background: var(--gradient-text);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradient-shift 6s ease infinite;
-  position: relative;
-  z-index: 1;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 50px;
+  font-weight: 400;
+  letter-spacing: 0.8px;
+  color: var(--color-text);
+  line-height: 1.15;
 }
 
-.hero__description {
-  font-size: 17px;
-  color: var(--color-text-secondary);
-  max-width: 560px;
-  margin: 0 auto 44px;
-  line-height: 1.7;
-  position: relative;
-  z-index: 1;
+.hero__subtitle {
+  margin: 0;
+  font-family: var(--font-mincho);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  line-height: 1.5;
+  color: var(--color-text);
+  max-width: min(720px, 92vw);
+  min-height: 60px; /* 防止打字换行时抖动页面高度 */
+}
+
+/* 副标题打字机光标动画 */
+.hero__subtitle .type-caret {
+  display: inline-block;
+  width: 2px;
+  height: 1.05em;
+  margin-left: 2px;
+  background: currentColor;
+  vertical-align: -0.16em;
+  animation: sub-caret 0.75s step-end infinite;
+}
+
+.hero__subtitle.is-done .type-caret {
+  animation: none;
+  opacity: 0;
+}
+
+@keyframes sub-caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+.hero__terminal-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .hero__search {
   display: flex;
   justify-content: center;
+  width: 100%;
+  max-width: 560px;
   padding: 0 16px;
-  position: relative;
-  z-index: 1;
 }
 
-/* ─── 统计数据条 ─── */
+/* ─── Mimo 经典 CTA 按钮组 ─── */
+.ctas {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  min-width: 130px;
+  padding: 10px 32px;
+  border-radius: 46px;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.24px;
+  text-decoration: none;
+  cursor: pointer;
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-border-hover);
+  transition: transform 200ms ease, background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  background: var(--color-ink);
+  color: var(--color-bg);
+  border-color: var(--color-ink);
+  transform: translateY(-1px);
+}
+
+.btn--primary {
+  background: var(--color-ink);
+  color: var(--color-bg);
+  border-color: var(--color-ink);
+}
+
+.btn--primary:hover {
+  background: #3A3933;
+  border-color: #3A3933;
+}
+
+/* 按钮内部向右上滑出折线箭头动画 */
+.btn__arrow {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  opacity: 0;
+  margin-left: -14px;
+  transition: opacity 200ms ease, margin-left 200ms ease;
+}
+
+.btn:hover .btn__arrow,
+.btn--primary .btn__arrow {
+  opacity: 1;
+  margin-left: 8px;
+}
+
+/* ─── 统计数据条 — 极简纯色 ─── */
 .stats {
   display: flex;
   justify-content: center;
   gap: 56px;
-  padding: 32px 32px;
-  margin-bottom: 8px;
-  background: var(--color-bg);
-  position: relative;
+  padding: 40px 32px;
+  margin-bottom: 24px;
+  background: transparent;
 }
 
 .stats__item {
@@ -112,21 +171,19 @@
 }
 
 .stats__number {
-  font-size: 32px;
-  font-weight: 800;
-  /* NOTE: 使用渐变色数字，与 hero 标题呼应 */
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
 }
 
 .stats__label {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--color-text-muted);
-  margin-top: 4px;
+  margin-top: 6px;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   font-weight: 500;
 }
 
@@ -140,11 +197,11 @@
 }
 
 .main__category-section {
-  margin-bottom: 36px;
+  margin-bottom: 40px;
 }
 
 .main__ad-banner {
-  margin-bottom: 36px;
+  margin-bottom: 40px;
 }
 
 .main__content {
@@ -159,43 +216,63 @@
 }
 
 .main__inline-ad {
-  margin: 36px 0;
+  margin: 40px 0;
 }
 
 /* ─── 移动端适配 ─── */
 @media (max-width: 768px) {
   .hero {
-    padding: 36px 16px 28px;
+    height: auto;
+    padding-bottom: 40px;
   }
 
-  .hero::before,
-  .hero::after {
-    display: none;
+  .hero__content {
+    padding-top: 80px;
+    gap: 24px;
   }
 
-  .hero__badge {
-    font-size: 12px;
-    padding: 6px 14px;
-    margin-bottom: 20px;
+  .hero__title {
+    font-size: 32px;
   }
 
-  .hero__description {
-    font-size: 14px;
-    margin-bottom: 28px;
+  .hero__subtitle {
+    font-size: 15px;
     line-height: 1.6;
+    min-height: auto;
   }
 
   .hero__search {
     padding: 0;
   }
 
+  .ctas {
+    width: 100%;
+    max-width: 340px;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 0 16px;
+  }
+
+  .btn {
+    flex: 1;
+    min-width: 120px;
+    height: 36px;
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .btn__arrow {
+    width: 12px;
+    height: 12px;
+  }
+
   .stats {
     gap: 28px;
-    padding: 20px 16px;
+    padding: 24px 16px;
   }
 
   .stats__number {
-    font-size: 24px;
+    font-size: 28px;
   }
 
   .stats__label {
@@ -203,15 +280,15 @@
   }
 
   .main {
-    padding: 0 12px 32px;
+    padding: 0 16px 32px;
   }
 
   .main__category-section {
-    margin-bottom: 24px;
+    margin-bottom: 28px;
   }
 
   .main__ad-banner {
-    margin-bottom: 24px;
+    margin-bottom: 28px;
   }
 
   .main__content {
@@ -220,13 +297,13 @@
   }
 
   .main__inline-ad {
-    margin: 24px 0;
+    margin: 28px 0;
   }
 }
 
 @media (max-width: 480px) {
-  .hero {
-    padding: 28px 12px 24px;
+  .hero__content {
+    padding-top: 60px;
   }
 
   .stats {
@@ -234,10 +311,10 @@
   }
 
   .stats__number {
-    font-size: 22px;
+    font-size: 24px;
   }
 
   .main {
-    padding: 0 10px 24px;
+    padding: 0 12px 24px;
   }
 }

@@ -1,29 +1,51 @@
-/* ─── 设计系统变量（现代酷炫主题 — 紫粉暖色调） ─── */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Questrial&display=swap');
+
+/* ─── 设计系统变量（Mimo Coder 风格 — 极雅暖灰色调） ─── */
 :root {
-  /* 背景色 */
-  --color-bg: #fafbff;
-  --color-bg-secondary: #f8f5fc;
+  /* 背景色 — 宣纸质感暖灰 */
+  --color-bg: #FCFAF8;
+  --color-bg-secondary: #F3F0EF;
+  --color-bg-card: #F3F0EF;
+  --color-bg-footer: #F5F4EF;
 
-  /* 卡片 */
-  --color-card: #ffffff;
-  --color-border: #ebe5f0;
+  /* 边框与墨色 */
+  --color-border: #E6E2DE;
+  --color-border-hover: #979696;
+  --color-ink: #26251E;
+  --color-ink-soft: #504F49;
 
-  /* NOTE: 强调色 — 纯紫色体系，零蓝色 */
-  --color-accent: #a855f7;
-  --color-accent-hover: #9333ea;
-  --color-accent-light: #c084fc;
-  --color-accent-secondary: #d946ef;
+  /* 强调色与文本 */
+  --color-accent: #26251E;
+  --color-accent-hover: #000000;
+  --color-text: #26251E;
+  --color-text-secondary: #504F49;
+  --color-text-muted: #979696;
 
-  /* 文本色 — 高对比度 */
-  --color-text: #0f172a;
-  --color-text-secondary: #334155;
-  --color-text-muted: #64748b;
+  /* 字体族 */
+  --font-sans: "PingFang SC", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mincho: "Noto Serif SC", "Songti SC", "STSong", Georgia, serif;
+  --font-display: "Questrial", "Century Gothic", "Avenir Next", sans-serif;
 
-  /* 渐变预设 — 紫→品红→玫红，无蓝色 */
-  --gradient-primary: linear-gradient(135deg, #a855f7, #d946ef, #f43f5e);
-  --gradient-hero: linear-gradient(135deg, #f5f0ff 0%, #fce7f3 25%, #fff1f2 50%, #fef9c3 75%, #f0fdf4 100%);
-  --gradient-card-hover: linear-gradient(135deg, rgba(168, 85, 247, 0.08), rgba(217, 70, 239, 0.06));
-  --gradient-text: linear-gradient(135deg, #a855f7 0%, #d946ef 50%, #f43f5e 100%);
+  /* 交互反馈 */
+  --color-hover-bg: rgba(38, 37, 30, 0.06);
+  --color-active-bg: #26251E;
+  --color-active-text: #FCFAF8;
+
+  /* 投影 — 柔和大范围 */
+  --shadow-sm: 0 1px 2px rgba(38, 37, 30, 0.04);
+  --shadow-md: 0 4px 12px rgba(38, 37, 30, 0.06);
+  --shadow-lg: 0 12px 32px rgba(38, 37, 30, 0.08);
+  --shadow-hover: 0 20px 40px rgba(38, 37, 30, 0.08);
+
+  /* 圆角 */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-pill: 9999px;
+
+  /* 过渡 */
+  --transition-base: 0.2s ease;
+  --transition-smooth: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* ─── 全局重置 ─── */
@@ -42,7 +64,7 @@ html {
 }
 
 body {
-  font-family: var(--font-inter, 'Inter'), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-sans);
   background: var(--color-bg);
   color: var(--color-text);
   line-height: 1.6;
@@ -52,7 +74,7 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Next.js 根容器 */
+/* ─── 挂载点容器 ─── */
 #__next,
 main,
 .app {
@@ -67,9 +89,11 @@ a {
 
 button {
   cursor: pointer;
+  background: none;
+  border: none;
 }
 
-/* ─── 滚动条美化 ─── */
+/* ─── 滚动条美化 — 极简灰色 ─── */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -80,39 +104,40 @@ button {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #a855f7, #d946ef);
+  background: #E6E2DE;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #9333ea, #c026d3);
+  background: #979696;
 }
 
 /* ─── 选中文本样式 ─── */
 ::selection {
-  background: rgba(168, 85, 247, 0.2);
-  color: #0f172a;
+  background: rgba(38, 37, 30, 0.08);
+  color: var(--color-text);
 }
 
-/* ─── 通用动画 ─── */
+/* ─── 动画预设 ─── */
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
 }
 
-@keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
+/* 打字机光标闪烁 */
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
-@keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes pulse-ring {
-  0% { transform: scale(0.95); opacity: 0.5; }
-  50% { transform: scale(1.05); opacity: 0.8; }
-  100% { transform: scale(0.95); opacity: 0.5; }
+/* 淡入上移 */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

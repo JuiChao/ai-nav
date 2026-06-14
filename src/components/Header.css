@@ -1,197 +1,302 @@
-/* ─── Header — 毛玻璃渐变边框 ─── */
+/* ─── Header — 完整复刻 Mimo 极雅纸质导航栏 ─── */
 .header {
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 100;
-  background: rgba(250, 251, 255, 0.85);
-  backdrop-filter: blur(20px) saturate(1.8);
-  -webkit-backdrop-filter: blur(20px) saturate(1.8);
-  /* NOTE: 底部使用渐变色条，替代普通边框线 */
-  border-bottom: none;
-  box-shadow: 0 1px 0 rgba(168, 85, 247, 0.08);
+  background: var(--color-bg);
 }
 
 .header__inner {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 14px 32px;
+  padding: 23px 32px 18px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 65px;
 }
 
-.header__brand {
+/* Logo 样式 */
+.header__logo-link {
+  display: block;
+  z-index: 3;
+}
+
+.header__logo-wrapper {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 8px;
+  color: var(--color-text);
+  cursor: pointer;
 }
 
-.header__logo {
-  color: var(--color-accent);
-  filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.4));
-  animation: pulse-ring 3s ease-in-out infinite;
+.header__logo-icon {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1;
 }
 
-.header__title {
-  font-size: 22px;
-  font-weight: 800;
-  margin: 0;
-  /* NOTE: 渐变品牌标题 */
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.header__logo-text {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  line-height: 1;
 }
 
-.header__subtitle {
-  font-size: 12px;
-  color: var(--color-text-muted);
-  margin: 2px 0 0;
+/* 分割线 */
+.header__divider {
+  width: 100%;
+  height: 1px;
+  background: #F3F0EF;
+  z-index: 3;
+}
+
+/* 右侧导航与操作栏 */
+.header__bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .header__nav {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 0;
+  font-family: var(--font-display);
 }
 
-/* 语言切换按钮 — 现代胶囊风格 */
-.header__lang-btn {
-  display: flex;
+/* 导航链接与下拉按钮触发器 */
+.header__nav-link {
+  position: relative;
+  display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 16px;
-  background: rgba(168, 85, 247, 0.06);
-  border: 1px solid rgba(168, 85, 247, 0.12);
-  border-radius: 12px;
-  color: var(--color-text-secondary);
-  font-size: 13px;
+  margin: 0 6px;
+  padding: 8px 12px;
+  background: transparent;
+  border: none;
+  color: var(--color-text);
+  font-size: 15px;
   font-weight: 500;
-  font-family: inherit;
+  line-height: 1;
+  text-decoration: none;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   white-space: nowrap;
 }
 
-.header__lang-btn:hover {
-  background: rgba(168, 85, 247, 0.12);
-  border-color: rgba(168, 85, 247, 0.3);
-  color: var(--color-accent);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.12);
+/* Hover 底部线段展开特效 */
+.header__nav-link::after,
+.header__lang-trigger::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  bottom: 0;
+  height: 2px;
+  background: var(--color-text);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.header__link {
+.header__nav-link:hover::after,
+.header__lang-trigger:hover::after,
+.header__nav-dropdown:hover .header__nav-link::after,
+.header__nav-dropdown:hover .header__lang-trigger::after {
+  transform: scaleX(1);
+}
+
+.header__nav-caret {
+  width: 12px;
+  height: 12px;
+  color: currentColor;
+  transition: transform 0.25s ease;
+}
+
+.header__nav-dropdown:hover .header__nav-caret {
+  transform: rotate(180deg);
+}
+
+/* 下拉菜单容器定位 */
+.header__nav-dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* 下拉展示菜单 */
+.header__nav-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  background: #FFFFFF;
+  border: 1px solid rgba(38, 37, 30, 0.08);
+  border-radius: 8px;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94), visibility 0.25s;
+  z-index: 100;
+}
+
+/* Hover 显示下拉框 */
+.header__nav-dropdown:hover .header__nav-menu,
+.header__nav-dropdown:focus-within .header__nav-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(4px);
+}
+
+.header__nav-menu-item {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
+  text-align: left;
+  white-space: nowrap;
+  transition: background 0.15s ease;
+  cursor: pointer;
+  background: transparent;
+  width: 100%;
+  border: none;
+}
+
+.header__nav-menu-item:hover {
+  background: var(--color-hover-bg);
+}
+
+.header__nav-menu-item.is-active {
+  background: rgba(38, 37, 30, 0.08);
+  font-weight: 500;
+}
+
+/* 语言切换特化 */
+.header__lang {
+  display: inline-flex;
+  align-items: center;
+}
+
+.header__lang-trigger {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 12px;
+  color: var(--color-text);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.header__lang-icon {
+  display: block;
+  color: var(--color-text);
+}
+
+.header__lang-menu {
+  min-width: 120px;
+  left: auto;
+  right: 0;
+  transform: translateY(10px);
+}
+
+.header__lang.header__nav-dropdown:hover .header__lang-menu,
+.header__lang.header__nav-dropdown:focus-within .header__lang-menu {
+  transform: translateY(4px);
+}
+
+/* ─── Footer — 完整复刻 Mimo 极简页脚 ─── */
+.footer {
+  background: var(--color-bg-footer);
+  min-height: 200px;
+  padding: 40px 32px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  color: var(--color-text-muted);
-  text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  background: rgba(168, 85, 247, 0.04);
-}
-
-.header__link:hover {
-  background: rgba(168, 85, 247, 0.1);
-  color: var(--color-accent);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.12);
-}
-
-/* ─── Footer — 渐变分割线 ─── */
-.footer {
-  margin-top: 80px;
-  padding: 48px 32px;
-  text-align: center;
-  background: linear-gradient(180deg, var(--color-bg) 0%, #f0edff 100%);
-  position: relative;
-}
-
-/* 渐变分割线 */
-.footer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 10%;
-  right: 10%;
-  height: 1px;
-  background: var(--gradient-primary);
-  opacity: 0.3;
+  border-top: 1px solid #E6E2DE;
 }
 
 .footer__inner {
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-.footer__text {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  font-size: 14px;
-  color: var(--color-text-secondary);
-  margin: 0 0 6px;
-}
-
-.footer__text--muted {
+  gap: 6px 12px;
   font-size: 12px;
-  color: var(--color-text-muted);
+  font-weight: 400;
+  letter-spacing: 0.6px;
+  color: var(--color-ink-soft);
+  text-align: center;
 }
 
-.footer__heart {
-  color: #f43f5e;
-  filter: drop-shadow(0 0 4px rgba(244, 63, 94, 0.4));
-  animation: heartbeat 1.5s ease-in-out infinite;
+.footer__sep {
+  color: #CCC8C4;
+  user-select: none;
 }
 
-@keyframes heartbeat {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.2); }
+.footer__link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 0.5px;
+  transition: color var(--transition-base);
+}
+
+.footer__link:hover {
+  color: var(--color-accent-hover);
+}
+
+.footer__btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 0.5px;
+  transition: color var(--transition-base);
+}
+
+.footer__btn:hover {
+  color: var(--color-accent-hover);
 }
 
 /* ─── 移动端适配 ─── */
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .header__inner {
-    padding: 12px 16px;
+    padding: 15px 16px;
+    height: auto;
   }
 
-  .header__logo {
-    width: 22px;
-    height: 22px;
+  .header__nav {
+    display: none; /* 移动端隐藏中间的产品/关于等链接，仅保留语言切换 */
   }
 
-  .header__brand {
-    gap: 10px;
-  }
-
-  .header__title {
-    font-size: 18px;
-  }
-
-  .header__subtitle {
-    font-size: 11px;
-  }
-
-  .header__lang-btn {
-    padding: 6px 10px;
-    font-size: 12px;
-  }
-
-  .header__link {
-    width: 36px;
-    height: 36px;
+  .header__logo-text {
+    font-size: 17px;
   }
 
   .footer {
-    margin-top: 48px;
-    padding: 28px 16px;
+    padding: 30px 20px;
   }
 
-  .footer__text {
-    font-size: 12px;
+  .footer__inner {
+    font-size: 10px;
+    gap: 4px 8px;
   }
 }
