@@ -51,10 +51,6 @@ function Header({ totalCount }: { totalCount: number }) {
             <a className="header__nav-link" href="#category-nav">
               {t('stats.categories')}
             </a>
-            
-            <a className="header__nav-link" href="https://github.com" target="_blank" rel="noreferrer noopener">
-              GitHub
-            </a>
           </nav>
 
           {/* 语言切换下拉菜单 */}
