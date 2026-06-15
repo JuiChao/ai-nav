@@ -3,6 +3,7 @@
 import { ExternalLink, Megaphone } from 'lucide-react';
 import type { AdSlot } from '@/types';
 import { useLocale } from '@/i18n/LocaleContext';
+import GoogleAd from './google-ad';
 import './AdSidebar.css';
 
 interface AdSidebarProps {
@@ -17,7 +18,12 @@ function AdSidebar({ ads }: AdSidebarProps) {
   const { locale, t } = useLocale();
   const sidebarAds = ads.filter((ad) => ad.position === 'sidebar');
 
-  if (sidebarAds.length === 0) return null;
+  const sidebarSlot = process.env.NEXT_PUBLIC_ADSENSE_SIDEBAR_SLOT;
+  const publisherId = process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_PID;
+  const useAdSense = !!publisherId;
+  const hasGoogleSidebar = useAdSense && !!sidebarSlot;
+
+  if (sidebarAds.length === 0 && !hasGoogleSidebar) return null;
 
   return (
     <aside className="ad-sidebar" id="ad-sidebar">
@@ -25,6 +31,10 @@ function AdSidebar({ ads }: AdSidebarProps) {
         <Megaphone size={12} />
         <span>{t('ad.sidebarLabel')}</span>
       </div>
+
+      {hasGoogleSidebar && (
+        <GoogleAd slot={sidebarSlot} position="sidebar" />
+      )}
 
       {sidebarAds.map((ad) => {
         const title = locale === 'en' ? ad.titleEn : ad.title;

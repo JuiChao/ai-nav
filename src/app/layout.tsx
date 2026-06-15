@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, Noto_Sans_SC } from 'next/font/google';
 import { LocaleProvider } from '@/i18n/LocaleContext';
+import GoogleAdSenseScript from '@/components/google-adsense-script';
 import './globals.css';
 
 /**
@@ -52,6 +53,7 @@ export default function RootLayout({
   return (
     <html lang="zh-CN" className={`${inter.variable} ${notoSansSC.variable}`} data-scroll-behavior="smooth">
       <body>
+        <GoogleAdSenseScript />
         <LocaleProvider>{children}</LocaleProvider>
       </body>
     </html>

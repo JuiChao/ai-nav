@@ -51,6 +51,14 @@ const zh: TranslationDict = {
   'footer.agreement': '服务协议',
   'footer.privacy': '隐私政策',
   'footer.cookie': 'Cookie 偏好设置',
+
+  // Ads
+  'ad.cta': '了解更多',
+  'ad.label': '赞助商广告',
+  'ad.sidebarLabel': '赞助商链接',
+  'ad.sidebarCta': '立即前往',
+  'google.ad.placeholder': 'Google 广告位 (未配置 Publisher ID)',
+  'google.ad.dev_mode': '开发模式占位符 (Slot ID: {slot})',
 };
 
 const en: TranslationDict = {
@@ -97,6 +105,14 @@ const en: TranslationDict = {
   'footer.agreement': 'Terms of Service',
   'footer.privacy': 'Privacy Policy',
   'footer.cookie': 'Cookie Preferences',
+
+  // Ads
+  'ad.cta': 'Learn More',
+  'ad.label': 'Sponsored Ad',
+  'ad.sidebarLabel': 'Sponsored Links',
+  'ad.sidebarCta': 'Go Now',
+  'google.ad.placeholder': 'Google AdSense (Publisher ID not configured)',
+  'google.ad.dev_mode': 'Dev Mode Placeholder (Slot ID: {slot})',
 };
 
 export const TRANSLATIONS: Record<Locale, TranslationDict> = { zh, en };

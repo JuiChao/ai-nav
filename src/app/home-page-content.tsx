@@ -10,6 +10,7 @@ import CategoryNav from '@/components/CategoryNav';
 import ToolGrid from '@/components/ToolGrid';
 import AdBanner from '@/components/AdBanner';
 import AdSidebar from '@/components/AdSidebar';
+import GoogleAd from '@/components/google-ad';
 
 import { useLocale } from '@/i18n/LocaleContext';
 import { useToolFilter } from '@/hooks/useToolFilter';
@@ -63,6 +64,13 @@ function HomePageContent() {
   const bannerAd = AD_SLOTS.find((ad) => ad.position === 'banner');
   /** 内联广告 */
   const inlineAd = AD_SLOTS.find((ad) => ad.position === 'inline');
+
+  // Google AdSense 环境变量配置
+  const bannerSlot = process.env.NEXT_PUBLIC_ADSENSE_BANNER_SLOT;
+  const inlineSlot = process.env.NEXT_PUBLIC_ADSENSE_INLINE_SLOT;
+  const publisherId = process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_PID;
+  const useAdSense = !!publisherId;
+
   /** 是否处于搜索或筛选模式 */
   const isFiltering = searchQuery.trim() !== '' || activeCategory !== 'all';
 
@@ -125,10 +133,16 @@ function HomePageContent() {
           />
         </div>
 
-        {bannerAd && (
+        {useAdSense && bannerSlot ? (
           <div className="main__ad-banner">
-            <AdBanner ad={bannerAd} />
+            <GoogleAd slot={bannerSlot} position="banner" />
           </div>
+        ) : (
+          bannerAd && (
+            <div className="main__ad-banner">
+              <AdBanner ad={bannerAd} />
+            </div>
+          )
         )}
 
         <div className="main__content">
@@ -141,10 +155,18 @@ function HomePageContent() {
               />
             )}
 
-            {!isFiltering && inlineAd && (
-              <div className="main__inline-ad">
-                <AdBanner ad={inlineAd} />
-              </div>
+            {!isFiltering && (
+              useAdSense && inlineSlot ? (
+                <div className="main__inline-ad">
+                  <GoogleAd slot={inlineSlot} position="inline" />
+                </div>
+              ) : (
+                inlineAd && (
+                  <div className="main__inline-ad">
+                    <AdBanner ad={inlineAd} />
+                  </div>
+                )
+              )
             )}
 
             <ToolGrid

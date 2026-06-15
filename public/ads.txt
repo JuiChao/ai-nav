@@ -1,0 +1,5 @@
+# Google AdSense 授权数字卖方声明 (ads.txt)
+# 请将下面的 pub-1234567890123456 替换为您自己的 Google AdSense 发布商 ID (不要包含 ca-)
+# 详情参考：https://support.google.com/adsense/answer/7532444
+
+google.com, pub-8921283801578142, DIRECT, f08c47fec0942fa0
