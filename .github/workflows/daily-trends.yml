@@ -20,7 +20,7 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: npm install google-trends-api
+        run: npm install google-trends-api --no-save
 
       - name: Run Trends Script
         run: node scripts/update-trends.js
