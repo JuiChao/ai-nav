@@ -105,9 +105,9 @@ async function main() {
 
   console.log('Ranking:', sortedCandidates);
 
-  // 选取排名前 8 的作为动态热门推荐
-  const topIds = sortedCandidates.slice(0, 8).map(c => c.id);
-  // 为了确保智谱清言一定在热门中，如果它不在前8，强制加入
+  // 选取排名前 12 的作为动态热门推荐
+  const topIds = sortedCandidates.slice(0, 12).map(c => c.id);
+  // 为了确保智谱清言一定在热门中，如果它不在前12，强制加入
   if (!topIds.includes('zhipu')) {
     topIds.push('zhipu');
   }
