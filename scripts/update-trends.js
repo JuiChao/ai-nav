@@ -12,7 +12,12 @@ const candidates = [
   { id: 'ernie', keyword: '文心一言' },
   { id: 'doubao', keyword: '豆包' },
   { id: 'spark', keyword: '讯飞星火' },
-  { id: 'deepseek', keyword: 'DeepSeek' }
+  { id: 'deepseek', keyword: 'DeepSeek' },
+  { id: 'yuanbao', keyword: '腾讯元宝' },
+  { id: 'mistral', keyword: 'Mistral AI' },
+  { id: 'groq', keyword: 'Groq' },
+  { id: 'grok', keyword: 'xAI Grok' },
+  { id: 'llama-3', keyword: 'Llama 3' }
 ];
 
 // 基准词，用于跨组比对和归一化 (使用最热门的 ChatGPT)
@@ -35,65 +40,52 @@ async function main() {
   console.log('Starting Google Trends analysis...');
   const scores = {};
   
-  // 第一组: 基准词 + 后4个词
-  const group1 = [baseline.keyword, ...candidates.slice(1, 5).map(c => c.keyword)];
-  console.log('Fetching group 1:', group1);
-  const res1 = await fetchTrend(group1);
-  
-  // 第二组: 基准词 + 剩下4个词
-  const group2 = [baseline.keyword, ...candidates.slice(5, 9).map(c => c.keyword)];
-  console.log('Fetching group 2:', group2);
-  const res2 = await fetchTrend(group2);
-
-  if (!res1 || !res2) {
-    console.error('Failed to fetch data from Google Trends. Aborting.');
-    process.exit(1);
-  }
-
   // 辅助函数：计算某一组数据中各个关键词的平均热度
   function calculateAverages(trendData, keywordList) {
     const timelineData = trendData.default.timelineData;
     const sums = new Array(keywordList.length).fill(0);
-    let count = 0;
     
-    for (const data of timelineData) {
-      if (data.hasData) {
-        for (let i = 0; i < data.value.length; i++) {
-          sums[i] += data.value[i];
-        }
-        count++;
-      }
+    timelineData.forEach(item => {
+      item.value.forEach((val, idx) => {
+        sums[idx] += val;
+      });
+    });
+    
+    return sums.map(sum => sum / (timelineData.length || 1));
+  }
+
+  // 动态将除了 baseline 以外的所有候选人按 4 个一组切分 (Google Trends API 一次最多 5 个词)
+  const otherCandidates = candidates.slice(1);
+  const chunkCount = Math.ceil(otherCandidates.length / 4);
+  let globalBaselineAvg = null;
+
+  for (let i = 0; i < chunkCount; i++) {
+    const chunkCandidates = otherCandidates.slice(i * 4, (i + 1) * 4);
+    const keywordList = [baseline.keyword, ...chunkCandidates.map(c => c.keyword)];
+    
+    console.log(`Fetching group ${i + 1}:`, keywordList);
+    const res = await fetchTrend(keywordList);
+    if (!res) {
+       console.error(`Failed to fetch data for group ${i + 1}. Aborting.`);
+       process.exit(1);
     }
-    
-    return sums.map(sum => (count > 0 ? sum / count : 0));
-  }
 
-  const avg1 = calculateAverages(res1, group1);
-  const avg2 = calculateAverages(res2, group2);
+    const avgs = calculateAverages(res, keywordList);
+    const currentBaselineAvg = avgs[0];
 
-  // 提取基准词的平均得分，用于跨组归一化
-  const baselineScore1 = avg1[0];
-  const baselineScore2 = avg2[0];
-  
-  if (baselineScore1 === 0 || baselineScore2 === 0) {
-    console.error('Baseline score is 0. Data might be incomplete.');
-    process.exit(1);
-  }
+    // 以第一组的 baseline 作为全局标准
+    if (i === 0) {
+      globalBaselineAvg = currentBaselineAvg;
+      scores[baseline.id] = currentBaselineAvg;
+    }
 
-  // 计算第二组相对于第一组的缩放比例
-  const scale = baselineScore1 / baselineScore2;
+    // 计算缩放比例，使得各组分数在同一尺度下
+    const scale = (globalBaselineAvg > 0 && currentBaselineAvg > 0) ? (globalBaselineAvg / currentBaselineAvg) : 1;
 
-  // 记录得分
-  scores[baseline.id] = baselineScore1;
-
-  for (let i = 1; i < group1.length; i++) {
-    const candidate = candidates.find(c => c.keyword === group1[i]);
-    scores[candidate.id] = avg1[i];
-  }
-
-  for (let i = 1; i < group2.length; i++) {
-    const candidate = candidates.find(c => c.keyword === group2[i]);
-    scores[candidate.id] = avg2[i] * scale;
+    // 记录本组其它模型的分数
+    chunkCandidates.forEach((c, idx) => {
+      scores[c.id] = avgs[idx + 1] * scale;
+    });
   }
 
   console.log('Calculated Scores:', scores);

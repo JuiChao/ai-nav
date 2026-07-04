@@ -4,11 +4,11 @@
   "gemini",
   "deepseek",
   "kimi",
-  "zhipu",
   "doubao",
-  "perplexity",
+  "zhipu",
   "ernie",
-  "tongyi-qianwen",
   "spark",
-  "mimo"
+  "yuanbao",
+  "mistral",
+  "groq"
 ]
