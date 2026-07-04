@@ -24,6 +24,7 @@ const notoSansSC = Noto_Sans_SC({
 
 /** 全站默认 SEO 元数据 */
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://958000.xyz'),
   title: {
     default: 'AI 导航 - 发现最好用的 AI 工具',
     template: '%s | AI 导航',
@@ -36,8 +37,17 @@ export const metadata: Metadata = {
     description: '精选收录各领域优质 AI 工具，一站式探索 AI 的无限可能。',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'AI 导航 - 发现最好用的 AI 工具',
+    description: '精选收录各领域优质 AI 工具，一站式探索 AI 的无限可能。',
+  },
+  alternates: {
+    canonical: '/',
+  },
   icons: {
     icon: '/favicon.svg',
+    apple: '/favicon.svg',
   },
 };
 
@@ -52,6 +62,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="zh-CN" className={`${inter.variable} ${notoSansSC.variable}`} data-scroll-behavior="smooth">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              name: 'AI 导航',
+              url: process.env.NEXT_PUBLIC_SITE_URL || 'https://958000.xyz',
+              description: '精选优质 AI 工具导航站，涵盖对话、图像、视频、音频、编程、写作等领域。',
+            }),
+          }}
+        />
+      </head>
       <body>
         <GoogleAdSenseScript />
         <LocaleProvider>{children}</LocaleProvider>
