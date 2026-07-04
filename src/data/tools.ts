@@ -110,6 +110,7 @@ export const AI_TOOLS: AiTool[] = [
     tags: ['GLM', '学术', '中文'],
     tagsEn: ["GLM","Academic","Chinese"],
     isFree: true,
+    isFeatured: true,
   },
   {
     id: 'doubao',
