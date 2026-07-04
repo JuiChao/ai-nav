@@ -113,63 +113,13 @@ async function main() {
   }
   console.log('Top models to feature:', topIds);
 
-  // 更新 src/data/tools.ts
-  const toolsFilePath = path.join(__dirname, '../src/data/tools.ts');
-  let toolsContent = fs.readFileSync(toolsFilePath, 'utf-8');
-
-  // 我们使用简单的正则或者字符串替换来更新 isFeatured 字段。
-  // 为了安全，针对这些 candidate id，我们强制设置其 isFeatured
-  for (const c of candidates) {
-    const isTop = topIds.includes(c.id);
-    
-    // 正则匹配: 找到 id: 'xxx', 及其后面的属性，直到匹配到 isFeatured 或者 }
-    // 一种更稳妥的办法是将整个 tools.ts 解析或直接用正则暴力替换。
-    // 因为这是静态规范的代码，我们可以寻找 id: 'xxx' 的代码块。
-    
-    const idPattern = new RegExp(`id:\\s*'${c.id}'[\\s\\S]*?isFree:\\s*(true|false)`, 'g');
-    
-    toolsContent = toolsContent.replace(idPattern, (match) => {
-      // 匹配到 id 后，并且找到了 isFree 这一行
-      // 我们在这一行后面统一替换或追加 isFeatured
-      return match; 
-    });
-  }
-
-  // 上面的正则比较脆弱，采用另一种通用的方式：
-  // 1. 清理全部大模型候选人的 isFeatured 字段
-  // 2. 为 Top ID 重新添加 isFeatured
+  // 覆写 src/data/featured.json
+  const fs = require('fs');
+  const path = require('path');
+  const targetFile = path.join(__dirname, '../src/data/featured.json');
   
-  // 辅助替换函数
-  function updateFeatured(content, id, feature) {
-    // 匹配对象块：从 id 开始直到该对象结束的 }
-    const blockRegex = new RegExp(`(id:\\s*'${id}',[\\s\\S]*?)(},?)`, 'g');
-    return content.replace(blockRegex, (match, body, tail) => {
-       // 清除旧的 isFeatured 字段及其前面的空白符
-       let newBody = body.replace(/\s*isFeatured:\s*(true|false),?/g, '');
-       
-       if (feature) {
-          // 清理尾部空白并添加新字段
-          newBody = newBody.trimEnd();
-          if (!newBody.endsWith(',')) {
-              newBody += ',';
-          }
-          newBody += '\n    isFeatured: true,\n  ';
-       }
-       return newBody + tail;
-    });
-  }
-
-  let newContent = toolsContent;
-  for (const c of candidates) {
-    const isTop = topIds.includes(c.id);
-    newContent = updateFeatured(newContent, c.id, isTop);
-  }
-
-  // 修复因为删除导致的空行问题（可选）
-  newContent = newContent.replace(/,\s+isFeatured:/g, ',\n    isFeatured:');
-
-  fs.writeFileSync(toolsFilePath, newContent, 'utf-8');
-  console.log('Successfully updated tools.ts with trending data!');
+  fs.writeFileSync(targetFile, JSON.stringify(topIds, null, 2), 'utf8');
+  console.log(`Successfully updated featured.json`);
 }
 
 main().catch(console.error);

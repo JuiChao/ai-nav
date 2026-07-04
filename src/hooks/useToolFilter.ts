@@ -1,8 +1,10 @@
 'use client';
 
-import { useState, useEffect, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import type { AiTool, CategoryId } from '@/types';
 import { AI_TOOLS } from '@/data/tools';
+
+import featuredIds from '@/data/featured.json';
 
 /**
  * 管理工具列表的搜索与筛选逻辑
@@ -37,19 +39,11 @@ export function useToolFilter() {
     return results;
   }, [searchQuery, activeCategory]);
 
-  /** 动态热门推荐工具 (为了避免服务端渲染与客户端不一致导致的 Hydration Error，仅在客户端挂载后打乱) */
-  const [featuredTools, setFeaturedTools] = useState<AiTool[]>([]);
-
-  useEffect(() => {
-    const featured = AI_TOOLS.filter((tool) => tool.isFeatured);
-    // 随机打乱数组算法 (Fisher-Yates)
-    const shuffled = [...featured];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    // 返回随机的 8 个（避免页面太长，保持新鲜感）
-    setFeaturedTools(shuffled.slice(0, 8));
+  /** 动态热门推荐工具 (从 featured.json 严格按热度顺序提取) */
+  const featuredTools = useMemo<AiTool[]>(() => {
+    return featuredIds
+      .map((id) => AI_TOOLS.find((tool) => tool.id === id))
+      .filter((tool): tool is AiTool => tool !== undefined);
   }, []);
 
   const handleSearch = useCallback((query: string) => {
