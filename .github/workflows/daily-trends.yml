@@ -1,0 +1,39 @@
+name: Daily Trends Update
+
+on:
+  schedule:
+    # 每天 UTC 时间 0:00 (北京时间早上 8:00) 运行
+    - cron: '0 0 * * *'
+  workflow_dispatch: # 允许手动触发
+
+jobs:
+  update-trends:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install google-trends-api
+
+      - name: Run Trends Script
+        run: node scripts/update-trends.js
+
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add src/data/tools.ts
+          # 如果没有变化，这里会静默失败并退出，但这没关系，可以使用下面更优雅的判断
+          if git diff --staged --quiet; then
+            echo "No trends changes to commit."
+          else
+            git commit -m "chore: auto-update AI models popularity from Google Trends"
+            git push
+          fi
