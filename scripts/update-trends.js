@@ -8,7 +8,7 @@ const candidates = [
   { id: 'claude', keyword: 'Claude AI' },
   { id: 'gemini', keyword: 'Google Gemini' },
   { id: 'kimi', keyword: 'Kimi' },
-  { id: 'zhipu', keyword: '智谱' },
+  { id: 'zhipu', keyword: 'ChatGLM' },
   { id: 'ernie', keyword: '文心一言' },
   { id: 'doubao', keyword: '豆包' },
   { id: 'spark', keyword: '讯飞星火' },
@@ -81,19 +81,16 @@ async function main() {
   }
 
   // 计算第二组相对于第一组的缩放比例
-  // (因为 Google Trends 的相对满分是 100，两组里的 ChatGPT 得分可能不一致)
   const scale = baselineScore1 / baselineScore2;
 
   // 记录得分
   scores[baseline.id] = baselineScore1;
 
-  // 记录 group 1 得分
   for (let i = 1; i < group1.length; i++) {
     const candidate = candidates.find(c => c.keyword === group1[i]);
     scores[candidate.id] = avg1[i];
   }
 
-  // 记录 group 2 得分 (需要缩放)
   for (let i = 1; i < group2.length; i++) {
     const candidate = candidates.find(c => c.keyword === group2[i]);
     scores[candidate.id] = avg2[i] * scale;
@@ -101,7 +98,6 @@ async function main() {
 
   console.log('Calculated Scores:', scores);
 
-  // 转换为数组并排序
   const sortedCandidates = candidates.map(c => ({
     id: c.id,
     score: scores[c.id] || 0
@@ -109,8 +105,12 @@ async function main() {
 
   console.log('Ranking:', sortedCandidates);
 
-  // 选取排名前 4 的作为动态热门推荐
-  const topIds = sortedCandidates.slice(0, 4).map(c => c.id);
+  // 选取排名前 6 的作为动态热门推荐
+  const topIds = sortedCandidates.slice(0, 6).map(c => c.id);
+  // 为了确保智谱清言一定在热门中，如果它不在前6，强制加入
+  if (!topIds.includes('zhipu')) {
+    topIds.push('zhipu');
+  }
   console.log('Top models to feature:', topIds);
 
   // 更新 src/data/tools.ts
