@@ -6,12 +6,6 @@ import ToolDetailContent from './tool-detail-content';
 export const dynamic = 'force-static';
 export const dynamicParams = false;
 
-interface ToolPageProps {
-  params: {
-    id: string;
-  };
-}
-
 // 静态生成所有工具详情页路由
 export function generateStaticParams() {
   return AI_TOOLS.map((tool) => ({
@@ -20,8 +14,9 @@ export function generateStaticParams() {
 }
 
 // 动态生成每个页面的专属 SEO Meta 标签
-export function generateMetadata({ params }: ToolPageProps): Metadata {
-  const tool = AI_TOOLS.find((t) => t.id === params.id);
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const tool = AI_TOOLS.find((t) => t.id === id);
   
   if (!tool) {
     return {
@@ -47,8 +42,9 @@ export function generateMetadata({ params }: ToolPageProps): Metadata {
   };
 }
 
-export default function ToolPage({ params }: ToolPageProps) {
-  const tool = AI_TOOLS.find((t) => t.id === params.id);
+export default async function ToolPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const tool = AI_TOOLS.find((t) => t.id === id);
 
   if (!tool) {
     notFound();
