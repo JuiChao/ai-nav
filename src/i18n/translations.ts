@@ -51,6 +51,15 @@ const zh: TranslationDict = {
   'tool.about': '关于',
   'tool.tags': '标签',
   'tool.visit': '直达官网',
+  'tool.related': '相关推荐',
+  'tool.breadcrumb.home': '首页',
+  'tool.seoText': '是一款备受关注的 AI 工具，核心特色包括 {tags} 等。适合希望提升效率的用户探索使用。',
+
+  // 404
+  'notFound.title': '页面未找到',
+  'notFound.description': '您访问的页面不存在或已被移除。',
+  'notFound.backHome': '返回首页',
+  'notFound.popular': '热门工具推荐',
 
   // Footer
   'footer.copyright': 'Copyright © 2026 AI Nav. All Rights Reserved.',
@@ -111,6 +120,15 @@ const en: TranslationDict = {
   'tool.about': 'About',
   'tool.tags': 'Tags',
   'tool.visit': 'Visit Website',
+  'tool.related': 'Related Tools',
+  'tool.breadcrumb.home': 'Home',
+  'tool.seoText': 'is a highly regarded AI tool, with key features including {tags}. Ideal for users looking to boost productivity.',
+
+  // 404
+  'notFound.title': 'Page Not Found',
+  'notFound.description': 'The page you are looking for does not exist or has been removed.',
+  'notFound.backHome': 'Back to Home',
+  'notFound.popular': 'Popular Tools',
 
   // Footer
   'footer.copyright': 'Copyright © 2026 AI Nav. All Rights Reserved.',

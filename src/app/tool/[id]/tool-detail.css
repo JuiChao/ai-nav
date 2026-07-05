@@ -11,11 +11,36 @@
   gap: 2rem;
 }
 
+/* 面包屑导航 */
+.tool-detail__breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  flex-wrap: wrap;
+}
+
+.tool-detail__breadcrumb a {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.tool-detail__breadcrumb a:hover {
+  color: var(--color-text);
+}
+
+.tool-detail__breadcrumb [aria-current="page"] {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
 .tool-detail__back {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--text-secondary);
+  color: var(--color-text-secondary);
   text-decoration: none;
   font-weight: 500;
   font-size: 0.875rem;
@@ -24,15 +49,15 @@
 }
 
 .tool-detail__back:hover {
-  color: var(--text-primary);
+  color: var(--color-text);
 }
 
 .tool-detail__card {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-color);
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
   border-radius: 12px;
   padding: 2.5rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow-md);
 }
 
 .tool-detail__header {
@@ -41,16 +66,16 @@
   gap: 1.5rem;
   margin-bottom: 2.5rem;
   padding-bottom: 2rem;
-  border-bottom: 1px dashed var(--border-color);
+  border-bottom: 1px dashed var(--color-border);
 }
 
 .tool-detail__icon-wrapper {
   font-size: 4rem;
   line-height: 1;
-  background-color: var(--bg-body);
+  background-color: var(--color-bg);
   padding: 1rem;
   border-radius: 16px;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--color-border);
 }
 
 .tool-detail__title-section {
@@ -62,9 +87,25 @@
 .tool-detail__title {
   font-size: 2.5rem;
   font-weight: 800;
-  color: var(--text-primary);
+  color: var(--color-text);
   margin: 0;
   letter-spacing: -0.02em;
+}
+
+.tool-detail__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.tool-detail__category {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  background: var(--color-bg);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border);
 }
 
 .tool-detail__badges {
@@ -77,19 +118,26 @@
 .tool-detail__tags-section h3 {
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--color-text);
   margin: 0 0 1rem 0;
 }
 
 .tool-detail__description {
   font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin: 0 0 1rem 0;
+}
+
+.tool-detail__seo-text {
+  font-size: 0.9375rem;
   line-height: 1.6;
-  color: var(--text-secondary);
+  color: var(--color-text-muted);
   margin: 0 0 2.5rem 0;
 }
 
 .tool-detail__tags-section {
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
 .tool-detail__tags {
@@ -104,8 +152,8 @@
   justify-content: center;
   gap: 0.75rem;
   width: 100%;
-  background-color: var(--text-primary);
-  color: var(--bg-body);
+  background-color: var(--color-text);
+  color: var(--color-bg);
   padding: 1rem 2rem;
   border-radius: 8px;
   font-size: 1.125rem;
@@ -117,6 +165,60 @@
 .tool-detail__cta:hover {
   opacity: 0.9;
   transform: translateY(-2px);
+}
+
+/* 相关推荐 */
+.tool-detail__related h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 1rem 0;
+}
+
+.tool-detail__related-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.tool-detail__related-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.tool-detail__related-card:hover {
+  border-color: var(--color-border-hover);
+  box-shadow: var(--shadow-md);
+}
+
+.tool-detail__related-icon {
+  font-size: 2rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.tool-detail__related-card h3 {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 0.25rem 0;
+}
+
+.tool-detail__related-card p {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 @media (max-width: 640px) {
@@ -137,5 +239,9 @@
   
   .tool-detail__title {
     font-size: 2rem;
+  }
+
+  .tool-detail__related-grid {
+    grid-template-columns: 1fr;
   }
 }
