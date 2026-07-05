@@ -83,6 +83,7 @@ function ToolCard({ tool, index }: ToolCardProps) {
   return (
     <Link
       href={`/tool/${tool.id}`}
+      prefetch={false}
       className={`tool-card ${bgClass} ${tool.isFeatured ? 'tool-card--featured' : ''}`}
       id={`tool-${tool.id}`}
     >

@@ -6,6 +6,7 @@ import type { NextConfig } from 'next';
  */
 const nextConfig: NextConfig = {
   output: 'export',
+  trailingSlash: true,
   // NOTE: 静态导出不支持 Next.js 内置图片优化，需要禁用
   images: {
     unoptimized: true,
