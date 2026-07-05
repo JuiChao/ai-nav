@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Questrial&display=swap');
+/* 已移除 Google Fonts @import 以消除渲染阻塞，全部使用系统字体 */
 
 /* ─── 设计系统变量（Mimo Coder 风格 — 极雅暖灰色调） ─── */
 :root {
