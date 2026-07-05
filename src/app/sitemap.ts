@@ -1,11 +1,12 @@
 import { MetadataRoute } from 'next';
+import { AI_TOOLS } from '@/data/tools';
 
 export const dynamic = 'force-static';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://958000.xyz';
 
-  return [
+  const routes: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
       lastModified: new Date(),
@@ -13,4 +14,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
   ];
+
+  // 为每个工具添加一条 sitemap 记录
+  AI_TOOLS.forEach((tool) => {
+    routes.push({
+      url: `${baseUrl}/tool/${tool.id}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    });
+  });
+
+  return routes;
 }

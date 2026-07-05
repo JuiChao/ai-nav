@@ -1,0 +1,141 @@
+.tool-detail {
+  padding: 4rem 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+  min-height: calc(100vh - 200px);
+}
+
+.tool-detail__container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.tool-detail__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: color 0.2s;
+  align-self: flex-start;
+}
+
+.tool-detail__back:hover {
+  color: var(--text-primary);
+}
+
+.tool-detail__card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.tool-detail__header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px dashed var(--border-color);
+}
+
+.tool-detail__icon-wrapper {
+  font-size: 4rem;
+  line-height: 1;
+  background-color: var(--bg-body);
+  padding: 1rem;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+}
+
+.tool-detail__title-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.tool-detail__title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.tool-detail__badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tool-detail__content h2,
+.tool-detail__tags-section h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 1rem 0;
+}
+
+.tool-detail__description {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0 0 2.5rem 0;
+}
+
+.tool-detail__tags-section {
+  margin-bottom: 3rem;
+}
+
+.tool-detail__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tool-detail__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  background-color: var(--text-primary);
+  color: var(--bg-body);
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.tool-detail__cta:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 640px) {
+  .tool-detail__card {
+    padding: 1.5rem;
+  }
+  
+  .tool-detail__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .tool-detail__icon-wrapper {
+    font-size: 3rem;
+    padding: 0.75rem;
+  }
+  
+  .tool-detail__title {
+    font-size: 2rem;
+  }
+}

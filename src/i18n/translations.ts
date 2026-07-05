@@ -46,6 +46,12 @@ const zh: TranslationDict = {
   'grid.empty.title': '未找到匹配的工具',
   'grid.empty.description': '试试其他关键词或切换分类',
 
+  // Tool Detail
+  'tool.back': '返回首页',
+  'tool.about': '关于',
+  'tool.tags': '标签',
+  'tool.visit': '直达官网',
+
   // Footer
   'footer.copyright': 'Copyright © 2026 AI Nav. All Rights Reserved.',
   'footer.agreement': '服务协议',
@@ -99,6 +105,12 @@ const en: TranslationDict = {
   'grid.filtered.count': '{count} tools',
   'grid.empty.title': 'No tools found',
   'grid.empty.description': 'Try other keywords or change category',
+
+  // Tool Detail
+  'tool.back': 'Back to Home',
+  'tool.about': 'About',
+  'tool.tags': 'Tags',
+  'tool.visit': 'Visit Website',
 
   // Footer
   'footer.copyright': 'Copyright © 2026 AI Nav. All Rights Reserved.',

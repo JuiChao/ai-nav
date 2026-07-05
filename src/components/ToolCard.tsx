@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { ExternalLink } from 'lucide-react';
+import Link from 'next/link';
 import type { AiTool } from '@/types';
 import { useLocale } from '@/i18n/LocaleContext';
 import './ToolCard.css';
@@ -81,10 +81,8 @@ function ToolCard({ tool, index }: ToolCardProps) {
   const isDone = typedCount >= chars.length;
 
   return (
-    <a
-      href={tool.url}
-      target="_blank"
-      rel="noopener noreferrer"
+    <Link
+      href={`/tool/${tool.id}`}
       className={`tool-card ${bgClass} ${tool.isFeatured ? 'tool-card--featured' : ''}`}
       id={`tool-${tool.id}`}
     >
@@ -115,7 +113,6 @@ function ToolCard({ tool, index }: ToolCardProps) {
         {isIntersected && (
           <span className={`cursor ${isDone ? 'is-done' : ''}`} aria-hidden="true" />
         )}
-        <ExternalLink size={14} className="tool-card__link-icon" />
       </h3>
 
       <p className="tool-card__description">{description}</p>
@@ -127,7 +124,7 @@ function ToolCard({ tool, index }: ToolCardProps) {
           </span>
         ))}
       </div>
-    </a>
+    </Link>
   );
 }
 
