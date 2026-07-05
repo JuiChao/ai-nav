@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useLocale } from '@/i18n/LocaleContext';
 import Header, { Footer } from '@/components/Header';
 import { AI_TOOLS } from '@/data/tools';
-import './tool-detail.css';
+import './tool/[id]/tool-detail.css';
 
 /**
  * 自定义 404 页面
