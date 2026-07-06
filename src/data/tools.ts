@@ -795,19 +795,7 @@ export const AI_TOOLS: AiTool[] = [
     isFree: true,
     hasFreeTrial: true,
   },
-  {
-    id: 'grok',
-    name: 'Grok',
-    description: 'xAI 打造的 AI 助手，擅长实时信息获取和幽默对话',
-    descriptionEn: 'xAI\'s AI assistant excelling at real-time information and witty conversation',
-    url: 'https://grok.x.ai',
-    icon: '🦊',
-    category: 'chatbot',
-    tags: ['xAI', '实时', 'Twitter'],
-    tagsEn: ['xAI', 'Real-time', 'Twitter'],
-    isFree: false,
-    hasFreeTrial: true,
-  },
+
   {
     id: 'meta-ai',
     name: 'Meta AI',
@@ -820,18 +808,7 @@ export const AI_TOOLS: AiTool[] = [
     tagsEn: ['Meta', 'Llama', 'Open Source'],
     isFree: true,
   },
-  {
-    id: 'mistral',
-    name: 'Mistral Le Chat',
-    description: '法国 Mistral AI 的对话助手，欧洲领先的开源大模型',
-    descriptionEn: 'Chat assistant by Mistral AI, Europe\'s leading open-source LLM provider',
-    url: 'https://chat.mistral.ai',
-    icon: '🌊',
-    category: 'chatbot',
-    tags: ['Mistral', '开源', '欧洲'],
-    tagsEn: ['Mistral', 'Open Source', 'Europe'],
-    isFree: true,
-  },
+
   {
     id: 'adobe-firefly',
     name: 'Adobe Firefly',
