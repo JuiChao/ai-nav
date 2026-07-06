@@ -19,7 +19,7 @@ const zh: TranslationDict = {
 
   // Hero
   'hero.title': 'AI Navigation',
-  'hero.subtitle': '面向开发者的新一代 AI 导航助手，支持无限上下文，帮助你更高效地理解、构建与协作。',
+  'hero.subtitle': '精选全网最热门的 AI 工具，覆盖对话、绘画、视频、编程等领域，一站发现无限可能。',
   'hero.terminalCmd': 'npm install -g @ai-nav/cli',
 
   // Stats
@@ -88,7 +88,7 @@ const en: TranslationDict = {
 
   // Hero
   'hero.title': 'AI Navigation',
-  'hero.subtitle': 'Next-generation AI navigation assistant for developers. Discover, evaluate, and collaborate with ease.',
+  'hero.subtitle': 'Curated collection of the best AI tools across chat, art, video, coding and more — explore the future in one place.',
   'hero.terminalCmd': 'npm install -g @ai-nav/cli',
 
   // Stats
