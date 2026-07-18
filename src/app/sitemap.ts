@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { AI_TOOLS } from '@/data/tools';
+import { CATEGORIES } from '@/data/categories';
 
 export const dynamic = 'force-static';
 
@@ -22,6 +23,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,
+    });
+  });
+  // 为每个分类添加一条 sitemap 记录
+  CATEGORIES.forEach((category) => {
+    routes.push({
+      url: `${baseUrl}/category/${category.id}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
     });
   });
 

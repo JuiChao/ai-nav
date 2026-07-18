@@ -10,9 +10,9 @@ import featuredIds from '@/data/featured.json';
  * 管理工具列表的搜索与筛选逻辑
  * 搜索同时匹配中英文字段，确保双语模式下都能正常检索
  */
-export function useToolFilter() {
+export function useToolFilter(initialCategory: CategoryId = 'all') {
   const [searchQuery, setSearchQuery] = useState('');
-  const [activeCategory, setActiveCategory] = useState<CategoryId>('all');
+  const [activeCategory, setActiveCategory] = useState<CategoryId>(initialCategory);
 
   const filteredTools = useMemo<AiTool[]>(() => {
     let results = AI_TOOLS;

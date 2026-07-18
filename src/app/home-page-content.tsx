@@ -18,7 +18,7 @@ import { CATEGORIES } from '@/data/categories';
  * 首页客户端内容组件
  * 完整复刻 mimo.xiaomi.com/coder 的纸质极简设计风格
  */
-function HomePageContent() {
+function HomePageContent({ initialCategory = 'all' }: { initialCategory?: string }) {
   const { locale, t } = useLocale();
 
   const {
@@ -29,7 +29,7 @@ function HomePageContent() {
     handleSearch,
     handleCategoryChange,
     totalCount,
-  } = useToolFilter();
+  } = useToolFilter(initialCategory as any);
 
   // ─── Hero 副标题打字机动效 ───
   const subtitleText = t('hero.subtitle');
