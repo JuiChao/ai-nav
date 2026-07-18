@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://958000.xyz/sitemap.xml
