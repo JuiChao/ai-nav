@@ -68,7 +68,7 @@ export default function ToolDetailContent({ tool, categoryName, categoryId, rela
                 <p className="tool-detail__description">{description}</p>
                 {/* SEO 内容增强：自动生成基于标签的补充文字 */}
                 <p className="tool-detail__seo-text">
-                  {displayName} {t('tool.seoText', { tags: tags.join('、') })}
+                  {displayName} {t('tool.seoText', { tags: tags.join(locale === 'en' ? ', ' : '、') })}
                 </p>
               </section>
 

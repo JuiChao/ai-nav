@@ -42,15 +42,15 @@ function Header({ totalCount }: { totalCount: number }) {
                 </svg>
               </button>
               <div className="header__nav-menu" role="menu">
-                <Link className="header__nav-menu-item" href="#hero" role="menuitem">
+                <Link className="header__nav-menu-item" href="/#hero" role="menuitem">
                   {t('nav.navProductItem')} ({totalCount})
                 </Link>
               </div>
             </div>
             
-            <a className="header__nav-link" href="#category-nav">
+            <Link className="header__nav-link" href="/#category-nav">
               {t('stats.categories')}
-            </a>
+            </Link>
             <Link className="header__nav-link" href="/blog">
               {locale === 'en' ? 'Blog' : '博客资讯'}
             </Link>
