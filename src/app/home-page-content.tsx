@@ -14,6 +14,8 @@ import { useLocale } from '@/i18n/LocaleContext';
 import { useToolFilter } from '@/hooks/useToolFilter';
 
 import { CATEGORIES } from '@/data/categories';
+import Link from 'next/link';
+import { BLOG_POSTS } from '@/data/blog';
 
 /**
  * 首页客户端内容组件
@@ -150,6 +152,55 @@ function HomePageContent({ initialCategory = 'all' }: { initialCategory?: string
 
         </div>
       </main>
+
+      {/* 博客/深度资讯推荐区 - 增加网站的“发布者内容”占比，对抗 AdSense 导航模式限制 */}
+      <section className="home-seo-content" style={{ marginTop: '40px', marginBottom: '20px' }}>
+        <div className="home-seo-content__inner">
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
+            <h2 style={{ fontSize: '1.6rem', fontWeight: 700, margin: 0 }}>
+              {locale === 'en' ? 'Latest AI Insights & Articles' : '最新 AI 深度资讯与指南'}
+            </h2>
+            <Link href="/blog" style={{ color: 'var(--color-primary)', textDecoration: 'none', fontWeight: 600 }}>
+              {locale === 'en' ? 'View All →' : '查看全部 →'}
+            </Link>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+            {BLOG_POSTS.slice(0, 3).map((post) => (
+              <Link
+                key={post.id}
+                href={`/blog/${post.slug}`}
+                style={{
+                  padding: '20px',
+                  background: 'var(--color-bg)',
+                  borderRadius: '12px',
+                  border: '1px solid var(--color-border)',
+                  textDecoration: 'none',
+                  color: 'inherit',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justify: 'space-between'
+                }}
+              >
+                <div>
+                  <span style={{ fontSize: '0.75rem', background: 'rgba(59, 130, 246, 0.1)', color: 'var(--color-primary)', padding: '3px 8px', borderRadius: '12px', fontWeight: 600 }}>
+                    {post.category}
+                  </span>
+                  <h3 style={{ fontSize: '1.1rem', margin: '10px 0 8px', fontWeight: 600, color: 'var(--color-text)' }}>
+                    {locale === 'en' ? post.titleEn : post.title}
+                  </h3>
+                  <p style={{ fontSize: '0.9rem', color: 'var(--color-text-dim)', lineHeight: 1.5, margin: 0 }}>
+                    {locale === 'en' ? post.summaryEn : post.summary}
+                  </p>
+                </div>
+                <div style={{ marginTop: '16px', fontSize: '0.8rem', color: 'var(--color-text-dim)', display: 'flex', justifyContent: 'space-between' }}>
+                  <span>{post.date}</span>
+                  <span>{post.readTime}</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* SEO 增强内容区 - 注入原创新文本，提高 AdSense 审核通过率 */}
       <section className="home-seo-content">

@@ -51,6 +51,9 @@ function Header({ totalCount }: { totalCount: number }) {
             <a className="header__nav-link" href="#category-nav">
               {t('stats.categories')}
             </a>
+            <Link className="header__nav-link" href="/blog">
+              {locale === 'en' ? 'Blog' : '博客资讯'}
+            </Link>
           </nav>
 
           {/* 语言切换下拉菜单 */}
