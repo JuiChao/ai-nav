@@ -1,0 +1,85 @@
+.trust-page {
+  padding: 60px 20px;
+  background-color: var(--color-bg);
+  min-height: calc(100vh - 150px);
+}
+
+.trust-page__container {
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--color-text);
+  font-family: var(--font-primary);
+  line-height: 1.7;
+}
+
+.trust-page__container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: var(--color-text);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.trust-page__container h2 {
+  font-size: 1.8rem;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.trust-page__container h3 {
+  font-size: 1.4rem;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.trust-page__container p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  color: var(--color-text-dim);
+}
+
+.trust-page__container ul,
+.trust-page__container ol {
+  margin-bottom: 20px;
+  padding-left: 20px;
+  color: var(--color-text-dim);
+  font-size: 1.1rem;
+}
+
+.trust-page__container li {
+  margin-bottom: 10px;
+}
+
+.trust-page__container strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.trust-page__container a {
+  color: var(--color-primary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.trust-page__container a:hover {
+  border-color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+  .trust-page {
+    padding: 40px 16px;
+  }
+  
+  .trust-page__container h1 {
+    font-size: 2rem;
+  }
+  
+  .trust-page__container h2 {
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,75 @@
+
+/* SEO Enhancements */
+.home-seo-content {
+  margin: 60px auto;
+  max-width: 1200px;
+  padding: 0 20px;
+  font-family: var(--font-primary);
+  color: var(--color-text);
+}
+
+.home-seo-content__inner {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.seo-block {
+  margin-bottom: 40px;
+}
+
+.seo-block:last-child {
+  margin-bottom: 0;
+}
+
+.seo-block h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: var(--color-text);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.seo-block p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--color-text-dim);
+  margin-bottom: 15px;
+}
+
+.seo-faq-item {
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.seo-faq-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.seo-faq-item h3 {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .home-seo-content {
+    margin: 40px auto;
+  }
+  .home-seo-content__inner {
+    padding: 24px;
+    border-radius: 16px;
+  }
+  .seo-block h2 {
+    font-size: 1.5rem;
+  }
+  .seo-faq-item h3 {
+    font-size: 1.15rem;
+  }
+}

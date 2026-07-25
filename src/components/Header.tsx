@@ -112,9 +112,6 @@ function Header({ totalCount }: { totalCount: number }) {
 
 export default Header;
 
-/**
- * 完整复刻 Mimo 风格的页脚组件
- */
 export function Footer() {
   const { t } = useLocale();
 
@@ -123,17 +120,21 @@ export function Footer() {
       <div className="footer__inner">
         <span>{t('footer.copyright')}</span>
         <span className="footer__sep">|</span>
-        <a className="footer__link" href="#service-agreement">
-          {t('footer.agreement')}
-        </a>
+        <Link className="footer__link" href="/about">
+          {t('footer.about') || 'About Us'}
+        </Link>
         <span className="footer__sep">|</span>
-        <a className="footer__link" href="#privacy-policy">
-          {t('footer.privacy')}
-        </a>
+        <Link className="footer__link" href="/contact">
+          {t('footer.contact') || 'Contact'}
+        </Link>
         <span className="footer__sep">|</span>
-        <button className="footer__btn" type="button">
-          {t('footer.cookie')}
-        </button>
+        <Link className="footer__link" href="/terms">
+          {t('footer.agreement') || 'Terms'}
+        </Link>
+        <span className="footer__sep">|</span>
+        <Link className="footer__link" href="/privacy">
+          {t('footer.privacy') || 'Privacy'}
+        </Link>
       </div>
     </footer>
   );

@@ -1,0 +1,44 @@
+
+.tool-detail__rich-content {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+.tool-detail__rich-content h2 {
+  font-size: 1.5rem;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.tool-detail__rich-content h3 {
+  font-size: 1.25rem;
+  margin-top: 25px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.tool-detail__rich-content p {
+  margin-bottom: 15px;
+  font-size: 1.05rem;
+  color: var(--color-text-dim);
+}
+
+.tool-detail__rich-content ul {
+  padding-left: 20px;
+  margin-bottom: 20px;
+  color: var(--color-text-dim);
+}
+
+.tool-detail__rich-content li {
+  margin-bottom: 10px;
+}
+
+.tool-detail__rich-content strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
