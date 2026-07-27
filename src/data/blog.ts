@@ -289,15 +289,15 @@ Applying these frameworks ensures consistently high-quality outputs across all A
 ### 文本理解与生成
 三者在日常对话、邮件撰写、文案创作等基础任务上差距已极为有限，均达到了"专业写手"水准。但在以下细分场景中存在显著差异：
 
-- **ChatGPT（GPT-4.1 系列）**：在创意写作、角色扮演和代码生成方面最为均衡。其庞大的插件生态使其在数据分析（Advanced Data Analysis）和联网搜索方面具备独特优势。
-- **Claude（Claude 4 Opus/Sonnet）**：在超长文本处理方面领先，支持高达 20 万 Token 的上下文窗口。极度注重"安全与诚实"，回答风格严谨、不易产生幻觉。在法律文书分析、学术论文总结等需要高精度的场景中表现尤为出色。
-- **Gemini（Gemini 2.5 Pro/Flash）**：原生多模态能力最强，可以同时处理文本、图像、音频和视频。深度整合 Google 生态（Gmail、Docs、YouTube），在信息检索与跨模态任务中具备先天优势。
+- **ChatGPT（GPT-5o 系列）**：在创意写作、角色扮演和代码生成方面最为均衡。其庞大的插件生态使其在数据分析（Advanced Data Analysis）和联网搜索方面具备独特优势。
+- **Claude（Claude 4.5 Opus/Sonnet）**：在超长文本处理方面领先，支持高达 50 万 Token 的上下文窗口。极度注重"安全与诚实"，回答风格严谨、不易产生幻觉。在法律文书分析、学术论文总结等需要高精度的场景中表现尤为出色。
+- **Gemini（Gemini 3.0 Pro/Flash/Ultra）**：原生多模态能力最强，可以同时处理文本、图像、音频和视频。深度整合 Google 生态（Gmail、Docs、YouTube），在信息检索与跨模态任务中具备先天优势。
 
 ### 逻辑推理与数学
 在数学竞赛级推理题（如 AIME、IMO）上，三者均推出了"深度思考"模式：
-- ChatGPT 的 o3/o4-mini 系列专注于推理链优化
-- Claude 的"扩展思考"（Extended Thinking）提供透明的推理过程
-- Gemini 2.5 Pro 在复杂多步推理中展现出极强的稳定性
+- ChatGPT 的 o4-mini/o4 系列专注于推理链优化
+- Claude 4.5 的"扩展思考"（Extended Thinking）提供透明的推理过程
+- Gemini 3.0 Pro 在复杂多步推理中展现出极强的稳定性
 
 ---
 
@@ -305,14 +305,14 @@ Applying these frameworks ensures consistently high-quality outputs across all A
 
 | 项目 | ChatGPT | Claude | Gemini |
 |------|---------|--------|--------|
-| 免费版 | 有（GPT-4.1 mini） | 有（Sonnet 限额） | 有（Flash 限额） |
+| 免费版 | 有（GPT-5o mini） | 有（4.5 Sonnet 限额） | 有（3.0 Flash 限额） |
 | 个人订阅 | Plus $20/月 | Pro $20/月 | Advanced $19.99/月 |
 | 高级订阅 | Pro $200/月 | Max $100-200/月 | 含于 Google One AI |
 | API 定价 | 中等 | 较高（Opus） | 较低（Flash） |
 
 **性价比之王**：如果你是轻度用户，Google Gemini 的免费额度最为慷慨，且与 Google Workspace 深度集成，几乎零门槛。
 
-**专业开发者**：API 层面，Gemini Flash 以极低的 Token 单价和超快的推理速度成为"跑量型"应用的首选。Claude Haiku/Sonnet 在中间价位段提供了最佳的质量/成本平衡。
+**专业开发者**：API 层面，Gemini 3.0 Flash 以极低的 Token 单价和超快的推理速度成为"跑量型"应用的首选。Claude 4.5 Haiku/Sonnet 在中间价位段提供了最佳的质量/成本平衡。
 
 ---
 
@@ -371,15 +371,15 @@ In 2026, the Large Language Model (LLM) landscape has matured from a "who ships 
 ### Text Understanding & Generation
 All three perform at a "professional writer" level for everyday tasks like email drafting, content creation, and Q&A. However, key differences emerge in specialized scenarios:
 
-- **ChatGPT (GPT-4.1 series):** The most balanced across creative writing, role-playing, and code generation. Its massive plugin ecosystem provides unique advantages in data analysis (Advanced Data Analysis) and web-connected search.
-- **Claude (Claude 4 Opus/Sonnet):** Leads in ultra-long context processing with up to 200K token windows. Emphasizes safety and honesty, producing responses that are rigorous and less prone to hallucination. Excels at legal document analysis and academic paper summarization.
-- **Gemini (Gemini 2.5 Pro/Flash):** The strongest native multimodal capabilities, seamlessly processing text, images, audio, and video. Deep integration with Google's ecosystem (Gmail, Docs, YouTube) gives it an inherent edge in information retrieval and cross-modal tasks.
+- **ChatGPT (GPT-5o series):** The most balanced across creative writing, role-playing, and code generation. Its massive plugin ecosystem provides unique advantages in data analysis (Advanced Data Analysis) and web-connected search.
+- **Claude (Claude 4.5 Opus/Sonnet):** Leads in ultra-long context processing with up to 500K token windows. Emphasizes safety and honesty, producing responses that are rigorous and less prone to hallucination. Excels at legal document analysis and academic paper summarization.
+- **Gemini (Gemini 3.0 Pro/Flash/Ultra):** The strongest native multimodal capabilities, seamlessly processing text, images, audio, and video. Deep integration with Google's ecosystem (Gmail, Docs, YouTube) gives it an inherent edge in information retrieval and cross-modal tasks.
 
 ### Logical Reasoning & Math
 For competition-level reasoning problems (AIME, IMO), all three now offer "deep thinking" modes:
-- ChatGPT's o3/o4-mini series focuses on chain-of-thought optimization
-- Claude's Extended Thinking provides transparent reasoning processes
-- Gemini 2.5 Pro demonstrates exceptional stability in complex multi-step reasoning
+- ChatGPT's o4-mini/o4 series focuses on chain-of-thought optimization
+- Claude 4.5's Extended Thinking provides transparent reasoning processes
+- Gemini 3.0 Pro demonstrates exceptional stability in complex multi-step reasoning
 
 ---
 
@@ -387,14 +387,14 @@ For competition-level reasoning problems (AIME, IMO), all three now offer "deep 
 
 | Feature | ChatGPT | Claude | Gemini |
 |---------|---------|--------|--------|
-| Free Tier | Yes (GPT-4.1 mini) | Yes (Sonnet, limited) | Yes (Flash, limited) |
+| Free Tier | Yes (GPT-5o mini) | Yes (4.5 Sonnet, limited) | Yes (3.0 Flash, limited) |
 | Personal Plan | Plus $20/mo | Pro $20/mo | Advanced $19.99/mo |
 | Premium Plan | Pro $200/mo | Max $100-200/mo | Included in Google One AI |
 | API Pricing | Moderate | Higher (Opus) | Lower (Flash) |
 
 **Best Value for Casual Users:** Google Gemini offers the most generous free quota and integrates seamlessly with Google Workspace at virtually zero friction.
 
-**For Developers:** At the API level, Gemini Flash offers the lowest per-token cost with blazing inference speed, making it the go-to for high-volume applications. Claude Haiku/Sonnet provides the best quality-to-cost ratio in the mid-range.
+**For Developers:** At the API level, Gemini 3.0 Flash offers the lowest per-token cost with blazing inference speed, making it the go-to for high-volume applications. Claude 4.5 Haiku/Sonnet provides the best quality-to-cost ratio in the mid-range.
 
 ---
 
