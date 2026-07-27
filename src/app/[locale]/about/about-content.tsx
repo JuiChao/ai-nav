@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import Link from '@/components/LocalizedLink';
 import Header, { Footer } from '@/components/Header';
 import { useLocale } from '@/i18n/LocaleContext';
 import './trust-pages.css';

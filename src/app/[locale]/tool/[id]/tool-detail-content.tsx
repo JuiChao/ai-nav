@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import Link from '@/components/LocalizedLink';
 import { ExternalLink, ArrowLeft, ChevronRight } from 'lucide-react';
 import type { AiTool } from '@/types';
 import { useLocale } from '@/i18n/LocaleContext';

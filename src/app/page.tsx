@@ -1,9 +1,7 @@
-import HomePageContent from './home-page-content';
+import { redirect } from 'next/navigation';
 
-/**
- * 首页（服务端组件）
- * 渲染 AI 导航主页面
- */
-export default function HomePage() {
-  return <HomePageContent />;
+export default function RootPage() {
+  // 静态导出下，redirect('/') 通常会生成一个带有 <meta http-equiv="refresh"> 的 HTML
+  // 将根路径重定向到默认语言 (zh)
+  redirect('/zh');
 }

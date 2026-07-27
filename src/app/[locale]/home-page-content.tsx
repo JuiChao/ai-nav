@@ -1,8 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import './page.css';
-import './seo-content.css';
+import '../page.css';
+import '../seo-content.css';
 
 import Header, { Footer } from '@/components/Header';
 import CursorReveal from '@/components/CursorReveal';
@@ -14,7 +14,7 @@ import { useLocale } from '@/i18n/LocaleContext';
 import { useToolFilter } from '@/hooks/useToolFilter';
 
 import { CATEGORIES } from '@/data/categories';
-import Link from 'next/link';
+import Link from '@/components/LocalizedLink';
 import { BLOG_POSTS } from '@/data/blog';
 
 /**

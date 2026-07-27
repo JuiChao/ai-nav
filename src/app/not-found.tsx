@@ -1,19 +1,14 @@
 'use client';
 
-import Link from 'next/link';
-import { useLocale } from '@/i18n/LocaleContext';
+import Link from '@/components/LocalizedLink';
+import { useLocale, LocaleProvider } from '@/i18n/LocaleContext';
 import Header, { Footer } from '@/components/Header';
 import { AI_TOOLS } from '@/data/tools';
-import './tool/[id]/tool-detail.css';
+import './[locale]/tool/[id]/tool-detail.css';
 
-/**
- * 自定义 404 页面
- * 降低跳出率，引导用户回到有价值的页面
- */
-export default function NotFound() {
+function NotFoundContent() {
   const { t } = useLocale();
 
-  // 展示热门工具作为引导
   const popularTools = AI_TOOLS.filter((t) => t.isFeatured).slice(0, 4);
 
   return (
@@ -65,5 +60,21 @@ export default function NotFound() {
 
       <Footer />
     </div>
+  );
+}
+
+/**
+ * 自定义 404 页面
+ * 降低跳出率，引导用户回到有价值的页面
+ */
+export default function NotFound() {
+  return (
+    <html lang="zh-CN">
+      <body>
+        <LocaleProvider initialLocale="zh">
+          <NotFoundContent />
+        </LocaleProvider>
+      </body>
+    </html>
   );
 }

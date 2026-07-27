@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import Link from 'next/link';
+import Link from '@/components/LocalizedLink';
 import type { AiTool } from '@/types';
 import { useLocale } from '@/i18n/LocaleContext';
 import './ToolCard.css';
