@@ -1,5 +1,6 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import Link from '@/components/LocalizedLink';
 import { useLocale } from '@/i18n/LocaleContext';
 import './Header.css';
@@ -9,6 +10,11 @@ import './Header.css';
  */
 function Header({ totalCount }: { totalCount: number }) {
   const { locale, setLocale, t } = useLocale();
+  const pathname = usePathname();
+
+  // Create alternate language paths
+  const zhPath = pathname.replace(/^\/[a-z]{2}/, '/zh') || '/zh';
+  const enPath = pathname.replace(/^\/[a-z]{2}/, '/en') || '/en';
 
   return (
     <header className="header" id="header">
@@ -88,22 +94,22 @@ function Header({ totalCount }: { totalCount: number }) {
               </svg>
             </button>
             <div className="header__nav-menu header__lang-menu" role="menu">
-              <button
-                type="button"
+              <a
+                href={zhPath}
                 className={`header__nav-menu-item header__lang-option ${locale === 'zh' ? 'is-active' : ''}`}
                 onClick={() => setLocale('zh')}
                 role="menuitem"
               >
                 简体中文
-              </button>
-              <button
-                type="button"
+              </a>
+              <a
+                href={enPath}
                 className={`header__nav-menu-item header__lang-option ${locale === 'en' ? 'is-active' : ''}`}
                 onClick={() => setLocale('en')}
                 role="menuitem"
               >
                 English
-              </button>
+              </a>
             </div>
           </div>
         </div>

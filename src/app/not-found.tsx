@@ -1,5 +1,7 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import Link from '@/components/LocalizedLink';
 import { useLocale, LocaleProvider } from '@/i18n/LocaleContext';
 import Header, { Footer } from '@/components/Header';
@@ -7,7 +9,8 @@ import { AI_TOOLS } from '@/data/tools';
 import './[locale]/tool/[id]/tool-detail.css';
 
 function NotFoundContent() {
-  const { t } = useLocale();
+  const { locale, t } = useLocale();
+  const isEn = locale === 'en';
 
   const popularTools = AI_TOOLS.filter((t) => t.isFeatured).slice(0, 4);
 
@@ -47,8 +50,8 @@ function NotFoundContent() {
                   <Link key={tool.id} href={`/tool/${tool.id}`} className="tool-detail__related-card">
                     <span className="tool-detail__related-icon">{tool.icon}</span>
                     <div>
-                      <h3>{tool.name}</h3>
-                      <p>{tool.description}</p>
+                      <h3>{isEn && tool.nameEn ? tool.nameEn : tool.name}</h3>
+                      <p>{isEn && tool.descriptionEn ? tool.descriptionEn : tool.description}</p>
                     </div>
                   </Link>
                 ))}
@@ -68,10 +71,23 @@ function NotFoundContent() {
  * 降低跳出率，引导用户回到有价值的页面
  */
 export default function NotFound() {
+  const pathname = usePathname();
+  const [detectedLocale, setDetectedLocale] = useState<'zh' | 'en'>('zh');
+
+  useEffect(() => {
+    if (pathname && pathname.startsWith('/en')) {
+      setDetectedLocale('en');
+    }
+  }, [pathname]);
+
   return (
-    <html lang="zh-CN">
+    <html lang={detectedLocale === 'en' ? 'en' : 'zh-CN'}>
+      <head>
+        <title>{detectedLocale === 'en' ? 'Page Not Found - AI Nav' : '页面未找到 - AI 导航'}</title>
+        <meta name="description" content={detectedLocale === 'en' ? 'The page you are looking for does not exist.' : '您寻找的页面不存在。'} />
+      </head>
       <body>
-        <LocaleProvider initialLocale="zh">
+        <LocaleProvider initialLocale={detectedLocale}>
           <NotFoundContent />
         </LocaleProvider>
       </body>

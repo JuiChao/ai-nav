@@ -89,7 +89,7 @@ export default async function ToolPage({ params }: { params: Promise<{ locale: s
     .slice(0, 4);
 
   // SoftwareApplication 结构化数据
-  const appSchema = {
+  const appSchema: any = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
     name: toolName,
@@ -97,13 +97,16 @@ export default async function ToolPage({ params }: { params: Promise<{ locale: s
     applicationCategory: 'WebApplication',
     operatingSystem: 'Any',
     url: tool.url,
-    offers: {
+  };
+
+  if (tool.isFree) {
+    appSchema.offers = {
       '@type': 'Offer',
-      price: tool.isFree ? '0' : undefined,
+      price: '0',
       priceCurrency: 'USD',
       availability: 'https://schema.org/OnlineOnly',
-    },
-  };
+    };
+  }
 
   const homeLabel = TRANSLATIONS[locale as Locale]['tool.breadcrumb.home'] || 'Home';
 
@@ -122,7 +125,7 @@ export default async function ToolPage({ params }: { params: Promise<{ locale: s
         '@type': 'ListItem',
         position: 2,
         name: categoryName,
-        item: `${siteUrl}/${locale}/#category-${tool.category}`,
+        item: `${siteUrl}/${locale}/category/${tool.category}`,
       },
       {
         '@type': 'ListItem',

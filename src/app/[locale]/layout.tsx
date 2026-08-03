@@ -49,6 +49,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       title: isEn ? 'AI Nav - Best AI Tools Directory' : 'AI 导航 - 发现最好用的 AI 工具',
       description: isEn ? 'Discover 79+ curated AI tools.' : '精选收录 79+ 款各领域优质 AI 工具，一站式探索 AI 的无限可能。',
       images: ['/og-image.png'],
+      creator: '@jui_chao',
+      site: '@jui_chao',
     },
     alternates: {
       canonical: `${siteUrl}/${locale}`,
@@ -60,6 +62,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     icons: {
       icon: '/favicon.svg',
       apple: '/favicon.svg',
+    },
+    generator: 'Next.js',
+    applicationName: isEn ? 'AI Nav' : 'AI 导航',
+    appleWebApp: {
+      title: isEn ? 'AI Nav' : 'AI 导航',
+      statusBarStyle: 'default',
     },
   };
 }
@@ -94,23 +102,6 @@ export default async function RootLayout({
                   urlTemplate: `${siteUrl}/${locale}/?q={search_term_string}`,
                 },
                 'query-input': 'required name=search_term_string',
-              },
-            }),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'CollectionPage',
-              name: locale === 'en' ? 'AI Tools Directory' : 'AI 工具大全',
-              description: locale === 'en' ? '79+ curated AI tools.' : '收录 79+ 款精选 AI 工具，涵盖对话、图像、视频、编程等 9 大类别。',
-              url: `${siteUrl}/${locale}`,
-              isPartOf: {
-                '@type': 'WebSite',
-                name: locale === 'en' ? 'AI Nav' : 'AI 导航',
-                url: `${siteUrl}/${locale}`,
               },
             }),
           }}

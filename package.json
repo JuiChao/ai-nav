@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && tsx scripts/generate-sitemap.ts",
     "sitemap": "tsx scripts/generate-sitemap.ts",
     "start": "next start",
     "lint": "next lint"
