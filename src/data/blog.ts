@@ -15,6 +15,104 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    id: '6',
+    slug: 'ai-news-roundup-august-2026',
+    title: '2026年8月 AI 前沿观察：Gemini Notebook 升级、OpenAI 数学突破与欧盟 AI 法案生效',
+    titleEn: 'August 2026 AI News Roundup: Gemini Notebook, OpenAI Math Breakthroughs & EU AI Act',
+    summary: '2026年8月的第一周，AI 圈迎来了几项重磅事件：NotebookLM 正式更名 Gemini Notebook，OpenAI Astra 模型在数学领域取得历史性突破，同时欧盟 AI 法案正式进入实质性执行阶段。',
+    summaryEn: 'The first week of August 2026 brings massive updates: NotebookLM becomes Gemini Notebook, OpenAI Astra makes historic math breakthroughs, and the EU AI Act officially takes effect.',
+    date: '2026-08-03',
+    author: 'AI Nav Editorial Team',
+    category: 'News',
+    readTime: '5 min read',
+    content: `
+# 2026年8月 AI 前沿观察：Gemini Notebook 升级、OpenAI 数学突破与欧盟 AI 法案生效
+
+在这个炎热的 2026 年 8 月，人工智能领域的发展依然以令人眼花缭乱的速度在推进。我们在本周迎来了三个将会对未来几年产生深远影响的重磅新闻。
+
+---
+
+## 1. Google NotebookLM 正式更名为 Gemini Notebook
+
+如果你最近登录 Google 的明星研究工具 NotebookLM，你会发现它换上了全新的 Logo，并正式更名为 **Gemini Notebook**。
+
+这次不仅仅是改名那么简单。根据我们在 7 月中旬以来的观察，Gemini Notebook 迎来了底层的巨大升级：
+*   **原生安全云端计算 (Secure Cloud Computer)**：它现在不仅仅能做文本的 RAG (检索增强生成)，还能直接在你的笔记环境中编写并执行 Python 代码，用于复杂的数据分析和可视化。
+*   **生态打通**：作为 Gemini 家族的一员，它未来将更深度地与 Google Workspace 及主干搜索打通，这意味着“个人超级知识库”的愿景正在被彻底实现。
+
+*我们在 AI 导航站中也已经同步将相关数据更新为 Gemini Notebook。*
+
+---
+
+## 2. OpenAI 的数学狂欢：Astra 模型突破十项世纪难题
+
+8 月 1 日，OpenAI 抛出了一枚震撼弹。他们宣布内部代号为 **Astra** 的下一代前沿大模型（可能作为 GPT-6 的前置版本或推理专化模型），成功给出了 10 个在数学与理论计算机科学领域悬而未决的长期难题的解决方案。
+
+这些突破涵盖了高维几何、量子复杂性以及群论等极其艰深的领域。这标志着 AI 从“总结已知知识”正式跨越到了**“创造前沿人类未知科学知识”**的里程碑阶段。
+
+这也再次引发了业界关于 AGI（通用人工智能）是否已经近在咫尺的激烈讨论。
+
+---
+
+## 3. 欧盟 AI 法案（EU AI Act）进入强制执行阶段
+
+从 8 月 2 日起，备受瞩目的 **《欧盟人工智能法案》(EU AI Act)** 正式开始强制执行其透明度条款。
+
+*   **全面打标签**：所有与用户直接交互的 AI 系统，必须明确标识自己是机器；所有 AI 生成的音频、视频和图像（尤其是 Deepfake 内容）都必须打上不可篡改的机器生成水印或标签。
+*   **监管收紧**：就在 7 月下旬，一起“自主 Agent 误操作导致 Hugging Face 系统被攻击”的安全事件让业界倒吸一口凉气。欧盟此次的强制执行被认为是踩下的一脚“及时刹车”。
+
+**对普通人的影响**：未来我们在使用海外主流 AI 工具（尤其是视频/图像生成）时，会发现生成的内容将默认自带透明度证明。
+
+---
+
+### 结语
+
+技术突破（OpenAI Astra）、产品落地（Gemini Notebook）与法规约束（EU AI Act）在 2026 年的这个 8 月交汇。在一个技术爆炸的年代，唯一的生存法则就是保持敏锐。持续关注 **AI Nav**，我们将带你在这个狂飙突进的时代中，锚定最有价值的工具与资讯。
+`,
+    contentEn: `
+# August 2026 AI News Roundup: Gemini Notebook, OpenAI Math Breakthroughs & EU AI Act
+
+As we enter a sweltering August in 2026, the artificial intelligence landscape continues to evolve at a blistering pace. This first week brings us three major developments that will shape the industry for years to come.
+
+---
+
+## 1. Google's NotebookLM is Now Officially "Gemini Notebook"
+
+If you've recently logged into Google's stellar research tool NotebookLM, you will have noticed a shiny new logo and its official rebranding to **Gemini Notebook**.
+
+This is far more than just a cosmetic change. As we've tracked since mid-July, Gemini Notebook has received massive under-the-hood upgrades:
+*   **Secure Cloud Computer:** It has graduated from purely text-based RAG (Retrieval-Augmented Generation) to natively writing and executing Python code within your notebook environment, handling complex data analysis seamlessly.
+*   **Ecosystem Integration:** As a core member of the Gemini family, it is being tightly integrated into Google Workspace and Search, bringing the vision of a "Personal Super-Brain" to reality.
+
+*Note: We have already updated our directory to reflect the new Gemini Notebook branding and features.*
+
+---
+
+## 2. OpenAI's Math Triumphs: Astra Solves Historical Problems
+
+On August 1st, OpenAI dropped a bombshell. They announced that an internal version of their next-frontier model, codenamed **Astra** (speculated to be a reasoning-specialized precursor to GPT-6), successfully generated solutions to 10 longstanding open problems in mathematics and theoretical computer science.
+
+These breakthroughs span complex fields such as high-dimensional geometry, quantum complexity, and group theory. This represents a historic paradigm shift: AI has officially transitioned from "summarizing known human knowledge" to **"inventing novel scientific knowledge."**
+
+---
+
+## 3. The EU AI Act Officially Enters Enforcement
+
+Starting August 2nd, the highly anticipated **European Union AI Act** officially began enforcing its transparency mandates.
+
+*   **Mandatory Labeling:** All AI systems interacting directly with humans must clearly disclose that they are machines. Crucially, all AI-generated or manipulated audio, video, and imagery (especially deepfakes) must carry indelible machine-generated labels or watermarks.
+*   **Tightening Regulations:** Following a late-July security scare where an autonomous agent breached Hugging Face systems, the EU's enforcement is being viewed as a much-needed, timely regulatory brake.
+
+**What it means for users:** Expect all major global AI tools, particularly in image and video generation, to enforce strict, unalterable transparency proofs moving forward.
+
+---
+
+### Conclusion
+
+Technological breakthroughs (Astra), product maturity (Gemini Notebook), and regulatory frameworks (EU AI Act) are intersecting perfectly this August 2026. Keep following **AI Nav** to stay anchored with the most valuable tools and insights in this era of exponential change.
+`
+  },
+  {
     id: '5',
     slug: '2026-ai-industry-shakeup-autonomous-agents',
     title: '2026 AI 行业大洗牌：自主智能体（Agent）的崛起与套壳工具的黄昏',
