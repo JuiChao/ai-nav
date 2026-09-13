@@ -38,16 +38,16 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: `${title} | ${isEn ? 'AI Nav Blog' : 'AI 导航博客'}`,
     description: summary,
     alternates: {
-      canonical: `${siteUrl}/${locale}/blog/${post.slug}`,
+      canonical: `${siteUrl}/${locale}/blog/${post.slug}/`,
       languages: {
-        'zh-CN': `${siteUrl}/zh/blog/${post.slug}`,
-        'en': `${siteUrl}/en/blog/${post.slug}`,
+        'zh-CN': `${siteUrl}/zh/blog/${post.slug}/`,
+        'en': `${siteUrl}/en/blog/${post.slug}/`,
       }
     },
     openGraph: {
       title,
       description: summary,
-      url: `${siteUrl}/${locale}/blog/${post.slug}`,
+      url: `${siteUrl}/${locale}/blog/${post.slug}/`,
       type: 'article',
       siteName: isEn ? 'AI Nav' : 'AI 导航',
     },
@@ -77,19 +77,19 @@ export default async function BlogPostPage({ params }: { params: Promise<{ local
         '@type': 'ListItem',
         position: 1,
         name: homeLabel,
-        item: `${siteUrl}/${locale}`,
+        item: `${siteUrl}/${locale}/`,
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: blogLabel,
-        item: `${siteUrl}/${locale}/blog`,
+        item: `${siteUrl}/${locale}/blog/`,
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: title,
-        item: `${siteUrl}/${locale}/blog/${post.slug}`,
+        item: `${siteUrl}/${locale}/blog/${post.slug}/`,
       },
     ],
   };

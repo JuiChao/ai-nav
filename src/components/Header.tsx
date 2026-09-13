@@ -12,9 +12,10 @@ function Header({ totalCount }: { totalCount: number }) {
   const { locale, setLocale, t } = useLocale();
   const pathname = usePathname();
 
-  // Create alternate language paths
-  const zhPath = pathname.replace(/^\/[a-z]{2}/, '/zh') || '/zh';
-  const enPath = pathname.replace(/^\/[a-z]{2}/, '/en') || '/en';
+  // Create alternate language paths with proper trailing slash
+  const ensureSlash = (p: string) => (p.endsWith('/') ? p : `${p}/`);
+  const zhPath = ensureSlash(pathname.replace(/^\/[a-z]{2}/, '/zh') || '/zh');
+  const enPath = ensureSlash(pathname.replace(/^\/[a-z]{2}/, '/en') || '/en');
 
   return (
     <header className="header" id="header">

@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       title: isEn ? 'AI Nav - Best AI Tools Directory' : 'AI 导航 - 发现最好用的 AI 工具',
       description: isEn ? 'Discover 79+ curated AI tools.' : '精选收录 79+ 款各领域优质 AI 工具，一站式探索 AI 的无限可能。',
       type: 'website',
-      url: `${siteUrl}/${locale}`,
+      url: `${siteUrl}/${locale}/`,
       siteName: isEn ? 'AI Nav' : 'AI 导航 | AI Nav',
       images: [
         {
@@ -53,10 +53,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       site: '@jui_chao',
     },
     alternates: {
-      canonical: `${siteUrl}/${locale}`,
+      canonical: `${siteUrl}/${locale}/`,
       languages: {
-        'zh-CN': `${siteUrl}/zh`,
-        'en': `${siteUrl}/en`,
+        'zh-CN': `${siteUrl}/zh/`,
+        'en': `${siteUrl}/en/`,
       },
     },
     icons: {

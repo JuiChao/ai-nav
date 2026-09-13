@@ -14,16 +14,16 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       ? 'AI Nav is your premier platform for discovering the best AI tools. Learn about our mission and team.' 
       : 'AI 导航是您发现最佳人工智能工具的首选平台。了解我们的使命、愿景与团队。',
     alternates: { 
-      canonical: `${siteUrl}/${locale}/about`,
+      canonical: `${siteUrl}/${locale}/about/`,
       languages: {
-        'zh-CN': `${siteUrl}/zh/about`,
-        'en': `${siteUrl}/en/about`,
+        'zh-CN': `${siteUrl}/zh/about/`,
+        'en': `${siteUrl}/en/about/`,
       }
     },
     openGraph: {
       title: isEn ? 'About AI Nav' : '关于 AI 导航 - About AI Nav',
       description: isEn ? 'Discover the best AI tools with AI Nav.' : 'AI 导航是您发现最佳人工智能工具的首选平台。',
-      url: `${siteUrl}/${locale}/about`,
+      url: `${siteUrl}/${locale}/about/`,
       type: 'website',
       siteName: isEn ? 'AI Nav' : 'AI 导航',
     },

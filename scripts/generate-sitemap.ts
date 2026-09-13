@@ -12,11 +12,12 @@ function createUrlEntry(path: string, priority: string, changefreq: string = 'we
   const lastmod = new Date().toISOString();
   
   for (const locale of locales) {
-    const loc = `${siteUrl}/${locale}${path}`;
+    const cleanPath = path ? (path.endsWith('/') ? path : `${path}/`) : '/';
+    const loc = `${siteUrl}/${locale}${cleanPath}`;
     
     let alternates = '';
     for (const altLocale of locales) {
-      const altUrl = `${siteUrl}/${altLocale}${path}`;
+      const altUrl = `${siteUrl}/${altLocale}${cleanPath}`;
       const lang = altLocale === 'zh' ? 'zh-CN' : altLocale;
       alternates += `\n    <xhtml:link rel="alternate" hreflang="${lang}" href="${altUrl}"/>`;
     }

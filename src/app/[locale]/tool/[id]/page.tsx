@@ -46,16 +46,16 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     description: `${toolName} - ${toolDesc}. ${freeText} ${descSuffix}`,
     keywords: [...tool.tags, toolName, categoryName ?? 'AI', isEn ? 'AI tools' : 'AI工具'],
     alternates: {
-      canonical: `${siteUrl}/${locale}/tool/${tool.id}`,
+      canonical: `${siteUrl}/${locale}/tool/${tool.id}/`,
       languages: {
-        'zh-CN': `${siteUrl}/zh/tool/${tool.id}`,
-        'en': `${siteUrl}/en/tool/${tool.id}`,
+        'zh-CN': `${siteUrl}/zh/tool/${tool.id}/`,
+        'en': `${siteUrl}/en/tool/${tool.id}/`,
       }
     },
     openGraph: {
       title: `${toolName} - ${toolDesc}`,
       description: `${toolDesc}`,
-      url: `${siteUrl}/${locale}/tool/${tool.id}`,
+      url: `${siteUrl}/${locale}/tool/${tool.id}/`,
       type: 'article',
       siteName: isEn ? 'AI Nav' : 'AI 导航',
       images: [{ url: '/og-image.png', width: 1200, height: 630 }],
@@ -130,19 +130,19 @@ export default async function ToolPage({ params }: { params: Promise<{ locale: s
         '@type': 'ListItem',
         position: 1,
         name: homeLabel,
-        item: `${siteUrl}/${locale}`,
+        item: `${siteUrl}/${locale}/`,
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: categoryName,
-        item: `${siteUrl}/${locale}/category/${tool.category}`,
+        item: `${siteUrl}/${locale}/category/${tool.category}/`,
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: toolName,
-        item: `${siteUrl}/${locale}/tool/${tool.id}`,
+        item: `${siteUrl}/${locale}/tool/${tool.id}/`,
       },
     ],
   };

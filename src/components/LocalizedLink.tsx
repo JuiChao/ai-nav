@@ -13,7 +13,11 @@ export default function LocalizedLink({ href, ...props }: LocalizedLinkProps) {
   
   if (typeof href === 'string') {
     if (href.startsWith('/')) {
-      localizedHref = `/${locale}${href === '/' ? '' : href}`;
+      // 保留 hash 锚点（例如 /#hero）
+      const [path, hash] = href.split('#');
+      const cleanPath = path === '/' ? '' : path.replace(/\/+$/, '');
+      const hashPart = hash ? `#${hash}` : '';
+      localizedHref = `/${locale}${cleanPath}/${hashPart}`;
     }
   }
 

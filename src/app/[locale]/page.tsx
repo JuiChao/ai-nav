@@ -13,7 +13,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
     '@type': 'CollectionPage',
     name: locale === 'en' ? 'AI Tools Directory' : 'AI 工具大全',
     description: locale === 'en' ? 'Curated AI tools directory.' : '精选优质 AI 工具导航站',
-    url: `${siteUrl}/${locale}`,
+    url: `${siteUrl}/${locale}/`,
   };
 
   const faqSchema = {

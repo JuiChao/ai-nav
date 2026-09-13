@@ -41,16 +41,16 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     description,
     keywords: [categoryName, isEn ? 'AI tools' : 'AI工具', isEn ? 'AI Nav' : 'AI导航', category.nameEn, '人工智能'],
     alternates: {
-      canonical: `${siteUrl}/${locale}/category/${category.id}`,
+      canonical: `${siteUrl}/${locale}/category/${category.id}/`,
       languages: {
-        'zh-CN': `${siteUrl}/zh/category/${category.id}`,
-        'en': `${siteUrl}/en/category/${category.id}`,
+        'zh-CN': `${siteUrl}/zh/category/${category.id}/`,
+        'en': `${siteUrl}/en/category/${category.id}/`,
       }
     },
     openGraph: {
       title,
       description,
-      url: `${siteUrl}/${locale}/category/${category.id}`,
+      url: `${siteUrl}/${locale}/category/${category.id}/`,
       type: 'website',
       siteName: isEn ? 'AI Nav' : 'AI 导航',
       images: [{ url: '/og-image.png', width: 1200, height: 630 }],

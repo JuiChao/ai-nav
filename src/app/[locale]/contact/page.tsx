@@ -14,16 +14,16 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       ? 'Contact the AI Nav team for tool submissions, advertising, or general inquiries. Email: admin@958000.xyz' 
       : '联系 AI 导航团队：提交 AI 工具、广告合作、一般咨询。Email: admin@958000.xyz',
     alternates: { 
-      canonical: `${siteUrl}/${locale}/contact`,
+      canonical: `${siteUrl}/${locale}/contact/`,
       languages: {
-        'zh-CN': `${siteUrl}/zh/contact`,
-        'en': `${siteUrl}/en/contact`,
+        'zh-CN': `${siteUrl}/zh/contact/`,
+        'en': `${siteUrl}/en/contact/`,
       }
     },
     openGraph: {
       title: isEn ? 'Contact AI Nav' : '联系我们 - Contact | AI 导航',
       description: isEn ? 'Contact the AI Nav team.' : '联系 AI 导航团队：提交工具、广告合作、咨询。',
-      url: `${siteUrl}/${locale}/contact`,
+      url: `${siteUrl}/${locale}/contact/`,
       type: 'website',
       siteName: isEn ? 'AI Nav' : 'AI 导航',
     },
