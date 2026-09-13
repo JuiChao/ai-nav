@@ -42,3 +42,61 @@
   color: var(--color-text);
   font-weight: 600;
 }
+
+/* 优缺点对比卡片 */
+.tool-detail__pros-cons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin: 1.5rem 0 2rem 0;
+}
+
+@media (max-width: 640px) {
+  .tool-detail__pros-cons {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tool-detail__pros,
+.tool-detail__cons {
+  padding: 1.25rem 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+  background: var(--surface-color, rgba(255, 255, 255, 0.03));
+}
+
+.tool-detail__pros {
+  border-left: 4px solid #10b981;
+}
+
+.tool-detail__cons {
+  border-left: 4px solid #f59e0b;
+}
+
+.tool-detail__pros h4 {
+  color: #10b981;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.tool-detail__cons h4 {
+  color: #f59e0b;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.tool-detail__pros ul,
+.tool-detail__cons ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.tool-detail__pros li,
+.tool-detail__cons li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}

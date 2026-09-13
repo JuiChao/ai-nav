@@ -75,45 +75,95 @@ export default function ToolDetailContent({ tool, categoryName, categoryId, rela
               <section className="tool-detail__rich-content">
                 {locale === 'en' ? (
                   <>
-                    <h2>Why Use {displayName}?</h2>
-                    <p>{displayName} is one of the leading tools in the <strong>{categoryName}</strong> space. Whether you are a beginner looking to explore new capabilities or a professional aiming to streamline your workflow, {displayName} offers a robust set of features. By leveraging advanced AI models, it helps users save time and achieve better results.</p>
-                    
-                    <h3>Key Features</h3>
-                    <ul>
-                      <li><strong>Advanced AI Capabilities:</strong> Built with state-of-the-art algorithms to deliver high-quality outputs.</li>
-                      <li><strong>User-Friendly Interface:</strong> Designed to be intuitive so you can focus on your tasks without a steep learning curve.</li>
-                      <li><strong>Tag Highlights:</strong> Optimized for {tags.slice(0, 3).join(', ')}.</li>
-                    </ul>
+                    <h2>Expert Review: Is {displayName} Worth It?</h2>
+                    {tool.features && tool.featuresEn && tool.featuresEn.length > 0 ? (
+                      <>
+                        <h3>Key Features</h3>
+                        <ul>
+                          {tool.featuresEn.map((f, i) => <li key={i}>{f}</li>)}
+                        </ul>
+                        
+                        <div className="tool-detail__pros-cons">
+                          <div className="tool-detail__pros">
+                            <h4>Pros</h4>
+                            <ul>
+                              {tool.prosEn?.map((p, i) => <li key={i}>{p}</li>)}
+                            </ul>
+                          </div>
+                          <div className="tool-detail__cons">
+                            <h4>Cons</h4>
+                            <ul>
+                              {tool.consEn?.map((c, i) => <li key={i}>{c}</li>)}
+                            </ul>
+                          </div>
+                        </div>
+
+                        <h3>Best For</h3>
+                        <ul>
+                          {tool.useCasesEn?.map((u, i) => <li key={i}>{u}</li>)}
+                        </ul>
+                      </>
+                    ) : (
+                      <>
+                        <p>{displayName} is a prominent tool in the <strong>{categoryName}</strong> space, specialized in {tags.join(', ')}.</p>
+                        <p>It helps professionals streamline their workflow by providing features aligned with {tool.descriptionEn}.</p>
+                      </>
+                    )}
 
                     <h3>Pricing Model</h3>
                     <p>
                       {tool.isFree 
-                        ? `${displayName} is completely free to use, making it an excellent choice for anyone looking to get started without financial commitment.` 
+                        ? `${displayName} is completely free to use.` 
                         : (tool.hasFreeTrial 
-                            ? `While ${displayName} is a premium service, it offers a free trial or a freemium tier, allowing you to test its capabilities before subscribing.` 
-                            : `${displayName} requires a paid subscription, which is tailored for professionals who need reliable, enterprise-grade AI features.`)
+                            ? `${displayName} offers a free trial or freemium tier.` 
+                            : `${displayName} requires a paid subscription.`)
                       }
                     </p>
                   </>
                 ) : (
                   <>
-                    <h2>为什么选择 {displayName}？</h2>
-                    <p>{displayName} 是 <strong>{categoryName}</strong> 领域的领先工具之一。无论您是想要探索新功能的初学者，还是旨在简化工作流程的专业人士，{displayName} 都提供了一套强大的功能。通过利用先进的 AI 模型，它可以帮助用户节省时间并取得更好的成果。</p>
-                    
-                    <h3>核心功能与优势</h3>
-                    <ul>
-                      <li><strong>先进的 AI 能力：</strong> 采用最先进的算法构建，提供高质量的生成结果和反馈。</li>
-                      <li><strong>用户友好的界面：</strong> 直观的设计使您可以专注于手头的任务，而无需经历陡峭的学习曲线。</li>
-                      <li><strong>领域优化：</strong> 在 {tags.slice(0, 3).join('、')} 方面表现尤为突出。</li>
-                    </ul>
+                    <h2>独家评测：{displayName} 值得使用吗？</h2>
+                    {tool.features && tool.features.length > 0 ? (
+                      <>
+                        <h3>🚀 核心功能特色</h3>
+                        <ul>
+                          {tool.features.map((f, i) => <li key={i}>{f}</li>)}
+                        </ul>
+                        
+                        <div className="tool-detail__pros-cons">
+                          <div className="tool-detail__pros">
+                            <h4>✅ 优势与亮点</h4>
+                            <ul>
+                              {tool.pros?.map((p, i) => <li key={i}>{p}</li>)}
+                            </ul>
+                          </div>
+                          <div className="tool-detail__cons">
+                            <h4>❌ 局限性与不足</h4>
+                            <ul>
+                              {tool.cons?.map((c, i) => <li key={i}>{c}</li>)}
+                            </ul>
+                          </div>
+                        </div>
 
-                    <h3>定价模式</h3>
+                        <h3>🎯 适用场景与目标受众</h3>
+                        <ul>
+                          {tool.useCases?.map((u, i) => <li key={i}>{u}</li>)}
+                        </ul>
+                      </>
+                    ) : (
+                      <>
+                        <p>{displayName} 是一款在 <strong>{categoryName}</strong> 领域表现突出的 AI 工具，其主要擅长于 {tags.join('、')}。</p>
+                        <p>这是一款帮助提升效率的工具，主要解决了以下需求：{tool.description}。</p>
+                      </>
+                    )}
+
+                    <h3>💰 定价模式</h3>
                     <p>
                       {tool.isFree 
-                        ? `${displayName} 是完全免费的工具，非常适合想要零成本入门和体验的用户。` 
+                        ? `${displayName} 目前完全免费，适合所有用户零门槛体验。` 
                         : (tool.hasFreeTrial 
-                            ? `虽然 ${displayName} 是一项高级服务，但它提供免费试用或免费基础版（Freemium），允许您在订阅前充分测试其功能。` 
-                            : `${displayName} 需要付费订阅，专为需要可靠、企业级 AI 服务的专业人士量身定制。`)
+                            ? `${displayName} 提供了免费试用版或基础免费额度，允许您在正式订阅前进行深度体验。` 
+                            : `${displayName} 为纯付费订阅模式，主要面向追求高稳定性和高阶功能的专业级用户。`)
                       }
                     </p>
                   </>

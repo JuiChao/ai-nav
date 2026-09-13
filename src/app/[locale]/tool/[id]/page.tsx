@@ -66,6 +66,17 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       description: toolDesc,
       images: ['/og-image.png'],
     },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
   };
 }
 

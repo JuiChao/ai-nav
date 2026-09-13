@@ -20,6 +20,21 @@ export interface AiTool {
   tags: string[];
   /** 英文标签 */
   tagsEn: string[];
+  /** 核心特色与功能 */
+  features?: string[];
+  featuresEn?: string[];
+  /** 适用场景与受众 */
+  useCases?: string[];
+  useCasesEn?: string[];
+  /** 优势 (Pros) */
+  pros?: string[];
+  prosEn?: string[];
+  /** 局限性或劣势 (Cons) */
+  cons?: string[];
+  consEn?: string[];
+  /** 深入评测正文 (HTML or Markdown) */
+  content?: string;
+  contentEn?: string;
   /** 是否免费 */
   isFree: boolean;
   /** 是否有免费试用 */

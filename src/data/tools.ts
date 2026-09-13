@@ -1,22 +1,23 @@
 import type { AiTool } from '@/types';
+import { getToolRichData } from './tools-rich-content';
 
 /**
  * AI 工具列表数据
- * 按 2026 年上半年全网热度排序，涵盖对话、图像、视频、音频、写作、编程、效率、设计、数据分析等领域
+ * 持续追踪 2026 年 9 月秋季最新全网热度与技术突破，涵盖对话、图像、视频、音频、写作、编程、效率、设计、数据分析等领域
  */
-export const AI_TOOLS: AiTool[] = [
+const RAW_AI_TOOLS: AiTool[] = [
 
   // ─── AI 对话 ───,
   {
     id: 'chatgpt',
     name: 'ChatGPT',
-    description: 'OpenAI 的全能智能体大模型 GPT-5.6，支持原生系统操控和 Max Reasoning 深度推理',
-    descriptionEn: 'OpenAI\'s flagship agentic model GPT-5.6 with Max Reasoning and native system control',
+    description: 'OpenAI 旗舰智能体与深度推理大模型系统，整合 GPT-5 系列与 o 系列 Max Reasoning 自主推演',
+    descriptionEn: 'OpenAI\'s flagship model system with advanced autonomous reasoning and native multimodal capabilities',
     url: 'https://chat.openai.com',
     icon: '🤖',
     category: 'chatbot',
-    tags: ['GPT-5.6', '对话', '多模态'],
-    tagsEn: ['GPT-5.6', 'Chat', 'Multimodal'],
+    tags: ['GPT-5', '深度推理', '全能智能体'],
+    tagsEn: ['GPT-5', 'Reasoning', 'Agentic AI'],
     isFree: false,
     hasFreeTrial: true,
     isFeatured: true,
@@ -1286,3 +1287,4 @@ export const AI_TOOLS: AiTool[] = [
     isFree: true,
   }
 ];
+export const AI_TOOLS: AiTool[] = RAW_AI_TOOLS.map(tool => ({ ...tool, ...getToolRichData(tool) }));
