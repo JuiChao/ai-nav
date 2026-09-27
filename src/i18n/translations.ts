@@ -63,6 +63,8 @@ const zh: TranslationDict = {
 
   // Footer
   'footer.copyright': 'Copyright © 2026 AI Nav. All Rights Reserved.',
+  'footer.about': '关于我们',
+  'footer.contact': '联系我们',
   'footer.agreement': '服务协议',
   'footer.privacy': '隐私政策',
   'footer.cookie': 'Cookie 偏好设置',
@@ -132,6 +134,8 @@ const en: TranslationDict = {
 
   // Footer
   'footer.copyright': 'Copyright © 2026 AI Nav. All Rights Reserved.',
+  'footer.about': 'About Us',
+  'footer.contact': 'Contact Us',
   'footer.agreement': 'Terms of Service',
   'footer.privacy': 'Privacy Policy',
   'footer.cookie': 'Cookie Preferences',

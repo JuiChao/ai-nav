@@ -58,6 +58,9 @@ function Header({ totalCount }: { totalCount: number }) {
             <Link className="header__nav-link" href="/#category-nav">
               {t('stats.categories')}
             </Link>
+            <Link className="header__nav-link" href="/compare">
+              {locale === 'en' ? 'Model Matrix' : '模型横评'}
+            </Link>
             <Link className="header__nav-link" href="/blog">
               {locale === 'en' ? 'Blog' : '博客资讯'}
             </Link>

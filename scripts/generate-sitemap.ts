@@ -40,9 +40,9 @@ function generateSitemap() {
   xml += createUrlEntry('', '1.0', 'daily');
 
   // Static Pages
-  const staticPages = ['/about', '/privacy', '/terms', '/contact', '/blog'];
+  const staticPages = ['/about', '/privacy', '/terms', '/contact', '/blog', '/compare'];
   staticPages.forEach((page) => {
-    xml += createUrlEntry(page, '0.7', 'weekly');
+    xml += createUrlEntry(page, page === '/compare' ? '0.9' : '0.7', 'weekly');
   });
 
   // Blogs

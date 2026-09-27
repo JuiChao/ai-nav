@@ -1,0 +1,312 @@
+.compare-page {
+  min-height: calc(100vh - 140px);
+  padding: 40px 20px 80px;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.compare-page__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.compare-page__header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.compare-page__badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  margin-bottom: 16px;
+}
+
+.compare-page__title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.25;
+}
+
+.compare-page__subtitle {
+  font-size: 1.1rem;
+  color: var(--color-text-dim);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* 控制栏 */
+.compare-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+  background: var(--surface-color, rgba(255, 255, 255, 0.03));
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+}
+
+@media (min-width: 768px) {
+  .compare-controls {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.compare-controls__tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.compare-tab {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background: transparent;
+  color: var(--color-text-dim);
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.compare-tab:hover {
+  color: var(--color-text);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.compare-tab.is-active {
+  background: var(--color-primary, #6366f1);
+  color: #fff;
+  border-color: var(--color-primary, #6366f1);
+}
+
+.compare-controls__inputs {
+  display: flex;
+  gap: 12px;
+}
+
+.compare-search {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.15));
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: 0.9rem;
+  outline: none;
+  min-width: 200px;
+}
+
+.compare-search:focus {
+  border-color: var(--color-primary, #6366f1);
+}
+
+.compare-sort {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.15));
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: 0.9rem;
+  outline: none;
+  cursor: pointer;
+}
+
+/* 对比表格 */
+.compare-table-wrapper {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+  background: var(--surface-color, rgba(255, 255, 255, 0.02));
+  margin-bottom: 50px;
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  min-width: 900px;
+}
+
+.compare-table th {
+  padding: 16px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-dim);
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+}
+
+.compare-table td {
+  padding: 16px;
+  border-bottom: 1px solid var(--border-color, rgba(255, 255, 255, 0.06));
+  vertical-align: middle;
+  font-size: 0.95rem;
+}
+
+.compare-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.model-name-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.model-name-cell strong {
+  font-size: 1.05rem;
+  color: var(--color-text);
+}
+
+.model-provider {
+  font-size: 0.8rem;
+  color: var(--color-text-dim);
+}
+
+.model-tag-open {
+  align-self: flex-start;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+}
+
+.model-context-badge {
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(99, 102, 241, 0.1);
+  color: #818cf8;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.model-price-cell {
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: var(--color-text-dim);
+  line-height: 1.4;
+}
+
+.score-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 110px;
+}
+
+.score-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.75rem;
+  color: var(--color-text-dim);
+}
+
+.score-bar {
+  height: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.score-bar div {
+  height: 100%;
+  background: #10b981;
+}
+
+.score-bar--logic div {
+  background: #6366f1;
+}
+
+.strength-text {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--color-text);
+}
+
+.weakness-text {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #f59e0b;
+}
+
+.review-link-btn {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--color-primary, #818cf8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.review-link-btn:hover {
+  background: var(--color-primary, #6366f1);
+  color: #fff;
+}
+
+/* 深度指南文章卡片 */
+.compare-editorial {
+  margin-top: 50px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+}
+
+.compare-editorial h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.editorial-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .editorial-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.editorial-card {
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+  background: var(--surface-color, rgba(255, 255, 255, 0.02));
+}
+
+.editorial-card h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: var(--color-text);
+}
+
+.editorial-card p {
+  font-size: 0.95rem;
+  color: var(--color-text-dim);
+  line-height: 1.6;
+  margin: 0;
+}
