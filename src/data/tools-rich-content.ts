@@ -84,6 +84,16 @@ export const RICH_CONTENT_MAP: Record<string, RichData> = {
     cons: ['消费端品牌营销与大众趣味玩法声量稍弱', '网页端复杂图表可视化交互体验仍有打磨空间'],
     consEn: ['Consumer-facing viral appeal is less prominent than pure consumer apps', 'Web interface data visualization features could be more intuitive']
   },
+  'zhipu': {
+    features: ['GLM-5.3 全时思维链推理基座，融合自研混合注意力（Sparse + Linear Attention）', '面向自主智能体与网络安全攻防的代码深度推演与漏洞分析能力', '100万 Token 超大上下文窗口与高达 12.8万 Token 的极长单次生成'],
+    featuresEn: ['GLM-5.3 always-on reasoning architecture with hybrid Sparse + Linear Attention', 'Specialized in autonomous agent workflows, code refactoring, and cybersecurity audits', '1M token context window with up to 128k tokens per single output generation'],
+    useCases: ['高校与科研团队复杂数学推导、算法论证与学术文献深度拆解', '企业级智能体（Agent）自主编排、工具调用与漏洞排查系统', '政企公文规章合规校对、严谨技术方案起草与私有化本地部署'],
+    useCasesEn: ['Academic theorem proving, STEM research analysis, and literature synthesis', 'Enterprise autonomous agent orchestration, tool use, and vulnerability detection', 'Enterprise document compliance review, technical whitepaper drafting, and private deployments'],
+    pros: ['清华系全自研底座，学术逻辑与严谨性在国内处于第一梯队', 'Always-on 推理能力在复杂长程任务中表现极其稳健', '开放平台 API 接口标准完善，社区生态与高校支持度极高'],
+    prosEn: ['Renowned academic lineage with class-leading STEM rigor and Chinese nuance', 'Always-on reasoning excels across complex, long-horizon multi-step tasks', 'Well-established open platform APIs with thriving research community support'],
+    cons: ['全时慢思考机制使简单的简短闲聊响应耗时稍长', '消费端娱乐趣味功能相对更聚焦于技术与专业生产力'],
+    consEn: ['Always-on deep thinking introduces slightly longer latency for trivial queries', 'Product emphasis is strongly tilted toward professional productivity rather than casual entertainment']
+  },
 
   // ─── 图像生成与设计 ───
   'midjourney': {
