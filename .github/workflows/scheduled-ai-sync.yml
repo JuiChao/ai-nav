@@ -1,0 +1,46 @@
+name: Scheduled AI Data Sync & Lifecycle Audit
+
+on:
+  schedule:
+    # 每 5 天的 UTC 04:00 (北京时间 12:00) 自动执行一次全站巡检
+    - cron: '0 4 */5 * *'
+  workflow_dispatch: # 支持在 GitHub Actions 控制台手动一键触发
+
+permissions:
+  contents: write
+
+jobs:
+  sync-ai-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Scheduled AI Sync & Health Audit
+        run: npx tsx scripts/scheduled-ai-sync.ts
+
+      - name: Commit & Push Changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          
+          # 暂存由同步脚本生成/刷新的元数据、热门精选与 sitemap 文件
+          git add src/data/featured.json src/data/sync-metadata.json public/sitemap.xml
+          
+          if git diff --staged --quiet; then
+            echo "✅ No data changes detected. All AI tools healthy and up to date."
+          else
+            echo "🚀 Data updates detected, committing and pushing..."
+            git commit -m "chore(data): automated AI data sync & lifecycle audit [skip ci]"
+            git push
+          fi

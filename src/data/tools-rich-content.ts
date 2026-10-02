@@ -251,6 +251,26 @@ export const RICH_CONTENT_MAP: Record<string, RichData> = {
     prosEn: ['Unrivaled emotional depth and human authenticity, setting the global TTS benchmark', 'High-fidelity voice cloning achievable from just 30-60 seconds of clean reference audio', 'Low-latency streaming API tailored perfectly for real-time conversational agents'],
     cons: ['按字符配额计费，大规模有声书制作成本需要精打细算', '克隆他人音色具有严格的合规与反欺诈安全审核机制'],
     consEn: ['Character-based usage meters require careful budget planning on massive projects', 'Strict identity verification and anti-spoofing policies govern custom voice cloning']
+  },
+  'granola': {
+    features: ['人机协同智能笔记体验：支持边开会边敲击简要关键词，AI 自动结合现场音频丰富细节', '无需尴尬的会议机器人入会，通过系统音频直接本地捕获并转录', '高度定制化的纪要模版（1-on-1、销售跟进、敏捷站会、投资人沟通）'],
+    featuresEn: ['Human-in-the-loop meeting experience: type rough jot-downs while AI synthesizes full context from audio', 'No awkward bot joining the call; seamlessly captures system audio locally', 'Tailored executive templates for 1-on-1s, sales discovery, sprint standups, and investor updates'],
+    useCases: ['创始团队与产品经理进行用户访谈并自动提取核心需求痛点', '商务与销售人员跟进客户通话并一键生成下阶段 Action Items 与邮件草稿', '跨国分布式团队高频线上例会的结构化知识沉淀与无缝归档'],
+    useCasesEn: ['Founders and PMs conducting customer interviews with automated insight extraction', 'Sales teams auto-generating post-call follow-up emails and CRM action items', 'Distributed teams recording asynchronous executive summaries without manual typing'],
+    pros: ['相比传统机械转录工具，纪要更像由人类高管秘书精炼而成', '免去让 Bot 进会议室带来的隐私顾虑与打扰', '极简界面设计，键盘快捷键操作极为丝滑'],
+    prosEn: ['Outputs read like curated human executive takeaways rather than mechanical transcripts', 'Zero bot-intrusion privacy concerns on client or board calls', 'Sleek, distraction-free minimalist desktop interface'],
+    cons: ['目前深度依赖桌面客户端环境', '对极低信噪比或嘈杂多方方言的辨识度仍有优化空间'],
+    consEn: ['Primarily designed around desktop application workflows', 'Complex multi-party noisy environments can occasionally miss faint utterances']
+  },
+  'gumloop': {
+    features: ['专为 AI 时代设计的无代码可视化自动化画布，直观串联大模型与真实互联网', '内置爬虫引擎、文档解析器、多模态视觉模型与 Python 代码节点沙盒', '支持通过 Webhook、定时 Cron 或表格数据变化全天候自主触发工作流'],
+    featuresEn: ['No-code visual automation canvas purpose-built for chaining AI models and live web data', 'Native web scraping engines, PDF parsers, visual LLMs, and Python sandbox execution nodes', 'Supports triggers via Webhooks, scheduled cron jobs, or database table changes for 24/7 autonomy'],
+    useCases: ['自动化全网竞品动态监测、新功能发布情报提取与飞书/Slack 自动推送', '批量简历/研报清洗、多维度结构化评分与智能标签生成', '全自动跨境电商选品分析、社媒爆款文案裂变与图片自动渲染管线'],
+    useCasesEn: ['Automated competitor tracking, product launch intel extraction, and Slack notifications', 'Batch resume/whitepaper screening, structured scoring, and metadata tagging', 'E-commerce product intelligence, viral social copywriting, and automated image generation pipelines'],
+    pros: ['比传统 Zapier 对复杂 AI 智能体工作流（多步推理、分支循环）支持更深', '内置沙盒节点允许在无代码流程中任意插入自定义 Python 代码', '可视化调试体验清晰，每一步的输入输出可直接回溯'],
+    prosEn: ['Dramatically more capable than legacy Zapier for complex AI agent loops and reasoning chains', 'Python node sandbox provides infinite customizability without server setup', 'Crystal-clear visual step debugger showing intermediate data payloads'],
+    cons: ['免费版运行额度适合轻量体验，高频重度爬虫与大模型调用需付费订阅', '对没有任何逻辑思维的新手用户仍需约 10 分钟学习适应门槛'],
+    consEn: ['Free credits exhaust quickly on high-frequency scraping and LLM reasoning jobs', 'Requires basic understanding of data inputs/outputs for multi-step logic']
   }
 };
 

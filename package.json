@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "tsx scripts/generate-sitemap.ts && next build",
     "sitemap": "tsx scripts/generate-sitemap.ts",
+    "sync": "tsx scripts/scheduled-ai-sync.ts",
     "start": "next start",
     "lint": "next lint"
   },
