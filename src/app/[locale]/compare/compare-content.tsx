@@ -27,32 +27,32 @@ interface ModelComparisonItem {
 
 const COMPARISON_DATA: ModelComparisonItem[] = [
   {
-    id: 'openai-o3-gpt5',
-    name: 'OpenAI o3 / GPT-5',
+    id: 'openai-gpt-6-astra',
+    name: 'GPT-6 Astra / Sol',
     provider: 'OpenAI',
-    contextWindow: '200k - 1M',
+    contextWindow: '1M',
     contextNum: 1000,
-    inputPrice: '$1.50 - $10.00',
-    outputPrice: '$6.00 - $40.00',
-    priceNum: 5.0,
+    inputPrice: '$2.50',
+    outputPrice: '$10.00',
+    priceNum: 2.5,
     codingScore: 99,
     reasoningScore: 100,
-    primaryStrength: '前沿自主系统推理，SWE-bench 与 ARC-AGI 顶峰，原生智能体自主推演与全模态任务调度',
-    primaryStrengthEn: 'Pinnacle autonomous reasoning, SOTA on SWE-bench & ARC-AGI, native multi-step agent orchestration',
-    weakness: '深度推演模式响应耗时较长，企业顶配高并发配额成本不菲',
-    weaknessEn: 'Noticeable latency during deep thinking phases; premium enterprise pricing',
+    primaryStrength: 'OpenAI 官方旗舰基座，复杂科学、深度代码重构与系统级智能体（Agent）推演天花板',
+    primaryStrengthEn: 'OpenAI flagship model for advanced reasoning, complex coding, and autonomous multi-agent workflows',
+    weakness: '高深度推演模式响应耗时较长，高阶 API 定价高昂',
+    weaknessEn: 'Longer latency during deep reasoning phases; higher API token pricing tier',
     isOpenSource: false,
     category: 'reasoning',
     toolId: 'chatgpt',
   },
   {
-    id: 'claude-4-5-sonnet',
-    name: 'Claude 4.5 Sonnet / Opus',
+    id: 'claude-sonnet-5-5',
+    name: 'Claude Sonnet 5.5 / Opus 5.5',
     provider: 'Anthropic',
-    contextWindow: '500k - 1M',
+    contextWindow: '1M',
     contextNum: 1000,
-    inputPrice: '$3.00 - $8.00',
-    outputPrice: '$12.00 - $32.00',
+    inputPrice: '$3.00 - $15.00',
+    outputPrice: '$15.00 - $75.00',
     priceNum: 3.0,
     codingScore: 99,
     reasoningScore: 98,
@@ -65,18 +65,18 @@ const COMPARISON_DATA: ModelComparisonItem[] = [
     toolId: 'claude',
   },
   {
-    id: 'gemini-3-pro',
-    name: 'Gemini 3.5 Pro / 3.6 Flash',
+    id: 'gemini-3-8-flash',
+    name: 'Gemini 3.8 Flash / 3.1 Pro',
     provider: 'Google',
-    contextWindow: '2M - 4M',
-    contextNum: 4000,
-    inputPrice: '$0.30 - $1.25',
-    outputPrice: '$1.20 - $5.00',
-    priceNum: 0.30,
-    codingScore: 96,
+    contextWindow: '1M - 2M',
+    contextNum: 2000,
+    inputPrice: '$0.75 (优惠期)',
+    outputPrice: '$3.75',
+    priceNum: 0.75,
+    codingScore: 97,
     reasoningScore: 97,
-    primaryStrength: '400万极限超大上下文 100% 检索无损召回，多小时长视频原生解析与 Google 生态闭环',
-    primaryStrengthEn: '4M ultra-long context with 100% needle recall, native hour-long video ingestion & Workspace synergy',
+    primaryStrength: '官方最新稳定版 Flash，长跨度软件工程与自主智能体优化，原生多模态音视频同源处理与 Workspace 贯通',
+    primaryStrengthEn: 'Latest stable Flash engineered for long-horizon software engineering, autonomous agents, and native audio/video',
     weakness: '合规与安全防护策略偏严，复杂工程代码偶尔出现过度防御拦截',
     weaknessEn: 'Conservative safety guardrails occasionally trigger false-positive compliance stops',
     isOpenSource: false,
@@ -84,19 +84,19 @@ const COMPARISON_DATA: ModelComparisonItem[] = [
     toolId: 'gemini',
   },
   {
-    id: 'deepseek-v4-r2',
-    name: 'DeepSeek V4-Flash / R2',
+    id: 'deepseek-v4-1-flash',
+    name: 'DeepSeek-V4.1-Flash / Pro',
     provider: 'DeepSeek 深度求索',
-    contextWindow: '128k - 256k',
-    contextNum: 256,
-    inputPrice: '$0.10 - $0.20',
-    outputPrice: '$0.30 - $0.60',
-    priceNum: 0.10,
+    contextWindow: '1M',
+    contextNum: 1000,
+    inputPrice: '$0.15 (非高峰) / $0.30',
+    outputPrice: '$0.60 (非高峰) / $1.20',
+    priceNum: 0.15,
     codingScore: 97,
     reasoningScore: 98,
-    primaryStrength: '革命性自研 MoE 架构击穿行业成本底线，高阶数学算法推演与中文工程代码天花板',
-    primaryStrengthEn: 'Disruptive architecture breaking cost barriers, top-tier mathematical deduction & code logic',
-    weakness: '高峰期官方网页端并发排队，公共 API 端点偶有抖动',
+    primaryStrength: '100万 Token 超大窗口，颠覆性 MoE 极致性价比击穿行业底线，高阶数学算法推演与中文工程代码天花板',
+    primaryStrengthEn: '1M token context, unrivaled token cost efficiency ($0.15/1M), pinnacle math and code reasoning',
+    weakness: '高峰时段官方网页端免费算力排队较多，公共 API 偶有并发波动',
     weaknessEn: 'High concurrency queueing on free web portal during global peak traffic',
     isOpenSource: true,
     category: 'budget',
@@ -104,79 +104,60 @@ const COMPARISON_DATA: ModelComparisonItem[] = [
   },
   {
     id: 'qwen-3-8-max',
-    name: 'Qwen 3.8-Max (通义千问)',
+    name: 'Qwen3.8-Max (通义千问)',
     provider: 'Alibaba 阿里云',
-    contextWindow: '256k - 512k',
-    contextNum: 512,
+    contextWindow: '1M',
+    contextNum: 1000,
     inputPrice: '$0.30 - $1.20',
     outputPrice: '$0.90 - $3.60',
     priceNum: 0.30,
-    codingScore: 95,
+    codingScore: 96,
     reasoningScore: 96,
-    primaryStrength: '2.4万亿超大规模 MoE 霸榜开源评测，本土政企复杂表格、公文与多语言全能泛化',
-    primaryStrengthEn: '2.4T MoE benchmark champion, premier enterprise tabular analysis & multilingual generalization',
-    weakness: '国际开源开发者社群活跃度仍在加速扩展中',
+    primaryStrength: '2.4万亿参数 Sparse MoE 架构，原生支持文本/图像/视频全模态，政企复杂表格与本土化知识问答极佳',
+    primaryStrengthEn: '2.4T parameter Sparse MoE, native multimodal (text/image/video), premier enterprise tabular analysis',
+    weakness: '欧美海外开发者生态社区活跃度仍在追赶',
     weaknessEn: 'Western developer ecosystem footprint is expanding rapidly but still catching up',
     isOpenSource: true,
     category: 'general',
     toolId: 'tongyi-qianwen',
   },
   {
-    id: 'llama-4-405b',
-    name: 'Llama 4 (100B / 405B)',
+    id: 'llama-4-maverick',
+    name: 'Llama 4 Maverick / Scout',
     provider: 'Meta',
-    contextWindow: '256k - 512k',
-    contextNum: 512,
+    contextWindow: '1M - 10M',
+    contextNum: 10000,
     inputPrice: '$0.00 (权重开放)',
     outputPrice: '$0.00 (私有化算力)',
     priceNum: 0.0,
-    codingScore: 94,
+    codingScore: 95,
     reasoningScore: 95,
-    primaryStrength: '全球开源基石，全模态原生支持，企业 100% 离线私有化精调与数据主权合规',
-    primaryStrengthEn: 'Global open-weights benchmark, native multimodal, 100% private on-premise finetuning',
-    weakness: '千亿级旗舰权重自建部署需庞大 GPU 集群与专业运维团队',
-    weaknessEn: 'Requires high-end multi-GPU cluster setups for full on-premise inference',
+    primaryStrength: '全球开源基石，Scout 版支持极限千万级（10M）上下文，Maverick 原生图文多模态，企业 100% 离线私有化部署',
+    primaryStrengthEn: 'Global open standard: Scout supports up to 10M context, Maverick native multimodal, 100% self-hosted privacy',
+    weakness: '本地多专家 MoE 架构自建部署对 GPU 显存拓扑与推理框架优化要求极高',
+    weaknessEn: 'Requires high-end multi-GPU cluster setups for full on-premise MoE inference',
     isOpenSource: true,
     category: 'budget',
     toolId: 'llama-3',
   },
   {
     id: 'kimi-k3',
-    name: 'Kimi K3 (3万亿参数 MoE)',
+    name: 'Kimi K3 (2.8万亿参数)',
     provider: 'Moonshot AI 月之暗面',
-    contextWindow: '2M - 4M',
-    contextNum: 4000,
+    contextWindow: '1M',
+    contextNum: 1000,
     inputPrice: '$0.80 - $1.80',
     outputPrice: '$1.80 - $3.60',
     priceNum: 0.80,
-    codingScore: 93,
-    reasoningScore: 94,
-    primaryStrength: '数百万字超长金融财报、司法卷宗穿透式检索与网状关键事实证据链提取',
-    primaryStrengthEn: 'Multi-million token financial dossier analysis, relational evidence-chain extraction',
-    weakness: '底层系统级 Linux 内核多线程编程深度相对适中',
+    codingScore: 94,
+    reasoningScore: 95,
+    primaryStrength: '基于全新 KDA 与 AttnRes 架构，2.8万亿原生多模态长文本，金融财报与超长司法卷宗穿透式检索',
+    primaryStrengthEn: 'Built on novel KDA & AttnRes architecture, 2.8T multimodal parameters, ultra-long dossier analysis',
+    weakness: '底层操作系统内核级多线程系统编程深度相对适中',
     weaknessEn: 'Moderate proficiency in low-level kernel systems programming',
     isOpenSource: false,
     category: 'general',
     toolId: 'kimi',
-  },
-  {
-    id: 'grok-3-4',
-    name: 'Grok 3 / 4',
-    provider: 'xAI',
-    contextWindow: '256k - 512k',
-    contextNum: 512,
-    inputPrice: '$2.00 - $5.00',
-    outputPrice: '$8.00 - $15.00',
-    priceNum: 2.0,
-    codingScore: 95,
-    reasoningScore: 97,
-    primaryStrength: 'Colossus 超算集群极致训练，零审查无偏见探究，直连 X 全球突发快讯与实时信源',
-    primaryStrengthEn: 'Trained on Colossus mega-cluster, unfiltered direct inquiry, exclusive real-time X news stream',
-    weakness: '企业级自动化工具调用生态与对外接口服务体系仍在建设中',
-    weaknessEn: 'Enterprise agent tooling and external integration ecosystem still maturing',
-    isOpenSource: false,
-    category: 'reasoning',
-    toolId: 'grok',
   }
 ];
 
@@ -361,8 +342,8 @@ export default function CompareContent({ locale }: { locale: string }) {
                 <h3>{isEn ? '1. Context Window vs. True Needle Retrieval' : '1. 上下文长度不等于实际有效检索'}</h3>
                 <p>
                   {isEn 
-                    ? 'Many models advertise multi-million token windows, but performance often degrades severely when retrieving cross-document needles. For mission-critical legal or code audits, Claude 4.5 and Gemini 3.5 Pro consistently maintain near-zero recall loss.'
-                    : '许多模型宣称具备数百万级上下文，但在复杂跨文档“大海捞针”测试中往往出现后半段记忆衰退。经过实测，Claude 4.5 与 Gemini 3.5 Pro 在长文本细节无损检索与复杂逻辑追踪上表现最为稳健。'}
+                    ? 'While Llama 4 Scout scales up to 10M tokens and Gemini 3.8 Flash supports 2M tokens, performance often degrades when retrieving fine-grained needles across massive multi-modal documents. In empirical audits, Claude Sonnet 5.5 and Gemini 3.8 Flash consistently demonstrate leading needle recall and logical grounding.'
+                    : '虽然 Llama 4 Scout 支持最高千万级（10M）上下文，Gemini 3.8 Flash 支持 200 万上下文，但在超大跨文档“大海捞针”测试中，很多模型会出现注意力稀释。实测表明，Claude Sonnet 5.5 与 Gemini 3.8 Flash 在复杂多模态长文本无损检索与关键事实推演上表现最为稳健。'}
                 </p>
               </div>
 
@@ -370,8 +351,8 @@ export default function CompareContent({ locale }: { locale: string }) {
                 <h3>{isEn ? '2. Token Economics: Why DeepSeek Disrupts' : '2. Token 成本经济学：DeepSeek 为何改变格局'}</h3>
                 <p>
                   {isEn
-                    ? 'At $0.10 - $0.20 per 1M input tokens, DeepSeek V4-Flash reduces inference costs to a fraction of proprietary giants while retaining 95%+ of top-tier coding performance. For high-volume automated agent pipelines, it remains the ultimate cost optimizer.'
-                    : '每百万 Token 仅需 $0.10 - $0.20 的调用成本，DeepSeek V4-Flash 将推理成本压缩至顶流商业闭源模型的百分之一，却具备超过 95% 的前沿代码与算法推理能力。在大规模数据清洗、批量智能体执行管线中具备颠覆性性价比。'}
+                    ? 'At $0.15 per 1M input tokens during off-peak hours (and $0.003 with context cache hits), DeepSeek-V4.1-Flash brings frontier reasoning costs to an all-time low while retaining top-tier coding performance. For high-volume automated agent loops, it is an essential cost optimizer.'
+                    : '在非高峰时段每百万 Token 仅需 $0.15 的输入成本（命中缓存甚至低至 $0.003），DeepSeek-V4.1-Flash 展现出颠覆性的推理成本优势，同时保持了行业顶尖的代码工程与算法能力，为大规模自动化智能体和后台批处理流水线节约极高预算。'}
                 </p>
               </div>
 
@@ -379,8 +360,8 @@ export default function CompareContent({ locale }: { locale: string }) {
                 <h3>{isEn ? '3. Open Weights vs. Closed APIs' : '3. 开源私有化与闭源 API 的权衡'}</h3>
                 <p>
                   {isEn
-                    ? 'Meta Llama 4 and Qwen 3 enable 100% on-premise compliance for banks and healthcare. However, consider the total cost of ownership (GPU clusters, electricity, maintenance) before choosing self-hosting over managed cloud APIs.'
-                    : 'Meta Llama 4 与阿里通义千问 3 让政企和医疗客户拥有完全的数据合规与本地离线运行自由。但中小型团队切记评估 GPU 算力购置、机房运维与电力成本，若高并发调用有限，直接选用商业 API 往往更加经济划算。'}
+                    ? 'Meta Llama 4 Maverick / Scout and Alibaba Qwen3.8-Max enable 100% on-premise compliance for banks and healthcare. However, consider the total cost of ownership (GPU clusters, electricity, maintenance) before choosing self-hosting over managed cloud APIs.'
+                    : 'Meta Llama 4 (Maverick / Scout) 与阿里 Qwen3.8-Max 让政企和金融客户拥有完全的数据合规与本地离线运行自由。但中小型团队切记评估 GPU 算力购置、集群运维与电力开销，若并发需求有限，直接选用商业 API 往往更加经济省心。'}
                 </p>
               </div>
             </div>
