@@ -269,7 +269,7 @@ Technological breakthroughs (Astra), product maturity (Gemini Notebook), and reg
 在 ChatGPT 刚发布的 2023-2024 年，市场上涌现了成百上千的 AI 写作、SEO 文章生成工具。它们的本质仅仅是：**将用户的简单输入，加上一段预设的 Prompt，发送给 OpenAI 的 API，再将结果返回给用户。**
 
 到了 2026 年底，这种模式彻底崩盘，原因有三：
-- **基础模型原生能力过剩**：当前顶级的开源模型如 **DeepSeek V4-Flash**、**Qwen 3.8-Max**，以及闭源巨头 **Claude 5** 等，其原生的推理与排版能力已经远超过去任何所谓的“专业写作优化”。
+- **基础模型原生能力过剩**：当前顶级的开源模型如 **DeepSeek-V4.1-Flash**、**Qwen 3.8-Max**，以及闭源巨头 **Claude 5.5** 等，其原生的推理与排版能力已经远超过去任何所谓的“专业写作优化”。
 - **同质化严重与定价虚高**：每月收取 20-30 美元的套壳工具，在模型本身调用成本无限趋近于零（如 Flash-Lite 极低定价）的今天，显得毫无性价比。
 - **缺乏护城河**：当模型能够结合 RAG（检索增强生成）并直接连网时，单纯的提示词封装便失去了意义。
 
@@ -304,7 +304,7 @@ Technological breakthroughs (Astra), product maturity (Gemini Notebook), and reg
 AI 技术的下半场，不再是比拼“谁会写更好的 Prompt”，而是**“谁更懂得拆解目标并让智能体去执行”**。
 
 作为使用者，你需要：
-1. **停止为单纯的 API 搬运工付费**，转向掌握核心模型（如 Kimi K3, Claude 5, Gemini 3.6）。
+1. **停止为单纯的 API 搬运工付费**，转向掌握核心模型（如 Kimi K3, Claude 5.5, Gemini 3.8 Flash）。
 2. **适应“人类审核者”的角色**，将执行权交给 Agent（如 Windsurf, OpenHands），把精力放在架构设计与逻辑审核上。
 3. **建立自己的专属知识库（RAG）**，因为通用智能必须结合个人或企业私有数据才能发挥最大商业价值。
 
@@ -324,7 +324,7 @@ During our massive data purge and restructure of the AI Nav directory in August 
 Back in 2023-2024, the market was flooded with hundreds of AI writing and SEO tools. Their underlying mechanism was identical: **Take user input, append a hidden prompt, send it to OpenAI's API, and return the result.**
 
 By mid-2026, this business model has collapsed for three primary reasons:
-- **Excessive Native Model Capabilities:** Top-tier models like **DeepSeek V4-Flash**, **Qwen 3.8-Max**, and **Claude 5** now possess native reasoning and formatting abilities that far exceed the "specialized optimization" of older wrapper tools.
+- **Excessive Native Model Capabilities:** Top-tier models like **DeepSeek-V4.1-Flash**, **Qwen 3.8-Max**, and **Claude 5.5** now possess native reasoning and formatting abilities that far exceed the "specialized optimization" of older wrapper tools.
 - **Overpriced Commoditization:** Charging $20-30/month for a wrapper makes zero sense when the underlying API inference costs (like Flash-Lite) are dropping to near-zero.
 - **Lack of a Moat:** When core models natively support web search, execution, and RAG (Retrieval-Augmented Generation), a hardcoded prompt holds no competitive advantage.
 
@@ -358,7 +358,7 @@ Visual effects that previously required an entire post-production studio and mas
 The second half of the AI revolution is no longer about "who can write the best prompt," but rather **"who can best decompose goals and delegate to agents."**
 
 As an end user, you should:
-1. **Stop paying for API middlemen** and focus on mastering the frontier models (e.g., Kimi K3, Claude 5, Gemini 3.6).
+1. **Stop paying for API middlemen** and focus on mastering the frontier models (e.g., Kimi K3, Claude 5.5, Gemini 3.8 Flash).
 2. **Transition into a "Reviewer" role.** Delegate the heavy lifting to Agents (like Windsurf or OpenHands) and focus your energy on architectural design and logic validation.
 3. **Build your personal knowledge base (RAG).** Generalized intelligence achieves its maximum commercial value only when grounded in your private or enterprise data.
 
@@ -640,15 +640,15 @@ Applying these frameworks ensures consistently high-quality outputs across all A
 ### 文本理解与生成
 三者在日常对话、邮件撰写、文案创作等基础任务上差距已极为有限，均达到了"专业写手"水准。但在以下细分场景中存在显著差异：
 
-- **ChatGPT（GPT-5.6 Sol/Terra 系列）**：在创意写作、角色扮演和代码生成方面最为均衡。其庞大的插件生态使其在数据分析（Advanced Data Analysis）和联网搜索方面具备独特优势。
-- **Claude（Claude 5 Opus/Fable）**：在超长文本处理方面领先，支持高达 50 万 Token 的上下文窗口。极度注重"安全与诚实"，回答风格严谨、不易产生幻觉。在法律文书分析、学术论文总结等需要高精度的场景中表现尤为出色。
-- **Gemini（Gemini 3.6 Flash / 3.5 Flash-Lite）**：原生多模态能力最强，可以同时处理文本、图像、音频和视频。深度整合 Google 生态（Gmail、Docs、YouTube），在信息检索与跨模态任务中具备先天优势。
+- **ChatGPT（GPT-6 Astra / Sol 系列）**：在创意写作、多智能体协同与复杂逻辑推演方面最为均衡。其庞大的插件与智能体生态使其在数据交互分析（Advanced Data Analysis）和联网搜索方面具备独特优势。
+- **Claude（Claude Sonnet 5.5 / Opus 5.5）**：在超长文本与复杂代码自愈方面领先，支持高达 100 万 Token 的工业级上下文窗口。极度注重"安全与诚实"，回答风格严谨、不易产生幻觉。在全栈系统重构、法律文书分析与学术文献研读中表现尤为出色。
+- **Gemini（Gemini 3.8 Flash / 3.1 Pro Preview）**：原生多模态能力最强，音视频、图像与文本同源理解。深度整合 Google 生态（Gmail、Docs、YouTube、Cloud），长程软件工程与智能体工作流执行能力突出。
 
 ### 逻辑推理与数学
-在数学竞赛级推理题（如 AIME、IMO）上，三者均推出了"深度思考"模式：
-- ChatGPT 放弃了旧的 o 系列，全面融合于 GPT-5.6 Sol 的"Max Reasoning"与"Ultra"子代理模式
-- Claude 5 引入了"实时工具切换"与透明的推理反馈链条
-- Gemini 3.6 优化了执行极速吞吐任务时的稳定性，而下一代 Gemini 4 已进入预训练阶段
+在数学竞赛级推理题（如 AIME、IMO）与复杂系统工程上，三者均推出了"深度思考"模式：
+- ChatGPT 融合了 GPT-6 Astra 的"Max Reasoning"与 Responses API 深度智能体编排
+- Claude 5.5 引入了生产级工程自愈重构与透明的推理反馈链条
+- Gemini 3.8 Flash 针对长跨度软件工程与智能体工作流进行了极致的吞吐与延迟优化
 
 ---
 
@@ -656,14 +656,14 @@ Applying these frameworks ensures consistently high-quality outputs across all A
 
 | 项目 | ChatGPT | Claude | Gemini |
 |------|---------|--------|--------|
-| 免费版 | 有（GPT-5.6 Luna） | 有（Sonnet 5 限额） | 有（3.6 Flash 限额） |
+| 免费版 | 有（GPT-6 Luna） | 有（Sonnet 5.5 限额） | 有（3.8 Flash 限额） |
 | 个人订阅 | Plus $20/月 | Pro $20/月 | Advanced $19.99/月 |
 | 高级订阅 | Pro $200/月 | Max $100-200/月 | 含于 Google One AI |
-| API 定价 | 中等 (Terra) | 较高 (Opus 5) | 极低 (Flash-Lite) |
+| API 定价 | 中等 (Astra $2.50/1M) | 较高 ($3.00 - $15.00/1M) | 极具性价比 (Flash $0.75/1M) |
 
 **性价比之王**：如果你是轻度用户，Google Gemini 的免费额度最为慷慨，且与 Google Workspace 深度集成，几乎零门槛。
 
-**专业开发者**：API 层面，Gemini 3.5 Flash-Lite 以惊人的 350+ Tokens/秒和极低的单价成为"跑量型"应用的首选。Claude Sonnet 5 在中间价位段提供了最佳的质量/成本平衡。
+**专业开发者**：API 层面，Gemini 3.8 Flash 以超高吞吐与极亲民单价成为长程工程与跑量型应用的首选。Claude Sonnet 5.5 在代码重构、全栈自愈与长上下文精度上提供了业内顶尖的水准。
 
 ---
 
@@ -679,7 +679,7 @@ Applying these frameworks ensures consistently high-quality outputs across all A
 
 ## 4. 生态与集成能力
 
-- **ChatGPT**：拥有最大的第三方插件和 GPTs 自定义应用市场，可连接 Zapier、Canva、数据库等数百种外部服务。
+- **ChatGPT**：拥有庞大的第三方插件与 GPTs 自定义应用生态，可连接 Zapier、Canva、数据库等数百种外部服务，原生集成 GPT Image 2。
 - **Claude**：MCP（Model Context Protocol）开放协议使其能与本地文件系统、IDE 和企业内部系统深度集成，在开发者工具链中越来越受欢迎。
 - **Gemini**：作为 Google 生态的"AI 中枢"，原生整合 Search、Maps、YouTube、Gmail、Docs、Sheets 等全家桶服务，对 Google 重度用户而言几乎不可替代。
 
@@ -690,17 +690,17 @@ Applying these frameworks ensures consistently high-quality outputs across all A
 ### 选 ChatGPT 如果你需要：
 - 一个全能型日常助手（写作 + 编码 + 分析均衡）
 - 丰富的第三方插件与自定义 GPTs 生态
-- DALL-E 图像生成一体化体验
+- GPT Image 2 图像生成一体化体验
 
 ### 选 Claude 如果你需要：
-- 处理超长文档（法律合同、学术论文、代码库分析）
-- 对回答准确性和安全性有极高要求
-- 企业级数据隐私保障
+- 处理超长文档与百万上下文（法律合同、学术论文、全代码库分析）
+- 生产级全栈代码自愈与系统重构
+- 企业级数据隐私保障与近乎零幻觉输出
 
 ### 选 Gemini 如果你需要：
-- 与 Google 产品深度联动
-- 原生多模态能力（图片理解、视频分析）
-- 最具性价比的 API 调用（Flash 模型）
+- 与 Google 产品全家桶深度联动
+- 强大的原生音视频多模态理解
+- 最具性价比的高吞吐 API 调用（Gemini 3.8 Flash）
 
 ---
 
@@ -722,15 +722,15 @@ In 2026, the Large Language Model (LLM) landscape has matured from a "who ships 
 ### Text Understanding & Generation
 All three perform at a "professional writer" level for everyday tasks like email drafting, content creation, and Q&A. However, key differences emerge in specialized scenarios:
 
-- **ChatGPT (GPT-5.6 Sol/Terra series):** The most balanced across creative writing, role-playing, and code generation. Its massive plugin ecosystem provides unique advantages in data analysis (Advanced Data Analysis) and web-connected search.
-- **Claude (Claude 5 Opus/Fable):** Leads in ultra-long context processing with up to 500K token windows. Emphasizes safety and honesty, producing responses that are rigorous and less prone to hallucination. Excels at legal document analysis and academic paper summarization.
-- **Gemini (Gemini 3.6 Flash / 3.5 Flash-Lite):** The strongest native multimodal capabilities, seamlessly processing text, images, audio, and video. Deep integration with Google's ecosystem (Gmail, Docs, YouTube) gives it an inherent edge in information retrieval and cross-modal tasks.
+- **ChatGPT (GPT-6 Astra / Sol series):** The most balanced across creative writing, multi-agent workflows, and complex reasoning. Its massive plugin ecosystem provides unique advantages in data analysis (Advanced Data Analysis) and web-connected search.
+- **Claude (Claude Sonnet 5.5 / Opus 5.5):** Leads in ultra-long context processing with up to 1M token windows. Emphasizes safety, honesty, and production-grade codebase self-healing with zero hallucination. Excels at legal document analysis, academic research, and system refactoring.
+- **Gemini (Gemini 3.8 Flash / 3.1 Pro Preview):** The strongest native multimodal capabilities, seamlessly processing text, images, audio, and video synchronously. Deep integration with Google's ecosystem (Gmail, Docs, YouTube, GCP) gives it an inherent edge in long-horizon software engineering.
 
 ### Logical Reasoning & Math
-For competition-level reasoning problems (AIME, IMO), all three now offer "deep thinking" modes:
-- ChatGPT integrates reasoning directly into GPT-5.6 Sol via "Max Reasoning" and "Ultra" multi-agent modes
-- Claude 5 introduced on-the-fly tool changes and transparent reasoning feedback loops
-- Gemini 3.6 optimizes stability for high-throughput execution, while the highly anticipated Gemini 4 is already in pre-training
+For competition-level reasoning problems (AIME, IMO) and system architecture, all three now offer "deep thinking" modes:
+- ChatGPT integrates reasoning directly via GPT-6 Astra's "Max Reasoning" and Responses API agent orchestration
+- Claude 5.5 introduced production-grade code self-healing and transparent reasoning feedback loops
+- Gemini 3.8 Flash optimizes latency and throughput specifically for long-horizon software engineering workflows
 
 ---
 
@@ -738,14 +738,14 @@ For competition-level reasoning problems (AIME, IMO), all three now offer "deep 
 
 | Feature | ChatGPT | Claude | Gemini |
 |---------|---------|--------|--------|
-| Free Tier | Yes (GPT-5.6 Luna) | Yes (Sonnet 5, limited) | Yes (3.6 Flash, limited) |
+| Free Tier | Yes (GPT-6 Luna) | Yes (Sonnet 5.5, limited) | Yes (3.8 Flash, limited) |
 | Personal Plan | Plus $20/mo | Pro $20/mo | Advanced $19.99/mo |
 | Premium Plan | Pro $200/mo | Max $100-200/mo | Included in Google One AI |
-| API Pricing | Moderate (Terra) | Higher (Opus 5) | Extremely Low (Flash-Lite) |
+| API Pricing | Moderate (Astra $2.50/1M) | Higher ($3.00 - $15.00/1M) | Outstanding Value (Flash $0.75/1M) |
 
 **Best Value for Casual Users:** Google Gemini offers the most generous free quota and integrates seamlessly with Google Workspace at virtually zero friction.
 
-**For Developers:** At the API level, Gemini 3.5 Flash-Lite offers the lowest per-token cost with blazing inference speeds up to 350 tokens/sec, making it the go-to for high-volume applications. Claude Sonnet 5 provides the best quality-to-cost ratio in the mid-range.
+**For Developers:** At the API level, Gemini 3.8 Flash offers outstanding throughput and cost-efficiency for long-horizon agentic workflows. Claude Sonnet 5.5 provides top-tier engineering rigor for large-scale codebase refactoring.
 
 ---
 
@@ -761,7 +761,7 @@ This remains a top concern for both enterprise and individual users:
 
 ## 4. Ecosystem & Integration
 
-- **ChatGPT:** Boasts the largest third-party plugin and custom GPTs marketplace, connecting with Zapier, Canva, databases, and hundreds of external services.
+- **ChatGPT:** Boasts a vast third-party plugin and custom GPTs marketplace, connecting with Zapier, Canva, databases, and native GPT Image 2 integration.
 - **Claude:** The MCP (Model Context Protocol) open standard enables deep integration with local file systems, IDEs, and enterprise internal systems, making it increasingly popular in developer toolchains.
 - **Gemini:** As the "AI hub" of Google's ecosystem, it natively integrates with Search, Maps, YouTube, Gmail, Docs, Sheets, and more — virtually irreplaceable for heavy Google users.
 
@@ -772,17 +772,17 @@ This remains a top concern for both enterprise and individual users:
 ### Choose ChatGPT if you need:
 - A versatile all-rounder (balanced writing + coding + analysis)
 - Rich third-party plugins and custom GPTs ecosystem
-- Integrated DALL-E image generation
+- Integrated GPT Image 2 visual creation
 
 ### Choose Claude if you need:
-- Processing extremely long documents (legal contracts, academic papers, codebase analysis)
-- The highest accuracy and safety standards in responses
-- Enterprise-grade data privacy guarantees
+- Processing massive documents with 1M context windows (legal contracts, academic papers, whole-repo codebase analysis)
+- Production-grade codebase self-healing and architectural refactoring
+- Enterprise-grade data privacy guarantees with minimal hallucination
 
 ### Choose Gemini if you need:
-- Deep integration with Google products
-- Native multimodal capabilities (image understanding, video analysis)
-- The most cost-effective API calls (Flash model)
+- Deep integration with Google products and Workspace
+- Native multimodal capabilities (simultaneous image, video, audio understanding)
+- High-throughput, cost-effective API deployment (Gemini 3.8 Flash)
 
 ---
 

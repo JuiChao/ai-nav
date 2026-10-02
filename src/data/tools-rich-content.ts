@@ -5,8 +5,8 @@ export type RichData = Pick<AiTool, 'features' | 'featuresEn' | 'useCases' | 'us
 export const RICH_CONTENT_MAP: Record<string, RichData> = {
   // ─── AI 对话与大模型 ───
   'chatgpt': {
-    features: ['Max Reasoning 深度多步推理模式，自动构建解题思维链与验证步骤', '原生计算机与应用自主控制（Operator/OS Agent），可自动跨应用完成任务', '无缝集成的多模态画布与高级数据交互分析 (Advanced Data Analysis)'],
-    featuresEn: ['Max Reasoning mode for autonomous chain-of-thought and verification', 'Native OS & App Operator Agent for end-to-end task automation', 'Seamlessly integrated multimodal canvas and Advanced Data Analysis'],
+    features: ['GPT-6 Astra / Sol 旗舰基座，支持 Max Reasoning 深度多步推理模式与自主思维链验证', '原生计算机与应用自主控制（Operator/OS Agent），可自动跨应用完成任务', '无缝集成的多模态画布与高级数据交互分析 (Advanced Data Analysis)'],
+    featuresEn: ['GPT-6 Astra / Sol flagship base with Max Reasoning mode for autonomous chain-of-thought verification', 'Native OS & App Operator Agent for end-to-end task automation', 'Seamlessly integrated multimodal canvas and Advanced Data Analysis'],
     useCases: ['复杂架构设计、代码排查与跨学科深度科研论证', '企业级海量非结构化数据清洗、统计分析与可视化报表', '全能型跨领域智能办公搭档与高阶创意生成'],
     useCasesEn: ['Complex architectural design, code debugging, and scientific research', 'Enterprise unstructured data cleaning, statistical modeling, and visualization', 'All-around interdisciplinary executive assistant and creative generation'],
     pros: ['全网综合能力与智能体基座生态的绝对领头羊', '长短记忆管理完善，多轮对话上下文连贯度极高', '支持语音、视觉与屏幕感知的毫秒级实时交互'],
@@ -15,8 +15,8 @@ export const RICH_CONTENT_MAP: Record<string, RichData> = {
     consEn: ['Higher subscription barrier for premium reasoning and team tiers', 'Occasional hallucinations in extremely niche vertical domains']
   },
   'claude': {
-    features: ['50万 Token 工业级超长上下文窗口，无损理解超大技术代码库与卷宗', 'Artifacts UI 独立交互沙盒，即时预览与交互运行 React/HTML/SVG', '业内公认最高的自然语言亲和度与顶级代码逻辑严密性'],
-    featuresEn: ['500k-token industrial-grade context window with zero-loss recall', 'Artifacts interactive UI sandbox for real-time React/HTML/SVG execution', 'Industry-acknowledged highest natural writing nuance and elite coding rigor'],
+    features: ['100万 Token 工业级超长上下文窗口，无损理解超大技术代码库与卷宗', 'Artifacts UI 独立交互沙盒，即时预览与交互运行 React/HTML/SVG', '搭载 Claude 5.5（Sonnet / Opus 5.5），业内公认最高的自然语言亲和度与顶级代码自愈重构能力'],
+    featuresEn: ['1M-token industrial-grade context window with zero-loss recall across massive codebases', 'Artifacts interactive UI sandbox for real-time React/HTML/SVG execution', 'Powered by Claude 5.5 (Sonnet / Opus 5.5) with industry-acknowledged highest writing nuance and elite self-healing code'],
     useCases: ['整本专著、技术白皮书与数百页法律金融卷宗深度研读对比', '专业前端界面原型设计、组件重构与端到端代码生成', '撰写高情商、措辞考究的商业文书、品牌公关与深度评论'],
     useCasesEn: ['Analyzing full books, technical specs, and 100+ page legal/financial filings', 'Professional frontend UI prototyping, component refactoring, and code generation', 'Crafting nuanced business communications, PR narratives, and in-depth essays'],
     pros: ['超长篇幅文本逻辑闭环极强，毫无“大海捞针”盲区', '代码初次运行成功率在各大评测中名列前茅', '拒绝有害指令的安全性极高，极少胡言乱语'],
@@ -25,8 +25,8 @@ export const RICH_CONTENT_MAP: Record<string, RichData> = {
     consEn: ['Lacks native real-time web search engine integration', 'Region-specific network access limitations apply']
   },
   'gemini': {
-    features: ['原生多模态深度融合网络，音视频和图像与文本同源理解', '深度嵌入 Google Workspace 全家桶 (Gmail, Docs, Drive, Cloud)', '极速吞吐与 200万 Token 超大上下文（Gemini Pro / Flash-Lite）'],
-    featuresEn: ['Native multimodal fusion architecture processing video, audio, and text simultaneously', 'Native integration across Google Workspace (Gmail, Docs, Drive, GCP)', 'Ultra-high token throughput and up to 2M context window (Pro / Flash-Lite)'],
+    features: ['原生多模态深度融合网络，音视频和图像与文本同源理解', '深度嵌入 Google Workspace 全家桶 (Gmail, Docs, Drive, Cloud)', '极速吞吐与 100万 Token 上下文，专为长程软件工程与智能体工作流设计（Gemini 3.8 Flash / 3.1 Pro）'],
+    featuresEn: ['Native multimodal fusion architecture processing video, audio, and text simultaneously', 'Native integration across Google Workspace (Gmail, Docs, Drive, GCP)', 'Ultra-high token throughput and 1M context window optimized for long-horizon software engineering and agents (Gemini 3.8 Flash / 3.1 Pro)'],
     useCases: ['小时级视频录像智能检索、关键事件提取与精彩集锦生成', '与谷歌云环境联动的企业级文档知识问答与事实核查', '超高并发场景下的低成本高响应 API 自动化处理管线'],
     useCasesEn: ['Searching hour-long video feeds, extracting key timestamps and highlights', 'Enterprise document search and fact-checking grounded in Google Cloud', 'Cost-effective high-concurrency API automation pipelines'],
     pros: ['与安卓及谷歌办公生态数据互通毫无阻碍', '长视频理解能力在业内具备不可替代的优势', 'Flash 系列模型延迟极低，性价比极高'],
@@ -35,8 +35,8 @@ export const RICH_CONTENT_MAP: Record<string, RichData> = {
     consEn: ['Chinese creative tone can occasionally feel mechanical', 'Complex architectural code refactoring slightly trails specialized models']
   },
   'deepseek': {
-    features: ['革新性 MoE 架构与全栈自研推理后训练，综合性能比肩国际闭源旗舰', 'DeepSeek-Coder 专化代码模型，在算法与系统底层优化上表现强劲', '极致的推理定价，推动全球 AI 调用成本步入平民化时代'],
-    featuresEn: ['Innovative MoE architecture with advanced post-training reasoning rivaling closed-source flagships', 'Specialized DeepSeek-Coder model excelling in systems and algorithm engineering', 'Radical cost efficiency democratizing global high-end LLM inference'],
+    features: ['DeepSeek-V4.1-Flash 旗舰革新架构，100万 Token 超大窗口，强化后训练综合性能比肩国际闭源旗舰', 'DeepSeek-Coder 专化代码模型，在算法与系统底层优化上表现强劲', '极致的推理定价（非高峰输入 $0.15/1M，缓存命中仅 $0.003/1M），推动全球高阶推理步入平民化时代'],
+    featuresEn: ['DeepSeek-V4.1-Flash flagship architecture with 1M context, post-training reasoning rivaling closed-source flagships', 'Specialized DeepSeek-Coder model excelling in systems and algorithm engineering', 'Radical cost efficiency ($0.15/1M off-peak input, $0.003/1M cache hit) democratizing global high-end LLM inference'],
     useCases: ['个人开发者与中小团队的核心主力 Copilot 与代码审查伙伴', '企业海量数据清洗、RAG 知识库问答与私有化低成本部署', '理工科高难度数学推导、逻辑论证与算法竞赛刷题'],
     useCasesEn: ['Core everyday Copilot and code review companion for independent developers', 'Enterprise high-volume RAG knowledge retrieval and private self-hosted deployment', 'STEM mathematical derivation, logical theorem proving, and competitive programming'],
     pros: ['同等评测性能下性价比冠绝全行业', '中文语义理解深刻，公文与技术写作极为地道', '开源权重生态繁荣，本地微调与部署极度便捷'],
@@ -55,8 +55,8 @@ export const RICH_CONTENT_MAP: Record<string, RichData> = {
     consEn: ['Unsuited for fictional storytelling or unstructured companion chat', 'Limited daily free quota for Pro deep searches']
   },
   'kimi': {
-    features: ['3万亿参数级 MoE 大模型架构，专精长上下文语义无损检索与复杂逻辑分析', '超快的文件、网页与跨格式文档秒级极速解析引擎', '内置专业搜索与结构化长篇研报生成助手'],
-    featuresEn: ['3-trillion-parameter scale MoE architecture engineered for lossless long-context retrieval', 'High-throughput document and multi-URL real-time parsing engine', 'Built-in research synthesis mode for structured long-form reports'],
+    features: ['2.8万亿参数级 MoE 大模型架构 (K3)，结合 KDA 与 AttnRes 创新，专精长上下文语义无损检索与复杂逻辑分析', '超快的文件、网页与跨格式文档秒级极速解析引擎', '内置专业搜索与结构化长篇研报生成助手'],
+    featuresEn: ['2.8-trillion-parameter scale MoE architecture (K3) with KDA & AttnRes, engineered for lossless long-context retrieval', 'High-throughput document and multi-URL real-time parsing engine', 'Built-in research synthesis mode for structured long-form reports'],
     useCases: ['投行与财务分析师多份数百页年报、财报的并排交叉比对', '法律从业者快速提取诉讼卷宗关键条款与证据链条', '科研人员快速通读数十篇同领域前沿英文预印本论文'],
     useCasesEn: ['Cross-analyzing dozens of multi-hundred-page annual and financial reports', 'Extracting critical clauses and evidence chains from legal filings', 'Rapidly skimming and synthesizing dozens of academic arXiv preprints'],
     pros: ['中文超长文本领域经过实战检验的统治级表现', '直接上传大体积 PDF 或网页链接解析速度快且排版完整', '国内直连低延迟，交互体验丝滑'],
@@ -75,8 +75,8 @@ export const RICH_CONTENT_MAP: Record<string, RichData> = {
     consEn: ['Modest performance in low-level engineering and complex system architecture', 'Less specialized for mission-critical rigorous academic tasks']
   },
   'tongyi-qianwen': {
-    features: ['阿里云千问 2.5 / 3.0 旗舰开源与商业模型矩阵，支持万亿级参数推理', '文档阅读与长达千万字级别上下文处理能力', '深度融合阿里云企业算力生态与百炼模型服务平台'],
-    featuresEn: ['Alibaba Cloud Qwen flagship series supporting trillion-parameter reasoning', 'Massive document reading and multi-million token context parsing', 'Seamless enterprise integration with Alibaba Cloud Bailian AI platform'],
+    features: ['阿里云 Qwen 3.8-Max 旗舰大模型，2.4万亿参数 Sparse MoE 架构，原生支持文本/图像/视频全模态', '文档阅读与长达千万字级别上下文处理能力', '深度融合阿里云企业算力生态与百炼模型服务平台'],
+    featuresEn: ['Alibaba Cloud Qwen 3.8-Max flagship with 2.4T parameter Sparse MoE, natively supporting text, image, and video modalities', 'Massive document reading and multi-million token context parsing', 'Seamless enterprise integration with Alibaba Cloud Bailian AI platform'],
     useCases: ['企业知识管理、政企智能客服与私有数据安全大模型定制', '复杂数据表格自动化汇总、统计公式编写与报表转换', '学术文献多语言互译与专业术语精准释义'],
     useCasesEn: ['Enterprise knowledge bases, intelligent customer service, and private fine-tuning', 'Complex tabular data processing, spreadsheet formula generation, and reporting', 'Multilingual academic translation with high domain accuracy'],
     pros: ['开源社区评测多项榜单领跑，模型泛化与代码能力全面', '在工业制造、商业财经与本土化企业服务中经验深厚', '免费版额度慷慨，企业接入稳定可靠'],
@@ -181,8 +181,8 @@ export const RICH_CONTENT_MAP: Record<string, RichData> = {
     consEn: ['Heavily reliant on cloud inference; offline functionality is severely limited', 'Pro subscription is recurring; potential risk of developer complacency on fundamentals']
   },
   'claude-code': {
-    features: ['Anthropic 官方出品的终端原生 Agent，直接运行于开发者的命令行环境中', '具备读写本地文件、执行测试命令、检查 Git 状态并自主排查错误闭环能力', '基于最新的 Claude 3.7 / 3.5 顶尖编码大模型底座'],
-    featuresEn: ['Official Anthropic terminal-native coding agent living directly inside the CLI', 'Autonomously edits files, runs test suites, checks git diffs, and self-corrects build errors', 'Powered by frontier Claude 3.7 / 3.5 Sonnet coding intelligence'],
+    features: ['Anthropic 官方出品的终端原生 Agent，直接运行于开发者的命令行环境中', '具备读写本地文件、执行测试命令、检查 Git 状态并自主排查错误闭环能力', '基于最新的 Claude 5.5 (Sonnet / Opus 5.5) 顶尖编码大模型底座'],
+    featuresEn: ['Official Anthropic terminal-native coding agent living directly inside the CLI', 'Autonomously edits files, runs test suites, checks git diffs, and self-corrects build errors', 'Powered by frontier Claude 5.5 (Sonnet / Opus 5.5) coding intelligence'],
     useCases: ['在终端内自动运行单元测试并修复报错代码，实现无人值守除虫', '大规模项目依赖升级、重构与架构迁移工程', '快速阅读排查服务端后台日志并提出针对性修复补丁'],
     useCasesEn: ['Autonomously executing unit test suites and iteratively fixing failing tests', 'Large-scale repo modernization, dependency upgrades, and code migration', 'Terminal-based log diagnosis and generating surgical pull request patches'],
     pros: ['免去复制粘贴代码的繁琐流程，Agent 直接在项目目录内落地生效', '极高的问题诊断准确率与遵循项目既定代码规范的自觉性', '轻量灵活，无缝集成到现有的 CI/CD 与自动化脚本中'],
