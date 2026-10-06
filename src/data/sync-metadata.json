@@ -1,9 +1,9 @@
 {
-  "lastSyncDate": "2026-10-02T12:35:00.094Z",
-  "nextSyncDate": "2026-10-07T12:35:00.094Z",
+  "lastSyncDate": "2026-10-06T11:07:05.228Z",
+  "nextSyncDate": "2026-10-11T11:07:05.228Z",
   "syncIntervalDays": 5,
   "totalTools": 97,
-  "healthyCount": 91,
+  "healthyCount": 95,
   "featuredCount": 12,
   "verifiedModels": [
     "GPT-6 Astra / GPT-6.1 Sol / Luna",
@@ -22,10 +22,6 @@
   "inspectedUrls": 97,
   "unreachableUrls": [
     "Google Gemini (https://gemini.google.com)",
-    "Meta Llama 4 (Maverick / Scout) (https://llama.meta.com)",
-    "GPT Image 2 (原 DALL-E) (https://openai.com/chatgpt)",
-    "Cursor (v3.23) (https://cursor.sh)",
-    "OpenHands (https://github.com/All-Hands-AI/OpenHands)",
     "Tabnine (https://www.tabnine.com)"
   ],
   "lifecycleAudit": {
