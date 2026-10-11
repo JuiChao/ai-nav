@@ -1,9 +1,9 @@
 {
-  "lastSyncDate": "2026-10-06T11:07:05.228Z",
-  "nextSyncDate": "2026-10-11T11:07:05.228Z",
+  "lastSyncDate": "2026-10-11T10:42:08.400Z",
+  "nextSyncDate": "2026-10-16T10:42:08.400Z",
   "syncIntervalDays": 5,
   "totalTools": 97,
-  "healthyCount": 95,
+  "healthyCount": 92,
   "featuredCount": 12,
   "verifiedModels": [
     "GPT-6 Astra / GPT-6.1 Sol / Luna",
@@ -22,7 +22,10 @@
   "inspectedUrls": 97,
   "unreachableUrls": [
     "Google Gemini (https://gemini.google.com)",
-    "Tabnine (https://www.tabnine.com)"
+    "Vidu (https://www.vidu.studio)",
+    "Tabnine (https://www.tabnine.com)",
+    "飞书智能伙伴 (https://www.feishu.cn/product/ai)",
+    "Recraft (https://www.recraft.ai)"
   ],
   "lifecycleAudit": {
     "retiredOrDeprecatedTracked": 6,
