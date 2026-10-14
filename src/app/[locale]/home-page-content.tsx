@@ -16,6 +16,7 @@ import { useToolFilter } from '@/hooks/useToolFilter';
 import { CATEGORIES } from '@/data/categories';
 import Link from '@/components/LocalizedLink';
 import { BLOG_POSTS } from '@/data/blog';
+import AiFinder from '@/components/AiFinder';
 
 /**
  * 首页客户端内容组件
@@ -115,6 +116,39 @@ function HomePageContent({ initialCategory = 'all' }: { initialCategory?: string
         </div>
       </div>
 
+      {/* 2026 前沿大模型矩阵高光引流横幅 - 彰显网站原创深度技术评测与独家分析价值 */}
+      <div style={{ maxWidth: '1200px', margin: '0 auto 1.5rem', padding: '0 1rem' }}>
+        <Link
+          href="/compare"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            padding: '0.9rem 1.25rem',
+            background: 'linear-gradient(90deg, rgba(37,99,235,0.08) 0%, rgba(147,51,234,0.08) 100%)',
+            border: '1px solid rgba(37,99,235,0.25)',
+            borderRadius: '12px',
+            textDecoration: 'none',
+            color: 'var(--color-text)',
+            fontSize: '0.92rem',
+            fontWeight: 600,
+            boxShadow: '0 2px 10px rgba(0,0,0,0.02)'
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+            <span style={{ fontSize: '1.25rem' }}>🔥</span>
+            <span>
+              {locale === 'en'
+                ? 'Frontier AI Model Matrix 2026: Benchmark, Context & Pricing Comparison (GPT-6, Claude 5.5, Gemini 3.8, DeepSeek, GLM-5.3)'
+                : '2026 前沿 AI 大模型全景横评矩阵：客观对比 GPT-6、Claude 5.5、Gemini 3.8、GLM-5.3、DeepSeek 核心参数与定价值'}
+            </span>
+          </div>
+          <span style={{ color: 'var(--color-primary)', display: 'inline-flex', alignItems: 'center', gap: '4px', flexShrink: 0 }}>
+            {locale === 'en' ? 'Explore Matrix →' : '进入横评矩阵 →'}
+          </span>
+        </Link>
+      </div>
+
       {/* 主展示区 */}
       <main className="main">
         <div className="main__category-section">
@@ -153,8 +187,11 @@ function HomePageContent({ initialCategory = 'all' }: { initialCategory?: string
         </div>
       </main>
 
+      {/* 交互式 AI 选型向导 - 提供实质性应用价值与功能服务，超越普通链接目录 */}
+      <AiFinder />
+
       {/* 博客/深度资讯推荐区 - 增加网站的“发布者内容”占比，对抗 AdSense 导航模式限制 */}
-      <section className="home-seo-content" style={{ marginTop: '40px', marginBottom: '20px' }}>
+      <section className="home-seo-content" style={{ marginTop: '20px', marginBottom: '20px' }}>
         <div className="home-seo-content__inner">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
             <h2 style={{ fontSize: '1.6rem', fontWeight: 700, margin: 0 }}>
@@ -268,6 +305,36 @@ function HomePageContent({ initialCategory = 'all' }: { initialCategory?: string
               </div>
             </>
           )}
+
+          {/* E-E-A-T 权威评测与出版物承诺 - 针对 Google AdSense 质量指南打造 */}
+          <div style={{
+            marginTop: '32px',
+            padding: '24px',
+            background: 'var(--color-bg)',
+            borderRadius: '16px',
+            border: '1px solid var(--color-border)',
+            boxShadow: '0 4px 20px rgba(0,0,0,0.02)'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
+              <span style={{ fontSize: '1.2rem' }}>🛡️</span>
+              <h3 style={{ margin: 0, fontSize: '1.15rem', fontWeight: 700, color: 'var(--color-text)' }}>
+                {locale === 'en' ? 'AI Nav Editorial Transparency & Review Integrity' : 'AI 导航编审委员会：编辑透明度与独立性声明'}
+              </h3>
+            </div>
+            <p style={{ fontSize: '0.92rem', color: 'var(--color-text-dim)', lineHeight: 1.6, margin: '0 0 16px' }}>
+              {locale === 'en'
+                ? 'To ensure high-value utility for our users and comply with Google Quality Rater guidelines, every tool in our directory undergoes hands-on testing. We strictly do not accept paid compensation to alter tool rankings, pros, cons, or benchmark conclusions.'
+                : '为确保为全球用户提供具备实质性独特价值的信息与决策服务，本站收录的所有 AI 工具均由具备实战工程经验的编辑团队亲自进行提示词测试、功能验证与优缺点梳理。我们坚守客观中立原则，杜绝低质套壳工具收录，绝不接受任何篡改客观评价的付费刷榜行为。'}
+            </p>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', fontSize: '0.85rem', color: 'var(--color-text-dim)', paddingTop: '12px', borderTop: '1px solid var(--color-border)' }}>
+              <span>✅ {locale === 'en' ? 'Verified 2026 ground-truth data' : '2026 官方前沿数据实时校准'}</span>
+              <span>🔄 {locale === 'en' ? 'Automated 5-day link reachability audit' : '每 5 天自动化存活巡检与退市清洗'}</span>
+              <span>⚖️ {locale === 'en' ? 'Independent benchmark methodology' : '多维度客观跑分与定价值体系'}</span>
+              <Link href="/about" style={{ color: 'var(--color-primary)', textDecoration: 'none', fontWeight: 600 }}>
+                {locale === 'en' ? 'Read Full Methodology →' : '了解评测方法论 →'}
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
