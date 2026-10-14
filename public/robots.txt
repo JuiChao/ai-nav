@@ -1,4 +1,7 @@
-User-Agent: *
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
 Allow: /
+Allow: /_next/static/
 
+# Sitemaps
 Sitemap: https://958000.xyz/sitemap.xml

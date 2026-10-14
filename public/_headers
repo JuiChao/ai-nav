@@ -1,0 +1,19 @@
+# Cloudflare Pages Custom Response Headers
+# https://developers.cloudflare.com/pages/configuration/headers/
+
+# XML Sitemap - Ensure exact XML MIME type and UTF-8 for Googlebot / Search Console
+/sitemap.xml
+  Content-Type: application/xml; charset=utf-8
+  X-Content-Type-Options: nosniff
+  Cache-Control: public, max-age=3600
+
+# Robots.txt
+/robots.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=86400
+
+# Global Security & SEO Headers
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin

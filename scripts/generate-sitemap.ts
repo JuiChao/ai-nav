@@ -9,13 +9,15 @@ const locales = ['zh', 'en'];
 
 function createUrlEntry(path: string, priority: string, changefreq: string = 'weekly') {
   let entries = '';
-  const lastmod = new Date().toISOString();
+  // 使用 W3C 推荐的标准 YYYY-MM-DD 格式，避免毫秒和时区字符串在 GSC 中解析异常
+  const lastmod = new Date().toISOString().split('T')[0];
   
   for (const locale of locales) {
     const cleanPath = path ? (path.endsWith('/') ? path : `${path}/`) : '/';
     const loc = `${siteUrl}/${locale}${cleanPath}`;
     
-    let alternates = '';
+    // 包含 x-default 国际化默认兜底，满足 Google 多语言搜索索引严格规范
+    let alternates = `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${siteUrl}/zh${cleanPath}"/>`;
     for (const altLocale of locales) {
       const altUrl = `${siteUrl}/${altLocale}${cleanPath}`;
       const lang = altLocale === 'zh' ? 'zh-CN' : altLocale;
