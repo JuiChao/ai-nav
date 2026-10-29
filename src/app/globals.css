@@ -1,51 +1,80 @@
-/* 已移除 Google Fonts @import 以消除渲染阻塞，全部使用系统字体 */
-
-/* ─── 设计系统变量（Mimo Coder 风格 — 极雅暖灰色调） ─── */
+/* ─── AI Nav 奖项级设计系统变量（The Atelier of Intelligence） ─── */
 :root {
-  /* 背景色 — 宣纸质感暖灰 */
+  /* 背景色阶 — 宣纸质感极雅暖灰白 */
   --color-bg: #FCFAF8;
-  --color-bg-secondary: #F3F0EF;
-  --color-bg-card: #F3F0EF;
-  --color-bg-footer: #F5F4EF;
+  --color-surface: #FFFFFF;
+  --color-bg-secondary: #F4F0EB;
+  --color-bg-card: #F4F0EB;
+  --color-bg-card-hover: #FFFFFF;
+  --color-bg-elevated: #FFFFFF;
+  --color-bg-footer: #F5F3EE;
 
-  /* 边框与墨色 */
-  --color-border: #E6E2DE;
-  --color-border-hover: #979696;
-  --color-ink: #26251E;
-  --color-ink-soft: #504F49;
+  /* 边框与墨色阶 */
+  --color-border: #E6E1D8;
+  --color-border-subtle: rgba(28, 27, 23, 0.06);
+  --color-border-hover: #9E988E;
+  --color-ink: #1C1B17;
+  --color-ink-soft: #48463F;
 
-  /* 强调色与文本 */
-  --color-accent: #26251E;
-  --color-accent-hover: #000000;
-  --color-text: #26251E;
-  --color-text-secondary: #504F49;
-  --color-text-muted: #979696;
+  /* 文本色阶 */
+  --color-text: #1C1B17;
+  --color-text-secondary: #48463F;
+  --color-text-dim: #5E5B53;
+  --color-text-muted: #948F85;
 
-  /* 字体族 */
-  --font-sans: "PingFang SC", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-mincho: "Noto Serif SC", "Songti SC", "STSong", Georgia, serif;
-  --font-display: "Questrial", "Century Gothic", "Avenir Next", sans-serif;
+  /* 强调色与品牌调性 */
+  --color-primary: #1C1B17;
+  --color-primary-hover: #000000;
+  --color-primary-rgb: 28, 27, 23;
+  --color-accent: #C45A2C;
+  --color-accent-hover: #AB481D;
+  --color-accent-subtle: rgba(196, 90, 44, 0.08);
+
+  /* 状态与徽章颜色 */
+  --color-emerald: #2D7A4D;
+  --color-emerald-subtle: rgba(45, 122, 77, 0.08);
+  --color-amber: #B8730A;
+  --color-amber-subtle: rgba(184, 115, 10, 0.08);
+  --color-hot: #C62828;
+  --color-hot-subtle: rgba(198, 40, 40, 0.08);
+  --color-indigo: #2D4373;
+  --color-indigo-subtle: rgba(45, 67, 115, 0.08);
+
+  /* 字体族定义 */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --font-mincho: "Newsreader", "Playfair Display", "Noto Serif SC", "Songti SC", "STSong", "Times New Roman", Georgia, serif;
+  --font-display: "Cabinet Grotesk", "Questrial", "Century Gothic", "Avenir Next", "PingFang SC", sans-serif;
+  --font-mono: "SF Mono", "JetBrains Mono", "Fira Code", "Menlo", "Consolas", monospace;
+  --font-primary: var(--font-sans);
 
   /* 交互反馈 */
-  --color-hover-bg: rgba(38, 37, 30, 0.06);
-  --color-active-bg: #26251E;
+  --color-hover-bg: rgba(28, 27, 23, 0.05);
+  --color-active-bg: #1C1B17;
   --color-active-text: #FCFAF8;
 
-  /* 投影 — 柔和大范围 */
-  --shadow-sm: 0 1px 2px rgba(38, 37, 30, 0.04);
-  --shadow-md: 0 4px 12px rgba(38, 37, 30, 0.06);
-  --shadow-lg: 0 12px 32px rgba(38, 37, 30, 0.08);
-  --shadow-hover: 0 20px 40px rgba(38, 37, 30, 0.08);
+  /* 奖项级多层弥散投影 */
+  --shadow-xs: 0 1px 2px rgba(28, 27, 23, 0.04);
+  --shadow-sm: 0 2px 5px rgba(28, 27, 23, 0.04), 0 1px 2px rgba(28, 27, 23, 0.03);
+  --shadow-md: 0 6px 16px -2px rgba(28, 27, 23, 0.06), 0 2px 6px -1px rgba(28, 27, 23, 0.03);
+  --shadow-lg: 0 14px 34px -4px rgba(28, 27, 23, 0.08), 0 4px 12px -2px rgba(28, 27, 23, 0.03);
+  --shadow-hover: 0 20px 44px -6px rgba(28, 27, 23, 0.09), 0 8px 18px -4px rgba(28, 27, 23, 0.04);
+  --shadow-card: 0 1px 3px rgba(28, 27, 23, 0.03), 0 4px 12px rgba(28, 27, 23, 0.02);
 
-  /* 圆角 */
+  /* 圆角规范 */
+  --radius-xs: 4px;
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
+  --radius-xl: 20px;
   --radius-pill: 9999px;
 
-  /* 过渡 */
-  --transition-base: 0.2s ease;
-  --transition-smooth: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* 物理动效过渡规范 */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-base: 240ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 320ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 480ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ─── 全局重置 ─── */
@@ -61,13 +90,16 @@ html {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: var(--font-sans);
-  background: var(--color-bg);
+  background-color: var(--color-bg);
+  background-image: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.7) 0%, rgba(252, 250, 248, 0) 70%);
   color: var(--color-text);
-  line-height: 1.6;
+  line-height: 1.65;
   min-height: 100vh;
   overflow-x: hidden;
   touch-action: manipulation;
@@ -91,12 +123,21 @@ button {
   cursor: pointer;
   background: none;
   border: none;
+  font-family: inherit;
+  color: inherit;
 }
 
-/* ─── 滚动条美化 — 极简灰色 ─── */
+/* ─── 焦点可访问性 ─── */
+:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 3px;
+  border-radius: var(--radius-xs);
+}
+
+/* ─── 滚动条美化 ─── */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-track {
@@ -104,40 +145,60 @@ button {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #E6E2DE;
-  border-radius: 3px;
+  background: #E2DDD5;
+  border-radius: var(--radius-pill);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #979696;
+  background: #9E988E;
 }
 
 /* ─── 选中文本样式 ─── */
 ::selection {
-  background: rgba(38, 37, 30, 0.08);
+  background: rgba(28, 27, 23, 0.1);
   color: var(--color-text);
 }
 
-/* ─── 动画预设 ─── */
+/* ─── 核心动效与关键帧 ─── */
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-8px); }
 }
 
-/* 打字机光标闪烁 */
 @keyframes blink-cursor {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
 }
 
-/* 淡入上移 */
 @keyframes fade-in-up {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(18px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(0.98); }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* 减少动态效果偏好支持 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

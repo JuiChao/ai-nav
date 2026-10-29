@@ -8,7 +8,7 @@
     "sitemap": "tsx scripts/generate-sitemap.ts",
     "sync": "tsx scripts/scheduled-ai-sync.ts",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "tsc --noEmit"
   },
   "dependencies": {
     "lucide-react": "^1.14.0",

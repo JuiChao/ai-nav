@@ -1,19 +1,17 @@
-
-/* SEO Enhancements */
+/* ─── 首页深度出版物与透明度内容区（杂志级排版） ─── */
 .home-seo-content {
-  margin: 60px auto;
+  margin: 64px auto;
   max-width: 1200px;
-  padding: 0 20px;
-  font-family: var(--font-primary);
+  padding: 0 24px;
   color: var(--color-text);
 }
 
 .home-seo-content__inner {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: 20px;
-  padding: 40px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border-radius: var(--radius-xl);
+  padding: 44px;
+  box-shadow: var(--shadow-sm);
 }
 
 .seo-block {
@@ -25,24 +23,26 @@
 }
 
 .seo-block h2 {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  margin-bottom: 16px;
   color: var(--color-text);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.02em;
 }
 
 .seo-block p {
-  font-size: 1.05rem;
-  line-height: 1.8;
+  font-size: 1.02rem;
+  line-height: 1.75;
   color: var(--color-text-dim);
-  margin-bottom: 15px;
+  margin-bottom: 16px;
+  text-wrap: pretty;
 }
 
 .seo-faq-item {
-  margin-bottom: 25px;
-  padding-bottom: 25px;
-  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--color-border-subtle);
 }
 
 .seo-faq-item:last-child {
@@ -52,24 +52,204 @@
 }
 
 .seo-faq-item h3 {
-  font-size: 1.25rem;
-  margin-bottom: 12px;
+  font-size: 1.15rem;
+  margin-bottom: 10px;
   color: var(--color-text);
   font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.seo-faq-item h3::before {
+  content: "Q.";
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-accent);
+  font-size: 1.05rem;
+}
+
+.seo-faq-item p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-text-dim);
+  margin: 0;
+}
+
+/* 首页资讯卡片网格规范 */
+.home-insights-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.home-insights-header h2 {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.home-insights-header a {
+  color: var(--color-ink);
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: transform var(--transition-fast);
+}
+
+.home-insights-header a:hover {
+  transform: translateX(3px);
+}
+
+.home-insights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.home-insight-card {
+  padding: 24px;
+  background: var(--color-bg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all var(--transition-base);
+}
+
+.home-insight-card:hover {
+  background: #FFFFFF;
+  border-color: var(--color-border-hover);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.home-insight-card__badge {
+  font-size: 11px;
+  background: var(--color-accent-subtle);
+  color: var(--color-accent);
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.home-insight-card__title {
+  font-family: var(--font-mincho);
+  font-size: 1.15rem;
+  margin: 0 0 10px;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.4;
+}
+
+.home-insight-card__summary {
+  font-size: 0.9rem;
+  color: var(--color-text-dim);
+  line-height: 1.6;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.home-insight-card__meta {
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border-subtle);
+  font-size: 12px;
+  color: var(--color-text-muted);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* E-E-A-T 独立性声明卡片 */
+.home-transparency-box {
+  margin-top: 36px;
+  padding: 28px;
+  background: var(--color-bg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-xs);
+}
+
+.home-transparency-box__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.home-transparency-box__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.home-transparency-box__text {
+  font-size: 0.95rem;
+  color: var(--color-text-dim);
+  line-height: 1.7;
+  margin: 0 0 18px;
+}
+
+.home-transparency-box__chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  font-size: 12.5px;
+  color: var(--color-text-secondary);
+  padding-top: 14px;
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.home-transparency-box__chips a {
+  color: var(--color-ink);
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: auto;
+  transition: transform var(--transition-fast);
+}
+
+.home-transparency-box__chips a:hover {
+  transform: translateX(3px);
 }
 
 @media (max-width: 768px) {
   .home-seo-content {
     margin: 40px auto;
+    padding: 0 16px;
   }
   .home-seo-content__inner {
-    padding: 24px;
-    border-radius: 16px;
+    padding: 24px 18px;
+    border-radius: var(--radius-lg);
   }
   .seo-block h2 {
-    font-size: 1.5rem;
+    font-size: 1.45rem;
   }
-  .seo-faq-item h3 {
-    font-size: 1.15rem;
+  .home-insights-header h2 {
+    font-size: 1.4rem;
+  }
+  .home-transparency-box {
+    padding: 20px 16px;
+  }
+  .home-transparency-box__chips a {
+    margin-left: 0;
   }
 }

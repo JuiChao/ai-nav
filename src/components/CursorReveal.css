@@ -38,8 +38,11 @@
   display: block;
 }
 
-/* 移动端或不支持 hover 的设备禁用，直接显示背景或不显示遮罩 */
+/* 移动端或不支持 hover 的设备：采用高雅轻盈的半透明水墨艺术晕染，确保文字对比度极致清晰 */
 @media (hover: none) {
+  .cursor-reveal__bg {
+    opacity: 0.16;
+  }
   .cursor-reveal__overlay {
     display: none;
   }

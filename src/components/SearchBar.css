@@ -1,10 +1,11 @@
-/* ─── 搜索栏 — 胶囊形暖灰输入框 ─── */
+/* ─── 搜索栏 — 极雅胶囊形暖灰输入框与快捷键感知 ─── */
 .search-bar {
   display: flex;
   align-items: center;
   gap: 12px;
-  max-width: 560px;
+  max-width: 580px;
   width: 100%;
+  position: relative;
 }
 
 .search-bar__inner {
@@ -12,94 +13,143 @@
   display: flex;
   align-items: center;
   flex: 1;
-  /* NOTE: 暖灰背景 + 大圆角胶囊形 */
-  background: var(--color-bg-secondary);
-  border: 1.5px solid transparent;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
   border-radius: var(--radius-pill);
-  padding: 0 20px;
-  transition: all var(--transition-smooth);
+  padding: 0 16px 0 18px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
 }
 
 .search-bar__inner:hover {
-  background: #FFFFFF;
-  border-color: var(--color-border);
+  border-color: var(--color-border-hover);
+  box-shadow: var(--shadow-md);
 }
 
 .search-bar__inner:focus-within {
-  border-color: var(--color-text);
+  border-color: var(--color-ink);
   background: #FFFFFF;
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 0 0 4px rgba(28, 27, 23, 0.08), var(--shadow-lg);
+  transform: translateY(-1px);
 }
 
 .search-bar__icon {
   color: var(--color-text-muted);
   flex-shrink: 0;
-  transition: color var(--transition-base);
+  transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
 .search-bar__inner:focus-within .search-bar__icon {
-  color: var(--color-text);
+  color: var(--color-ink);
+  transform: scale(1.08);
 }
 
 .search-bar__input {
   width: 100%;
-  padding: 14px 12px;
+  padding: 13px 12px;
   background: transparent;
   border: none;
   outline: none;
   color: var(--color-text);
-  font-size: 15px;
+  font-size: 14.5px;
   font-family: inherit;
+  font-weight: 450;
+  line-height: 1.4;
 }
 
 .search-bar__input::placeholder {
   color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+.search-bar__kbd {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xs);
+  padding: 2px 6px;
+  line-height: 1.2;
+  user-select: none;
+  pointer-events: none;
+  flex-shrink: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.search-bar__kbd-cmd {
+  font-size: 10px;
+}
+
+.search-bar__inner:focus-within .search-bar__kbd {
+  opacity: 0.4;
 }
 
 .search-bar__clear {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-hover-bg);
-  border: none;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
   border-radius: 50%;
-  width: 26px;
-  height: 26px;
+  width: 24px;
+  height: 24px;
   cursor: pointer;
-  color: var(--color-text-muted);
-  transition: all var(--transition-base);
+  color: var(--color-text-dim);
+  transition: all var(--transition-fast);
   flex-shrink: 0;
 }
 
 .search-bar__clear:hover {
-  background: var(--color-border-hover);
-  color: var(--color-text);
+  background: var(--color-ink);
+  color: #FCFAF8;
+  border-color: var(--color-ink);
+  transform: scale(1.05);
 }
 
 .search-bar__count {
-  font-size: 13px;
-  color: var(--color-text-muted);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--color-ink);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
   white-space: nowrap;
   flex-shrink: 0;
+  animation: fade-in-up 0.2s var(--ease-out-expo);
 }
 
 /* ─── 移动端适配 ─── */
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .search-bar {
-    flex-direction: column;
+    max-width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 8px;
   }
 
   .search-bar__inner {
-    padding: 0 14px;
+    width: 100%;
+    padding: 0 12px 0 14px;
   }
 
   .search-bar__input {
-    padding: 12px 10px;
+    padding: 11px 8px;
     font-size: 14px;
   }
 
+  .search-bar__kbd {
+    display: none;
+  }
+
   .search-bar__count {
-    font-size: 12px;
+    font-size: 11.5px;
+    padding: 4px 10px;
+    align-self: center;
   }
 }

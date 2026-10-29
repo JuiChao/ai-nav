@@ -33,7 +33,7 @@ export default function AboutContent() {
               <h2>Why Trust Us? (Our Review Methodology)</h2>
               <p>Unlike automated link directories, every tool featured on AI Nav is manually vetted for quality, usability, and actual value. We track global trends, user feedback, and technological advancements to ensure our directory reflects the true state of the art in AI.</p>
               
-              <div className="trust-page__highlight-box" style={{ background: 'var(--surface-color)', padding: '1.5rem', borderRadius: '12px', marginTop: '2rem', border: '1px solid var(--border-color)' }}>
+              <div className="trust-page__highlight-box">
                 <h3>Editorial Transparency & Independence</h3>
                 <p>To maintain our integrity and provide you with high-value content, we adhere to the following principles:</p>
                 <ul>
@@ -65,7 +65,7 @@ export default function AboutContent() {
               <h2>为什么信任我们？（评测方法论）</h2>
               <p>与自动化的链接目录不同，AI 导航上展示的每一个工具都经过了质量、易用性和实际价值的人工审查。我们追踪全球趋势、用户反馈和技术进步，以确保我们的目录反映了 AI 领域的真实前沿。</p>
               
-              <div className="trust-page__highlight-box" style={{ background: 'var(--surface-color)', padding: '1.5rem', borderRadius: '12px', marginTop: '2rem', border: '1px solid var(--border-color)' }}>
+              <div className="trust-page__highlight-box">
                 <h3>编辑透明度与独立性声明</h3>
                 <p>为了维护我们的公信力并为您提供高价值内容，我们严格遵守以下原则：</p>
                 <ul>

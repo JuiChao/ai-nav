@@ -6,6 +6,7 @@ import Link from '@/components/LocalizedLink';
 import { useLocale, LocaleProvider } from '@/i18n/LocaleContext';
 import Header, { Footer } from '@/components/Header';
 import { AI_TOOLS } from '@/data/tools';
+import './globals.css';
 import './[locale]/tool/[id]/tool-detail.css';
 
 function NotFoundContent() {
@@ -20,26 +21,21 @@ function NotFoundContent() {
       
       <main className="tool-detail">
         <div className="tool-detail__container">
-          <div className="tool-detail__card" style={{ textAlign: 'center', padding: '3rem' }}>
-            <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>🔍</div>
-            <h1 style={{ fontSize: '2rem', marginBottom: '0.75rem' }}>{t('notFound.title')}</h1>
-            <p style={{ color: 'var(--color-text-muted)', marginBottom: '2rem' }}>
+          <div className="tool-detail__card" style={{ textAlign: 'center', padding: '3.5rem 2rem' }}>
+            <div style={{ fontSize: '3.5rem', marginBottom: '1.25rem' }}>🔍</div>
+            <h1 className="tool-detail__title" style={{ fontSize: '2.2rem', marginBottom: '0.75rem' }}>{t('notFound.title')}</h1>
+            <p style={{ color: 'var(--color-text-dim)', marginBottom: '2rem', maxWidth: '480px', margin: '0 auto 2rem' }}>
               {t('notFound.description')}
             </p>
-            <Link
-              href="/"
-              style={{
-                display: 'inline-block',
-                padding: '0.75rem 2rem',
-                background: 'var(--color-text)',
-                color: 'var(--color-bg)',
-                borderRadius: '8px',
-                fontWeight: 600,
-                textDecoration: 'none',
-              }}
-            >
-              {t('notFound.backHome')}
-            </Link>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <Link
+                href="/"
+                className="tool-detail__cta"
+                style={{ width: 'auto', padding: '12px 32px' }}
+              >
+                {t('notFound.backHome')}
+              </Link>
+            </div>
           </div>
 
           {popularTools.length > 0 && (

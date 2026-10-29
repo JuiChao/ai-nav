@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import React from 'react';
 import '../page.css';
 import '../seo-content.css';
 
@@ -35,33 +35,13 @@ function HomePageContent({ initialCategory = 'all' }: { initialCategory?: string
     totalCount,
   } = useToolFilter(initialCategory as any);
 
-  // ─── Hero 副标题打字机动效 ───
   const subtitleText = t('hero.subtitle');
-  const [subTyped, setSubTyped] = useState(0);
-  const subChars = Array.from(subtitleText);
-
-  // 当语言切换或初次挂载时重置并开始打字
-  useEffect(() => {
-    setSubTyped(0);
-  }, [locale]);
-
-  useEffect(() => {
-    if (subTyped >= subChars.length) return;
-    const timer = setTimeout(() => {
-      setSubTyped((prev) => prev + 1);
-    }, 45); // 稍微快一点的打字速度，提升首屏入场感
-    return () => clearTimeout(timer);
-  }, [subTyped, subChars.length]);
-
-  const isSubDone = subTyped >= subChars.length;
 
   /** 获取当前分类的显示名称 */
   const activeItem = CATEGORIES.find((c) => c.id === activeCategory);
   const activeCategoryName = locale === 'en'
     ? (activeItem?.nameEn ?? 'All Tools')
     : (activeItem?.name ?? '全部工具');
-
-
 
   /** 是否处于搜索或筛选模式 */
   const isFiltering = searchQuery.trim() !== '' || activeCategory !== 'all';
@@ -70,7 +50,7 @@ function HomePageContent({ initialCategory = 'all' }: { initialCategory?: string
     <div className="app">
       <Header totalCount={totalCount} />
 
-      {/* Hero 区域 — 包含水墨擦除特效、打字机副标题、Terminal 极客命令行与搜索 */}
+      {/* Hero 区域 — 包含水墨擦除特效、优雅副标题与搜索 */}
       <section className="hero" id="hero">
         {/* 局限于 Hero 区域的水墨鼠标擦除 Canvas 特效 */}
         <CursorReveal />
@@ -79,14 +59,8 @@ function HomePageContent({ initialCategory = 'all' }: { initialCategory?: string
           <div className="hero__heading">
             <h1 className="hero__title">{t('hero.title')}</h1>
             
-            {/* 逐字吐出的副标题 + 闪烁光标 */}
-            <p className={`hero__subtitle ${isSubDone ? 'is-done' : ''}`}>
-              {subChars.slice(0, subTyped).map((char, index) => (
-                <span key={index} className="char is-typed">
-                  {char}
-                </span>
-              ))}
-              <span className="type-caret" aria-hidden="true" />
+            <p className="hero__subtitle">
+              {subtitleText}
             </p>
           </div>
           {/* SearchBar 搜索输入框 */}
@@ -117,33 +91,20 @@ function HomePageContent({ initialCategory = 'all' }: { initialCategory?: string
       </div>
 
       {/* 2026 前沿大模型矩阵高光引流横幅 - 彰显网站原创深度技术评测与独家分析价值 */}
-      <div style={{ maxWidth: '1200px', margin: '0 auto 1.5rem', padding: '0 1rem' }}>
-        <Link
-          href="/compare"
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            padding: '0.9rem 1.25rem',
-            background: 'linear-gradient(90deg, rgba(37,99,235,0.08) 0%, rgba(147,51,234,0.08) 100%)',
-            border: '1px solid rgba(37,99,235,0.25)',
-            borderRadius: '12px',
-            textDecoration: 'none',
-            color: 'var(--color-text)',
-            fontSize: '0.92rem',
-            fontWeight: 600,
-            boxShadow: '0 2px 10px rgba(0,0,0,0.02)'
-          }}
-        >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-            <span style={{ fontSize: '1.25rem' }}>🔥</span>
+      <div className="home-banner-wrapper">
+        <Link href="/compare" className="home-banner">
+          <div className="home-banner__left">
+            <span className="home-banner__badge">
+              <span className="home-banner__badge-dot" />
+              2026 MATRIX
+            </span>
             <span>
               {locale === 'en'
                 ? 'Frontier AI Model Matrix 2026: Benchmark, Context & Pricing Comparison (GPT-6, Claude 5.5, Gemini 3.8, DeepSeek, GLM-5.3)'
                 : '2026 前沿 AI 大模型全景横评矩阵：客观对比 GPT-6、Claude 5.5、Gemini 3.8、GLM-5.3、DeepSeek 核心参数与定价值'}
             </span>
           </div>
-          <span style={{ color: 'var(--color-primary)', display: 'inline-flex', alignItems: 'center', gap: '4px', flexShrink: 0 }}>
+          <span className="home-banner__cta">
             {locale === 'en' ? 'Explore Matrix →' : '进入横评矩阵 →'}
           </span>
         </Link>
@@ -191,45 +152,35 @@ function HomePageContent({ initialCategory = 'all' }: { initialCategory?: string
       <AiFinder />
 
       {/* 博客/深度资讯推荐区 - 增加网站的“发布者内容”占比，对抗 AdSense 导航模式限制 */}
-      <section className="home-seo-content" style={{ marginTop: '20px', marginBottom: '20px' }}>
+      <section className="home-seo-content">
         <div className="home-seo-content__inner">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
-            <h2 style={{ fontSize: '1.6rem', fontWeight: 700, margin: 0 }}>
+          <div className="home-insights-header">
+            <h2>
               {locale === 'en' ? 'Latest AI Insights & Articles' : '最新 AI 深度资讯与指南'}
             </h2>
-            <Link href="/blog" style={{ color: 'var(--color-primary)', textDecoration: 'none', fontWeight: 600 }}>
+            <Link href="/blog">
               {locale === 'en' ? 'View All →' : '查看全部 →'}
             </Link>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+          <div className="home-insights-grid">
             {BLOG_POSTS.slice(0, 3).map((post) => (
               <Link
                 key={post.id}
                 href={`/blog/${post.slug}`}
-                style={{
-                  padding: '20px',
-                  background: 'var(--color-bg)',
-                  borderRadius: '12px',
-                  border: '1px solid var(--color-border)',
-                  textDecoration: 'none',
-                  color: 'inherit',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between'
-                }}
+                className="home-insight-card"
               >
                 <div>
-                  <span style={{ fontSize: '0.75rem', background: 'rgba(59, 130, 246, 0.1)', color: 'var(--color-primary)', padding: '3px 8px', borderRadius: '12px', fontWeight: 600 }}>
+                  <span className="home-insight-card__badge">
                     {post.category}
                   </span>
-                  <h3 style={{ fontSize: '1.1rem', margin: '10px 0 8px', fontWeight: 600, color: 'var(--color-text)' }}>
+                  <h3 className="home-insight-card__title">
                     {locale === 'en' ? post.titleEn : post.title}
                   </h3>
-                  <p style={{ fontSize: '0.9rem', color: 'var(--color-text-dim)', lineHeight: 1.5, margin: 0 }}>
+                  <p className="home-insight-card__summary">
                     {locale === 'en' ? post.summaryEn : post.summary}
                   </p>
                 </div>
-                <div style={{ marginTop: '16px', fontSize: '0.8rem', color: 'var(--color-text-dim)', display: 'flex', justifyContent: 'space-between' }}>
+                <div className="home-insight-card__meta">
                   <span>{post.date}</span>
                   <span>{post.readTime}</span>
                 </div>
@@ -307,30 +258,23 @@ function HomePageContent({ initialCategory = 'all' }: { initialCategory?: string
           )}
 
           {/* E-E-A-T 权威评测与出版物承诺 - 针对 Google AdSense 质量指南打造 */}
-          <div style={{
-            marginTop: '32px',
-            padding: '24px',
-            background: 'var(--color-bg)',
-            borderRadius: '16px',
-            border: '1px solid var(--color-border)',
-            boxShadow: '0 4px 20px rgba(0,0,0,0.02)'
-          }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
-              <span style={{ fontSize: '1.2rem' }}>🛡️</span>
-              <h3 style={{ margin: 0, fontSize: '1.15rem', fontWeight: 700, color: 'var(--color-text)' }}>
+          <div className="home-transparency-box">
+            <div className="home-transparency-box__header">
+              <span style={{ fontSize: '1.25rem' }}>🛡️</span>
+              <h3 className="home-transparency-box__title">
                 {locale === 'en' ? 'AI Nav Editorial Transparency & Review Integrity' : 'AI 导航编审委员会：编辑透明度与独立性声明'}
               </h3>
             </div>
-            <p style={{ fontSize: '0.92rem', color: 'var(--color-text-dim)', lineHeight: 1.6, margin: '0 0 16px' }}>
+            <p className="home-transparency-box__text">
               {locale === 'en'
                 ? 'To ensure high-value utility for our users and comply with Google Quality Rater guidelines, every tool in our directory undergoes hands-on testing. We strictly do not accept paid compensation to alter tool rankings, pros, cons, or benchmark conclusions.'
                 : '为确保为全球用户提供具备实质性独特价值的信息与决策服务，本站收录的所有 AI 工具均由具备实战工程经验的编辑团队亲自进行提示词测试、功能验证与优缺点梳理。我们坚守客观中立原则，杜绝低质套壳工具收录，绝不接受任何篡改客观评价的付费刷榜行为。'}
             </p>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', fontSize: '0.85rem', color: 'var(--color-text-dim)', paddingTop: '12px', borderTop: '1px solid var(--color-border)' }}>
+            <div className="home-transparency-box__chips">
               <span>✅ {locale === 'en' ? 'Verified 2026 ground-truth data' : '2026 官方前沿数据实时校准'}</span>
               <span>🔄 {locale === 'en' ? 'Automated 5-day link reachability audit' : '每 5 天自动化存活巡检与退市清洗'}</span>
               <span>⚖️ {locale === 'en' ? 'Independent benchmark methodology' : '多维度客观跑分与定价值体系'}</span>
-              <Link href="/about" style={{ color: 'var(--color-primary)', textDecoration: 'none', fontWeight: 600 }}>
+              <Link href="/about">
                 {locale === 'en' ? 'Read Full Methodology →' : '了解评测方法论 →'}
               </Link>
             </div>

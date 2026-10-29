@@ -1,25 +1,53 @@
-.tool-grid { width: 100%; }
+/* ─── 工具网格列表 — 奖项级流体排版规范 ─── */
+.tool-grid {
+  width: 100%;
+  margin-bottom: 48px;
+}
 
-.tool-grid__header { margin-bottom: 32px; }
+.tool-grid:last-child {
+  margin-bottom: 0;
+}
+
+.tool-grid__header {
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--color-border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
 
 .tool-grid__title {
-  font-size: 26px;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
   color: var(--color-text);
-  margin: 0 0 8px;
-  letter-spacing: -0.01em;
+  margin: 0;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .tool-grid__subtitle {
-  font-size: 14px;
-  color: var(--color-text-muted);
+  font-size: 13.5px;
+  color: var(--color-text-dim);
   margin: 0;
+  font-weight: 450;
 }
 
 .tool-grid__list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+/* 4K / 超宽屏幕适配 */
+@media (min-width: 1536px) {
+  .tool-grid__list {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
 }
 
 .tool-grid__empty {
@@ -29,15 +57,21 @@
   justify-content: center;
   padding: 80px 24px;
   text-align: center;
+  background: var(--color-surface);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+  margin: 32px 0;
 }
 
 .tool-grid__empty-icon {
-  font-size: 48px;
+  font-size: 40px;
   margin-bottom: 16px;
+  opacity: 0.8;
 }
 
 .tool-grid__empty h3 {
-  font-size: 18px;
+  font-family: var(--font-display);
+  font-size: 19px;
   font-weight: 600;
   color: var(--color-text);
   margin: 0 0 8px;
@@ -45,10 +79,20 @@
 
 .tool-grid__empty p {
   font-size: 14px;
-  color: var(--color-text-muted);
+  color: var(--color-text-dim);
   margin: 0;
+  max-width: 420px;
 }
 
 @media (max-width: 768px) {
-  .tool-grid__list { grid-template-columns: 1fr; }
+  .tool-grid__list {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .tool-grid__title {
+    font-size: 20px;
+  }
+  .tool-grid__header {
+    margin-bottom: 18px;
+  }
 }

@@ -19,7 +19,10 @@ export default function ContactContent() {
               
               <h2>General Inquiries</h2>
               <p>For any questions, suggestions, or general information, please feel free to email us at:</p>
-              <p><strong>Email:</strong> <a href="mailto:admin@958000.xyz">admin@958000.xyz</a></p>
+              <div className="trust-page__contact-card">
+                <span>Direct Inquiries:</span>
+                <a className="trust-page__contact-email" href="mailto:admin@958000.xyz">admin@958000.xyz</a>
+              </div>
               
               <h2>Submit an AI Tool</h2>
               <p>If you represent an AI product or have found a great tool that belongs in our directory, please contact us with the tool&apos;s name, URL, and a brief description. We manually review all submissions to ensure they meet our quality standards.</p>
@@ -37,7 +40,10 @@ export default function ContactContent() {
               
               <h2>一般咨询</h2>
               <p>如有任何问题、建议或需要常规信息，请随时通过电子邮件与我们联系：</p>
-              <p><strong>电子邮件：</strong> <a href="mailto:admin@958000.xyz">admin@958000.xyz</a></p>
+              <div className="trust-page__contact-card">
+                <span>官方联络信箱：</span>
+                <a className="trust-page__contact-email" href="mailto:admin@958000.xyz">admin@958000.xyz</a>
+              </div>
               
               <h2>提交 AI 工具</h2>
               <p>如果您代表某个 AI 产品，或者发现了一个应该收录到我们目录中的优秀工具，请联系我们，并提供工具的名称、网址和简短描述。我们会人工审核所有提交，以确保它们符合我们的质量标准。</p>

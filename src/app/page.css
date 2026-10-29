@@ -4,33 +4,37 @@
   flex-direction: column;
 }
 
-/* ─── Hero 区域 — 完美复刻 Mimo 布局与高宽适配 ─── */
+/* ─── Hero 区域 — 顶级极简工坊（Atelier）宏大气场 ─── */
 .hero {
   position: relative;
-  height: 480px;
+  min-height: 460px;
   overflow: hidden;
   isolation: isolate;
   background: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px 72px;
 }
 
 .hero__content {
   position: relative;
   z-index: 2;
-  max-width: 809px;
+  max-width: 860px;
   margin: 0 auto;
-  padding-top: 120px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 28px;
   text-align: center;
+  width: 100%;
 }
 
 .hero__heading {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
   text-align: center;
   width: 100%;
 }
@@ -38,170 +42,172 @@
 .hero__title {
   margin: 0;
   font-family: var(--font-display);
-  font-size: 50px;
-  font-weight: 400;
-  letter-spacing: 0.8px;
+  font-size: clamp(2.3rem, 5.2vw, 3.6rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
   color: var(--color-text);
-  line-height: 1.15;
+  line-height: 1.12;
+  text-wrap: balance;
 }
 
 .hero__subtitle {
   margin: 0;
   font-family: var(--font-mincho);
-  font-size: 20px;
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
   font-weight: 500;
-  letter-spacing: 0.4px;
-  line-height: 1.5;
-  color: var(--color-text);
+  letter-spacing: -0.01em;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
   max-width: min(720px, 92vw);
-  min-height: 60px; /* 防止打字换行时抖动页面高度 */
-}
-
-/* 副标题打字机光标动画 */
-.hero__subtitle .type-caret {
-  display: inline-block;
-  width: 2px;
-  height: 1.05em;
-  margin-left: 2px;
-  background: currentColor;
-  vertical-align: -0.16em;
-  animation: sub-caret 0.75s step-end infinite;
-}
-
-.hero__subtitle.is-done .type-caret {
-  animation: none;
-  opacity: 0;
-}
-
-@keyframes sub-caret {
-  50% {
-    opacity: 0;
-  }
-}
-
-.hero__terminal-wrapper {
-  display: flex;
-  justify-content: center;
-  width: 100%;
+  text-wrap: balance;
+  animation: fade-in-up 0.5s var(--ease-out-expo) backwards;
+  animation-delay: 0.1s;
 }
 
 .hero__search {
   display: flex;
   justify-content: center;
   width: 100%;
-  max-width: 560px;
-  padding: 0 16px;
+  max-width: 580px;
+  padding: 0 12px;
 }
 
-/* ─── Mimo 经典 CTA 按钮组 ─── */
-.ctas {
+/* ─── 首页前沿模型横评引流高光条 ─── */
+.home-banner-wrapper {
+  max-width: 1200px;
+  margin: 0 auto 28px;
+  padding: 0 24px;
+}
+
+.home-banner {
   display: flex;
-  gap: 20px;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 14px 22px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: var(--color-text);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+  gap: 16px;
 }
 
-.btn {
+.home-banner:hover {
+  border-color: var(--color-border-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.home-banner__left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 550;
+  line-height: 1.4;
+}
+
+.home-banner__badge {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  height: 40px;
-  min-width: 130px;
-  padding: 10px 32px;
-  border-radius: 46px;
-  font-family: var(--font-display);
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: 0.24px;
-  text-decoration: none;
-  cursor: pointer;
-  background: transparent;
-  color: var(--color-text);
-  border: 1px solid var(--color-border-hover);
-  transition: transform 200ms ease, background-color 200ms ease, color 200ms ease, border-color 200ms ease;
-  white-space: nowrap;
-}
-
-.btn:hover {
-  background: var(--color-ink);
-  color: var(--color-bg);
-  border-color: var(--color-ink);
-  transform: translateY(-1px);
-}
-
-.btn--primary {
-  background: var(--color-ink);
-  color: var(--color-bg);
-  border-color: var(--color-ink);
-}
-
-.btn--primary:hover {
-  background: #3A3933;
-  border-color: #3A3933;
-}
-
-/* 按钮内部向右上滑出折线箭头动画 */
-.btn__arrow {
-  width: 14px;
-  height: 14px;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent-subtle);
+  color: var(--color-accent);
+  border: 1px solid rgba(196, 90, 44, 0.2);
   flex-shrink: 0;
-  opacity: 0;
-  margin-left: -14px;
-  transition: opacity 200ms ease, margin-left 200ms ease;
 }
 
-.btn:hover .btn__arrow,
-.btn--primary .btn__arrow {
-  opacity: 1;
-  margin-left: 8px;
+.home-banner__badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  animation: pulse-subtle 2s infinite ease-in-out;
 }
 
-/* ─── 统计数据条 — 极简纯色 ─── */
+.home-banner__cta {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--color-ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.home-banner:hover .home-banner__cta {
+  transform: translateX(3px);
+}
+
+/* ─── 统计数据条 — 雅致卡片悬浮 ─── */
 .stats {
   display: flex;
   justify-content: center;
-  gap: 56px;
-  padding: 40px 32px;
-  margin-bottom: 24px;
-  background: transparent;
+  align-items: center;
+  gap: 64px;
+  padding: 24px 48px;
+  margin: -12px auto 36px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-sm);
+  max-width: 820px;
+  position: relative;
+  z-index: 5;
 }
 
 .stats__item {
   text-align: center;
+  position: relative;
+}
+
+.stats__item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -32px;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background: var(--color-border);
 }
 
 .stats__number {
   font-family: var(--font-display);
-  font-size: 36px;
+  font-size: 32px;
   font-weight: 600;
   color: var(--color-text);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
 }
 
 .stats__label {
-  font-size: 13px;
-  color: var(--color-text-muted);
-  margin-top: 6px;
+  font-size: 12px;
+  color: var(--color-text-dim);
+  margin-top: 4px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  font-weight: 500;
+  font-weight: 550;
 }
 
 /* ─── 主内容区域 ─── */
 .main {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 32px 48px;
+  padding: 0 32px 64px;
   width: 100%;
-  background: transparent;
 }
 
 .main__category-section {
-  margin-bottom: 40px;
-}
-
-.main__ad-banner {
-  margin-bottom: 40px;
+  margin-bottom: 36px;
 }
 
 .main__content {
@@ -215,106 +221,53 @@
   min-width: 0;
 }
 
-.main__inline-ad {
-  margin: 40px 0;
-}
-
-/* ─── 移动端适配 ─── */
+/* ─── 响应式移动端适配 ─── */
 @media (max-width: 768px) {
   .hero {
-    height: auto;
-    padding-bottom: 40px;
+    min-height: auto;
+    padding: 40px 16px 48px;
   }
 
   .hero__content {
-    padding-top: 80px;
-    gap: 24px;
-  }
-
-  .hero__title {
-    font-size: 32px;
-  }
-
-  .hero__subtitle {
-    font-size: 15px;
-    line-height: 1.6;
-    min-height: auto;
-  }
-
-  .hero__search {
-    padding: 0;
-  }
-
-  .ctas {
-    width: 100%;
-    max-width: 340px;
-    flex-wrap: wrap;
-    gap: 12px;
-    padding: 0 16px;
-  }
-
-  .btn {
-    flex: 1;
-    min-width: 120px;
-    height: 36px;
-    font-size: 14px;
-    padding: 8px 16px;
-  }
-
-  .btn__arrow {
-    width: 12px;
-    height: 12px;
+    gap: 20px;
   }
 
   .stats {
-    gap: 28px;
-    padding: 24px 16px;
+    gap: 24px;
+    padding: 18px 24px;
+    margin: 0 16px 28px;
+    border-radius: var(--radius-lg);
+  }
+
+  .stats__item:not(:last-child)::after {
+    display: none;
   }
 
   .stats__number {
-    font-size: 28px;
+    font-size: 26px;
   }
 
   .stats__label {
     font-size: 11px;
   }
 
+  .home-banner-wrapper {
+    padding: 0 16px;
+    margin-bottom: 20px;
+  }
+
+  .home-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px 16px;
+  }
+
   .main {
-    padding: 0 16px 32px;
+    padding: 0 16px 40px;
   }
 
   .main__category-section {
-    margin-bottom: 28px;
-  }
-
-  .main__ad-banner {
-    margin-bottom: 28px;
-  }
-
-  .main__content {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .main__inline-ad {
-    margin: 28px 0;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero__content {
-    padding-top: 60px;
-  }
-
-  .stats {
-    gap: 20px;
-  }
-
-  .stats__number {
-    font-size: 24px;
-  }
-
-  .main {
-    padding: 0 12px 24px;
+    margin-bottom: 24px;
   }
 }
