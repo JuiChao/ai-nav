@@ -170,6 +170,16 @@ export const RICH_CONTENT_MAP: Record<string, RichData> = {
   },
 
   // ─── 编程与智能体 ───
+  'agent-qa': {
+    features: ['用自然语言运行 Web、Android 与 iOS 应用测试', '通过 CLI、MCP 与技能接入编码工作流', 'memidex 保存测试经验，并支持经验证的自我改进'],
+    featuresEn: ['Run natural-language tests against web, Android and iOS apps', 'Integrate through CLI, MCP and coding-agent skills', 'Reuse test experience through persistent memidex memory and validated self-improvement'],
+    useCases: ['验收编码智能体完成的应用改动', '复用常见应用流程进行回归测试'],
+    useCasesEn: ['Validate application changes made by coding agents', 'Reuse common application journeys for regression testing'],
+    pros: ['持久记忆可复用应用事实与测试步骤', '提供截图等运行证据，便于核对测试结果'],
+    prosEn: ['Persistent memory reuses application facts and test procedures', 'Screenshots and run evidence help reviewers check test results'],
+    cons: ['项目处于早期阶段，需要 Node.js 24+ 及模型和目标环境配置', 'FSL-1.1-ALv2 限制竞争性商业使用；软件在许可允许的用途内免费，模型、设备与外部服务费用另计'],
+    consEn: ['Early-stage project requiring Node.js 24+ and configured model and target access', 'FSL-1.1-ALv2 restricts competing commercial use; software is free for permitted uses, with model, device and external-service costs separate']
+  },
   'cursor': {
     features: ['AI 原生全自动编程 IDE，直接基于 VS Code 深度定制，键位与扩展 100% 兼容', 'Cursor Composer 支持跨文件、全代码库级别的自主功能编写与自动重构', 'Cursor Router 自动根据任务难度智能调度最佳推理模型'],
     featuresEn: ['AI-native IDE built directly on VS Code, retaining 100% extension and keybinding compatibility', 'Cursor Composer for multi-file, codebase-wide autonomous feature building and refactoring', 'Cursor Router dynamically selects optimal frontier models based on prompt complexity'],
