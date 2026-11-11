@@ -744,6 +744,20 @@ const RAW_AI_TOOLS: AiTool[] = [
 
   // ─── 编程开发 ───,
   {
+    id: 'agent-qa',
+    name: 'agent-qa',
+    description: '自然语言测试 Web、Android 和 iOS，memidex 持久记忆支持经验证的自我改进。FSL 许可；模型与设备费用另计。',
+    descriptionEn: 'Natural-language web and mobile testing with persistent memidex memory and validated self-improvement. FSL license; model and device costs extra.',
+    url: 'https://vostride.com',
+    icon: '🧪',
+    category: 'coding',
+    tags: ['软件测试', '持久记忆', 'MCP'],
+    tagsEn: ['Testing', 'Memory', 'MCP'],
+    isFree: true,
+    hasFreeTrial: false,
+    isFeatured: false,
+  },
+  {
     id: 'cursor',
     name: 'Cursor (v3.23)',
     description: 'AI 原生编程智能体编辑器旗舰版（v3.23），集成 Cursor Router 动态路由、Cloud Handoff 与最新 Claude Opus 5.5 / Grok 4.7 底座',
