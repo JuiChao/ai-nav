@@ -1,9 +1,9 @@
 {
-  "lastSyncDate": "2026-11-16T12:32:00.792Z",
-  "nextSyncDate": "2026-11-21T12:32:00.792Z",
+  "lastSyncDate": "2026-11-21T12:18:43.338Z",
+  "nextSyncDate": "2026-11-26T12:18:43.338Z",
   "syncIntervalDays": 5,
   "totalTools": 97,
-  "healthyCount": 95,
+  "healthyCount": 94,
   "featuredCount": 12,
   "verifiedModels": [
     "GPT-6 Astra / GPT-6.1 Sol / Luna",
@@ -22,6 +22,7 @@
   "inspectedUrls": 97,
   "unreachableUrls": [
     "Google Gemini (https://gemini.google.com)",
+    "通义千问 (Qwen 3.8-Max) (https://tongyi.aliyun.com)",
     "Tabnine (https://www.tabnine.com)"
   ],
   "lifecycleAudit": {
